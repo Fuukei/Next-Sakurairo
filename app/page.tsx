@@ -2,8 +2,15 @@ import Image from 'next/image'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-
-    </main>
+      <>
+          <div className={"container grid flex-1"}>
+              <div className={"flex items-center justify-center min-h-screen bg-blue-100"}>
+                  landing screen
+              </div>
+              <main>
+                  content
+              </main>
+          </div>
+      </>
   )
 }
