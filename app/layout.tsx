@@ -17,10 +17,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={inter.className}
+            style={{backgroundImage: 'url("https://api.maho.cc/random-img/mobile.php")',
+                backgroundSize: 'cover',
+                backgroundAttachment: 'fixed'}}>
       <div className={"min-h-screen flex flex-col"}>
           <NavMenu />
-          <div>{children}</div>
+          {children}
           <Footer />
       </div>
       </body>
