@@ -9,7 +9,7 @@ export default function Home() {
                   landing screen
               </div>
               <main className={"bg-green-100"}>
-                  <div className={"mx-4 lg:mx-auto lg:w-[800px]"}>
+                  <div className={"mx-4 lg:mx-auto lg:w-[850px]"}>
                       <h1 className={"font-heading text-xl md:text-2 xl my-6"}> Articles</h1>
 
                       <ArticleCard />
