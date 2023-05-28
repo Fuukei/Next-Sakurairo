@@ -4,8 +4,10 @@ Theme is inspired by WordPress theme [Sakura](https://github.com/mashirozx/sakur
 
 ### Todo
 - [x] Use Next.js 13 app directory
-- [ ] Mdx file directory under base directory
+- [x] Mdx file directory under base directory
 - [ ] Theme switch
 - [ ] Use [giscus](https://giscus.app/) for comments
 - [ ] OG generator
+  - [ ] Option for AI generated description
+- [ ] Better prose structure
 - [ ] and more...
