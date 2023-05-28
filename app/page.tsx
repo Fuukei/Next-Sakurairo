@@ -1,6 +1,10 @@
-import ArticleCard from "@/app/ArticleCard";
+import ArticleCard from "@/components/ArticleCard";
+import { compareDesc } from "date-fns";
+import { allPosts, Post } from "contentlayer/generated";
 
 export default function Home() {
+    const posts = allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
+
   return (
       <>
           <div className={"grid content-center justify-items-center min-h-screen"}>
@@ -37,8 +41,10 @@ export default function Home() {
               <div className={"mx-4 lg:mx-auto lg:w-full max-w-4xl"}>
                   <h1 className={"font-heading text-xl md:text-2 xl my-6"}> Articles</h1>
 
-                  <ArticleCard />
-                  <ArticleCard />
+                  {/*<ArticleCard />*/}
+                  {posts.map((post: Post, idx: number) => (
+                      <ArticleCard key={idx} {...post} />
+                  ))}
               </div>
           </main>
       </>

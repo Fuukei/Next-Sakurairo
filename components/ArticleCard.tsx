@@ -1,7 +1,9 @@
-import Image from 'next/image'
+import Image from "next/image";
 import Link from "next/link";
+import { format, parseISO } from "date-fns";
+import { Post } from "contentlayer/generated";
 
-export default function ArticleCard() {
+export default function ArticleCard(article: Post) {
     return (
         <div className="bg-white flex flex-col md:flex-row w-full rounded-xl overflow-hidden shadow-lg hover:shadow-2xl duration-500 mb-4 md:mb-6 md:max-h-72">
             <div className="w-full md:w-7/12 overflow-hidden">
@@ -14,14 +16,14 @@ export default function ArticleCard() {
             <div className="w-full container md:w-5/12 p-4 lg:px-8">
                 <div className={"flex mb-4"}>
                     <div className={"bg-amber-200/50 rounded-lg"}>
-                        <div className={"text-xs py-1 px-2"}>Posted on TIME</div>
+                        <div className={"text-xs py-1 px-2"}>Posted on {format(parseISO(article.date), 'LLLL d, yyyy')}</div>
                     </div>
                 </div>
 
                 <div className={"lg:justify-items-end lg:grid"}>
                     
                     <h2 className="font-bold text-lg mb-2 line-clamp-2 hover:text-amber-400 duration-200">
-                        <Link href={"https://google.com"}>Title Title Title</Link>
+                        <Link href={article.url}>{article.title}</Link>
                     </h2>
 
                     <p className="text-sm line-clamp-4">
