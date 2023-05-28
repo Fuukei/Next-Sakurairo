@@ -18,9 +18,13 @@ This is an early work in progress.
   - [ ] Template pages
   - [ ] Theme switch
   - [ ] and more...
+- [ ] Search function
+- [ ] Tagging function
 - [ ] Use [giscus](https://giscus.app/) for comments
 - [ ] OG generator
   - [ ] Option for AI generated description
 - [ ] Better prose structure
 - [ ] Documentation
+  - [ ] Customization
+  - [ ] Deployment
 - [ ] and more...
