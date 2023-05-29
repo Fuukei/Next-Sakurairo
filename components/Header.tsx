@@ -1,5 +1,11 @@
 import Link from "next/link";
 
+const headerItems = [
+    {name: "Item1"},
+    {name: "Item2"},
+    {name: "Item3"},
+]
+
 export default function Header() {
     return (
         <header className={"fixed flex w-full z-50"}>
@@ -10,15 +16,12 @@ export default function Header() {
                         <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
                     </a>
                 </div>
-                <div>
-                    Item
-                </div>
-                <div>
-                    Item
-                </div>
-                <div>
-                    Item
-                </div>
+                {headerItems.map((item) => (
+                    <div key={item.name}
+                         className={"hidden md:block px-2"}>
+                        {item.name}
+                    </div>
+                ))}
             </div>
         </header>
     )
