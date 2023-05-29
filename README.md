@@ -17,6 +17,7 @@ This is an early work in progress.
   - [ ] 404 page
   - [x] Template pages
   - [ ] Theme switch
+  - [ ] Scroll bar
   - [ ] and more...
 - [ ] Search function
 - [ ] Tagging function
