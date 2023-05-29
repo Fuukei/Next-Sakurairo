@@ -3,6 +3,7 @@ import { Roboto_Mono } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
+import ToTop from "@/components/ToTop";
 
 const inter = Roboto_Mono({ subsets: ['latin'] })
 
@@ -22,8 +23,9 @@ export default function RootLayout({
             style={{backgroundImage: 'url("https://api.maho.cc/random-img/mobile.php")',
                 backgroundSize: 'cover',
                 backgroundAttachment: 'fixed'}}>
-        <div className={"min-h-screen flex flex-col"}>
+      <div className={"min-h-screen flex flex-col"}>
           <ScrollProgress />
+          <ToTop />
           <Header />
           {children}
           <Footer />
