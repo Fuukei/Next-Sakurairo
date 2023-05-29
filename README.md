@@ -25,6 +25,7 @@ This is an early work in progress.
 - [ ] OG generator
   - [ ] Option for AI generated description
 - [ ] Better prose structure
+- [ ] Loading
 - [ ] Documentation
   - [ ] Customization
   - [ ] Deployment
