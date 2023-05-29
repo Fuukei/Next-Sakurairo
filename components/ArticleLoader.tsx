@@ -10,13 +10,13 @@ type ArticleLoaderProps = {
 };
 
 export default function ArticleLoader({ articles, articlesPerLoad }: ArticleLoaderProps) {
-    const [displayedArticles, setDisplayedPosts] = useState(articles.splice(0, articlesPerLoad));
-    const [hasMore, setHasMore] = useState(articles.length > 0);
+    const [displayedArticles, setDisplayedPosts] = useState(articles.slice(0, articlesPerLoad));
+    const [hasMore, setHasMore] = useState(articles.length > displayedArticles.length);
 
     const loadMore = () => {
-        const nextPosts = articles.splice(0,articlesPerLoad);
+        const nextPosts = articles.slice(displayedArticles.length, displayedArticles.length+articlesPerLoad);
         setDisplayedPosts([...displayedArticles, ...nextPosts]);
-        if (articles.length === 0) {
+        if (articles.length >= displayedArticles.length) {
             setHasMore(false);
         }
     };
