@@ -24,7 +24,23 @@ export const Article = defineDocumentType(() => ({
     },
 }))
 
+export const Page = defineDocumentType(() => ({
+    name: 'Page',
+    filePathPattern: `pages/**/*.mdx`,
+    contentType: 'mdx',
+    fields: {
+        title: { type: 'string', required: true },
+    },
+    computedFields: {
+        url: {
+            type: 'string',
+            resolve: (page) => `/${page._raw.flattenedPath}`
+        },
+        ...computedFields,
+    }
+}))
+
 export default makeSource({
     contentDirPath: './content',
-    documentTypes: [Article]
+    documentTypes: [Article, Page]
 })
