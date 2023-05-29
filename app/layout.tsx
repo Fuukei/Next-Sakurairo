@@ -1,5 +1,5 @@
-import './globals.css'
-import { Roboto_Mono } from 'next/font/google'
+import "./globals.css";
+import { Roboto_Mono } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -22,12 +22,12 @@ export default function RootLayout({
             style={{backgroundImage: 'url("https://api.maho.cc/random-img/mobile.php")',
                 backgroundSize: 'cover',
                 backgroundAttachment: 'fixed'}}>
-      <div className={"min-h-screen flex flex-col"}>
+        <div className={"min-h-screen flex flex-col"}>
           <ScrollProgress />
           <Header />
           {children}
           <Footer />
-      </div>
+        </div>
       </body>
     </html>
   )
