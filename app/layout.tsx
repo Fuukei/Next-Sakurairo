@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}
-            style={{backgroundImage: 'url("https://api.maho.cc/random-img/mobile.php")',
+            style={{backgroundImage: 'url("https://www.loliapi.com/acg/pc/")',
                 backgroundSize: 'cover',
                 backgroundAttachment: 'fixed'}}>
       <div className={"min-h-screen flex flex-col"}>
