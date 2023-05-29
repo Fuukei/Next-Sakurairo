@@ -14,11 +14,16 @@ export const Article = defineDocumentType(() => ({
     fields: {
         title: { type: 'string', required: true },
         date: { type: 'date', required: true },
+        image: { type: 'string', required: false, default: 'https://www.loliapi.com/acg/pc/' },
     },
     computedFields: {
         url: {
             type: 'string',
             resolve: (article) => `/${article._raw.flattenedPath}`
+        },
+        test: {
+            type: 'string',
+            resolve: (article) => article.image = article.image + "?r=" + Math.random(),
         },
         ...computedFields,
     },

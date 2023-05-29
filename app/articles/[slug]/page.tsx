@@ -23,7 +23,7 @@ const ArticleLayout = ({ params }: { params: { slug: string } }) => {
     return (
         <div className={"min-h-screen bg-white/60 backdrop-blur-md"}>
             <div className={"flex min-h-[200px] md:min-h-[300px] rounded-b-2xl overflow-hidden"}
-                 style={{backgroundImage: 'url("https://api.maho.cc/random-img/mobile.php?sas=sas")',
+                 style={{backgroundImage: 'url(' + article.image +')',
                      backgroundSize: 'cover'}}>
                 <div className={"flex w-full backdrop-blur-sm"}>
                     <div className={"self-end w-full pb-8 mx-4 lg:mx-auto lg:px-4 max-w-3xl"}>
