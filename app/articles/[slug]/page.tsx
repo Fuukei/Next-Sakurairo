@@ -11,11 +11,11 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
     return { title: article.title }
 }
 
-const PostLayout = ({ params }: { params: { slug: string } }) => {
-    // Find the post for the current page.
+const ArticleLayout = ({ params }: { params: { slug: string } }) => {
+    // Find the article for the current page.
     const article = allArticles.find((article) => article.slug === params.slug)
 
-    // 404 if the post does not exist.
+    // 404 if the article does not exist.
     if (!article) notFound()
 
 
@@ -46,4 +46,4 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
     )
 }
 
-export default PostLayout
+export default ArticleLayout
