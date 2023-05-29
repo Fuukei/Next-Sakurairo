@@ -1,9 +1,9 @@
 import ArticleCard from "@/components/ArticleCard";
 import { compareDesc } from "date-fns";
-import { allPosts, Post } from "contentlayer/generated";
+import { allArticles, Article } from "contentlayer/generated";
 
 export default function Home() {
-    const posts = allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
+    const posts = allArticles.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
 
   return (
       <>
@@ -40,7 +40,7 @@ export default function Home() {
           <main className={"flex justify-center bg-white/60 backdrop-blur-md"}>
               <div className={"mx-4 lg:mx-auto lg:w-full max-w-4xl"}>
                   <h1 className={"font-heading text-xl md:text-2 xl my-6"}>Articles</h1>
-                  {posts.map((post: Post, idx: number) => (
+                  {posts.map((post: Article, idx: number) => (
                       <ArticleCard key={idx} {...post} />
                   ))}
               </div>
