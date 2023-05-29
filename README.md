@@ -10,17 +10,17 @@ This is an early work in progress.
 - [x] Use Next.js 13 app directory
 - [x] Mdx file directory under base directory
 - [ ] Appearance
-  - [ ] Header
+  - [x] Header
   - [ ] Footer
   - [x] Landing page
   - [x] Article page
   - [ ] 404 page
-  - [ ] Template pages
+  - [x] Template pages
   - [ ] Theme switch
   - [ ] and more...
 - [ ] Search function
 - [ ] Tagging function
-- [ ] Use [giscus](https://giscus.app/) for comments
+- [x] Use [giscus](https://giscus.app/) for comments
 - [ ] OG generator
   - [ ] Option for AI generated description
 - [ ] Better prose structure
