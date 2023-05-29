@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { format, parseISO } from "date-fns";
-import { Post } from "contentlayer/generated";
+import { Article } from "contentlayer/generated";
 
-export default function ArticleCard(article: Post) {
+export default function ArticleCard(article: Article) {
     return (
         <div className="bg-white flex flex-col md:flex-row w-full rounded-xl overflow-hidden shadow-lg hover:shadow-2xl duration-500 mb-4 md:mb-6 md:max-h-72">
             <div className="w-full md:w-7/12 overflow-hidden">
