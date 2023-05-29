@@ -37,11 +37,9 @@ export default function Home() {
               </div>
           </div>
 
-          <main className={"bg-white/60 backdrop-blur-md"}>
+          <main className={"flex justify-center bg-white/60 backdrop-blur-md"}>
               <div className={"mx-4 lg:mx-auto lg:w-full max-w-4xl"}>
-                  <h1 className={"font-heading text-xl md:text-2 xl my-6"}> Articles</h1>
-
-                  {/*<ArticleCard />*/}
+                  <h1 className={"font-heading text-xl md:text-2 xl my-6"}>Articles</h1>
                   {posts.map((post: Post, idx: number) => (
                       <ArticleCard key={idx} {...post} />
                   ))}
