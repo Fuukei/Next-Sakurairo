@@ -15,7 +15,7 @@ export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
     return (
-        <header className={"fixed flex w-full z-50"}>
+        <header className={"fixed flex w-full z-40"}>
             <div className={"flex w-full min-h-14 md:h-16 backdrop-blur-sm md:rounded-2xl md:mt-5 md:mx-10 px-4 md:px-6 bg-white/60"}>
 
                 <div className="hidden md:flex w-full items-center justify-between">
@@ -55,7 +55,7 @@ export default function Header() {
                         className={"md:hidden"}>
                     <Dialog.Panel className={"fixed border-t inset-y-16 right-0 z-50 h-full bg-white/60 px-6 py-6 w-3/4"}>
                         <div className="flex flex-col items-center justify-between">
-                            <a href="#" className="-m-1.5 p-1.5">
+                            <a href="#" className="m-1.5 p-1.5">
                                 <span className="sr-only">Your Company</span>
                                 <img
                                     className="h-8 w-auto"

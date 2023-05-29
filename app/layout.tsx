@@ -2,6 +2,7 @@ import './globals.css'
 import { Roboto_Mono } from 'next/font/google'
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollProgress from "@/components/ScrollProgress";
 
 const inter = Roboto_Mono({ subsets: ['latin'] })
 
@@ -22,6 +23,7 @@ export default function RootLayout({
                 backgroundSize: 'cover',
                 backgroundAttachment: 'fixed'}}>
       <div className={"min-h-screen flex flex-col"}>
+          <ScrollProgress />
           <Header />
           {children}
           <Footer />
