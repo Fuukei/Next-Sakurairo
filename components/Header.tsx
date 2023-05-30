@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { Dialog } from '@headlessui/react'
 import { useState } from "react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
@@ -17,8 +16,7 @@ export default function Header() {
 
     return (
         <header className={"fixed flex w-full z-40"}>
-            <div className={"flex w-full min-h-14 md:h-16 backdrop-blur-sm md:rounded-2xl md:mt-5 md:mx-10 px-4 md:px-6 bg-white/60"}>
-
+            <div className={"flex w-full min-h-14 md:h-16 backdrop-blur-sm md:rounded-2xl md:mt-5 md:mx-10 px-4 md:px-6 bg-white/60 dark:bg-black/60"}>
                 <div className="hidden md:flex w-full items-center justify-between">
                     <a href="#" className="m-1.5 p-1.5">
                         <span className="sr-only">Placeholder</span>
