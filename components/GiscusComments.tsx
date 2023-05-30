@@ -3,6 +3,13 @@
 import Giscus from "@giscus/react";
 
 export default function GiscusComments () {
+    let theme = "preferred_color_scheme";
+    if (localStorage.theme === "dark") {
+        theme = "dark_dimmed";
+    }
+    if (localStorage.theme === "light") {
+        theme = "light";
+    }
     return (
         <Giscus
             repo={"cocdeshijie/next-sakurairo"}
@@ -11,7 +18,7 @@ export default function GiscusComments () {
             categoryId={"DIC_kwDOJoJfqs4CWz2I"}
             mapping={"url"}
             inputPosition={"bottom"}
-            theme={"preferred_color_scheme"}
+            theme={theme}
             lang={"en"}
             loading={"lazy"}
         />
