@@ -1,9 +1,10 @@
 "use client";
 
 import { Dialog } from '@headlessui/react'
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import ThemeToggle from "@/components/ThemeToggle";
+import Link from "next/link";
 
 const headerItems = [
     {name: "Item1"},
@@ -13,15 +14,42 @@ const headerItems = [
 
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const [logoHover, setLogoHover] = useState(false);
+    const [headerHover, setHeaderHover] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    const checkScroll = () => {
+        if (window.scrollY > 0) {
+            setIsScrolled(true);
+        } else {
+            setIsScrolled(false);
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener("scroll", checkScroll);
+        return () => {
+            window.removeEventListener("scroll", checkScroll);
+        };
+    }, []);
 
     return (
         <header className={"fixed flex w-full z-40"}>
-            <div className={"flex w-full min-h-14 md:h-16 backdrop-blur-sm md:rounded-2xl md:mt-5 md:mx-10 px-4 md:px-6 bg-white/60 dark:bg-black/60"}>
+            <div onMouseEnter={() => setHeaderHover(true)}
+                 onMouseLeave={() => setHeaderHover(false)}
+                 className={headerHover || isScrolled ?
+                     "w-full backdrop-blur-sm md:rounded-2xl md:mt-5 md:mx-10 py-4 px-8 md:px-6 bg-white/60 dark:bg-black/60" :
+                     "w-full md:rounded-2xl md:mt-5 md:mx-10 py-4 px-8 md:px-6"
+            }>
                 <div className="hidden md:flex w-full items-center justify-between">
-                    <a href="#" className="m-1.5 p-1.5">
-                        <span className="sr-only">Placeholder</span>
-                        <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
-                    </a>
+                    <Link href={"/"}
+                          onMouseEnter={() => setLogoHover(true)}
+                          onMouseLeave={() => setLogoHover(false)}
+                          className={"space-x-2"}>
+                        <span className={logoHover ? "pt-3 pb-1 rounded-xl bg-amber-400" : "pt-3 pb-1 rounded-xl bg-white/40"}>Next Sakurairo</span>
+                        <span className={""}>の</span>
+                        <span>Site</span>
+                    </Link>
 
                     <div className={"flex items-center"}>
                         {headerItems.map((item) => (
@@ -35,10 +63,14 @@ export default function Header() {
                 </div>
 
                 <div className="flex md:hidden w-full items-center justify-between">
-                    <a href="#" className="m-1.5 p-1.5">
-                        <span className="sr-only">Placeholder</span>
-                        <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
-                    </a>
+                    <Link href={"/"}
+                          onMouseEnter={() => setLogoHover(true)}
+                          onMouseLeave={() => setLogoHover(false)}
+                          className={"space-x-2"}>
+                        <span className={logoHover ? "pt-3 pb-1 rounded-xl bg-amber-400" : "pt-3 pb-1 rounded-xl bg-white/40"}>Next Sakurairo</span>
+                        <span className={""}>の</span>
+                        <span>Site</span>
+                    </Link>
                     <div>
                         <ThemeToggle />
                         <button
