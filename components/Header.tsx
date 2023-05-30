@@ -89,9 +89,11 @@ export default function Header() {
                 </div>
                 <Transition show={mobileMenuOpen}
                             as={Fragment}>
-                    <Dialog open={mobileMenuOpen}
+                    <Dialog
+                            as="div"
+                            open={mobileMenuOpen}
                             onClose={() => setMobileMenuOpen(false)}
-                            className={"md:hidden"}
+                            className={"md:hidden z-50"}
                     >
                         <Transition.Child
                             as={Fragment}
@@ -102,7 +104,7 @@ export default function Header() {
                             leaveFrom="opacity-100"
                             leaveTo="opacity-0"
                         >
-                            <div className="fixed inset-0 bg-black/70 dark:bg-white/10" />
+                            <div className="fixed inset-x-0 inset-y-16 h-full bg-black/70 dark:bg-white/10" />
                         </Transition.Child>
                         <Transition.Child
                             as={Fragment}
