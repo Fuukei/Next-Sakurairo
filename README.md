@@ -21,6 +21,7 @@ This is an early work in progress.
   - [ ] and more...
 - [ ] Search function
 - [ ] Tagging function
+- [ ] TOC generation
 - [x] Use [giscus](https://giscus.app/) for comments
 - [ ] OG generator
   - [ ] Option for AI generated description
