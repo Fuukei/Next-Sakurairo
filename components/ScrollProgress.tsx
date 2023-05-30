@@ -21,7 +21,7 @@ export default function ScrollProgress () {
     }, []);
 
     return (
-        <div className={"fixed z-50 h-1 duration-1000 bg-amber-600"}
+        <div className={"hidden md:block fixed z-50 h-1 duration-1000 bg-amber-600"}
              style={{ width: `${scroll}%` }}>
         </div>
     )
