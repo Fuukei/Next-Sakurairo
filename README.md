@@ -11,12 +11,12 @@ This is an early work in progress.
 - [x] Mdx file directory under base directory
 - [ ] Appearance
   - [x] Header
-  - [ ] Footer
+  - [x] Footer
   - [x] Landing page
   - [x] Article page
   - [ ] 404 page
   - [x] Template pages
-  - [ ] Theme switch
+  - [x] Theme switch
   - [ ] Scroll bar
   - [ ] and more...
 - [ ] Search function
