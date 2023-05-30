@@ -4,6 +4,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
 import ToTop from "@/components/ToTop";
+import { ThemeProvider } from "@/components/ThemeProvider"
+import { TailwindIndicator } from "@/components/TailwindIndicator";
 
 const inter = Roboto_Mono({ subsets: ['latin'] })
 
@@ -23,13 +25,17 @@ export default function RootLayout({
             style={{backgroundImage: 'url("https://www.loliapi.com/acg/pc/")',
                 backgroundSize: 'cover',
                 backgroundAttachment: 'fixed'}}>
-      <div className={"min-h-screen flex flex-col"}>
-          <ScrollProgress />
-          <ToTop />
-          <Header />
-          {children}
-          <Footer />
-        </div>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <div className={"min-h-screen flex flex-col"}>
+              <ScrollProgress />
+              <ToTop />
+              <Header />
+              {children}
+              <Footer />
+              <TailwindIndicator />
+          </div>
+      </ThemeProvider>
+
       </body>
     </html>
   )

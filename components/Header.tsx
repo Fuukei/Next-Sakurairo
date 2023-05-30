@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Dialog } from '@headlessui/react'
 import { useState } from "react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
+import ModeToggle from "@/components/ModeToggle";
 
 const headerItems = [
     {name: "Item1"},
@@ -24,13 +25,14 @@ export default function Header() {
                         <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
                     </a>
 
-                    <div className={"flex"}>
+                    <div className={"flex items-center"}>
                         {headerItems.map((item) => (
                             <div key={item.name}
                                  className={"px-2 font-semibold"}>
                                 {item.name}
                             </div>
                         ))}
+                        <ModeToggle />
                     </div>
                 </div>
 
