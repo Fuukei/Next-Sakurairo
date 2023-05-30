@@ -27,6 +27,7 @@ This is an early work in progress.
 - [ ] OG generator
   - [ ] Option for AI generated description
 - [ ] Loading components
+- [ ] Configs
 - [ ] Documentation
   - [ ] Customization
   - [ ] Deployment
