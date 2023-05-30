@@ -3,7 +3,7 @@
 import { Dialog } from '@headlessui/react'
 import { useState } from "react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
-import ModeToggle from "@/components/ModeToggle";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const headerItems = [
     {name: "Item1"},
@@ -30,7 +30,7 @@ export default function Header() {
                                 {item.name}
                             </div>
                         ))}
-                        <ModeToggle />
+                        <ThemeToggle />
                     </div>
                 </div>
 
@@ -39,21 +39,24 @@ export default function Header() {
                         <span className="sr-only">Placeholder</span>
                         <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
                     </a>
+                    <div>
+                        <ThemeToggle />
+                        <button
+                            type="button"
+                            className="bg-white/60 m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+                            onClick={() => setMobileMenuOpen(true)}
+                        >
+                            <span className="sr-only">Open main menu</span>
+                            <Bars3Icon className={"w-6 h-6"} aria-hidden={"true"}></Bars3Icon>
+                        </button>
+                    </div>
 
-                    <button
-                        type="button"
-                        className="bg-white/60 m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-                        onClick={() => setMobileMenuOpen(true)}
-                    >
-                        <span className="sr-only">Open main menu</span>
-                        <Bars3Icon className={"w-6 h-6"} aria-hidden={"true"}></Bars3Icon>
-                    </button>
                 </div>
                 <Dialog as={"div"}
                         open={mobileMenuOpen}
                         onClose={setMobileMenuOpen}
                         className={"md:hidden"}>
-                    <Dialog.Panel className={"fixed border-t inset-y-16 right-0 z-50 h-full bg-white/60 px-6 py-6 w-3/4"}>
+                    <Dialog.Panel className={"fixed border-t inset-y-16 right-0 z-50 h-full bg-white/60 dark:bg-black/60 px-6 py-6 w-3/4"}>
                         <div className="flex flex-col items-center justify-between">
                             <a href="#" className="m-1.5 p-1.5">
                                 <span className="sr-only">Your Company</span>
