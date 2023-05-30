@@ -19,7 +19,7 @@ const ArticleLayout = ({ params }: { params: { slug: string } }) => {
     if (!article) notFound()
 
     return (
-        <div className={"min-h-screen bg-white/60 dark:bg-gray-900/75 backdrop-blur-md"}>
+        <div className={"min-h-screen bg-slate-200/70 dark:bg-gray-900/75 backdrop-blur-md"}>
             <div className={"flex min-h-[200px] md:min-h-[300px] rounded-b-2xl overflow-hidden"}
                  style={{backgroundImage: 'url(' + article.image +')',
                      backgroundSize: 'cover'}}>

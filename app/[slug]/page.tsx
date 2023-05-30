@@ -17,7 +17,7 @@ const PageLayout = ({ params }: { params: { slug: string } }) => {
     if (!page) notFound()
 
     return (
-        <div className={"min-h-screen bg-white/60 dark:bg-gray-900/75 backdrop-blur-md"}>
+        <div className={"min-h-screen bg-slate-200/70 dark:bg-gray-900/75 backdrop-blur-md"}>
             <MDXContent code={page.body.code} />
         </div>
     )
