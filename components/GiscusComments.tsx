@@ -1,14 +1,23 @@
 "use client";
 
 import Giscus from "@giscus/react";
+import { useEffect, useState} from "react";
 
 export default function GiscusComments () {
     let theme = "preferred_color_scheme";
-    if (localStorage.theme === "dark") {
-        theme = "dark_dimmed";
-    }
-    if (localStorage.theme === "light") {
-        theme = "light";
+    const [mounted, setMounted] = useState(false)
+
+    useEffect(() => {
+        setMounted(true)
+    }, [])
+
+    if (mounted) {
+        if (localStorage.theme === "dark") {
+            theme = "dark_dimmed";
+        }
+        if (localStorage.theme === "light") {
+            theme = "light";
+        }
     }
     return (
         <Giscus
