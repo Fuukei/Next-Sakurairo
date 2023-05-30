@@ -30,7 +30,7 @@ export default function ToTop() {
 
     return (
         <button onClick={scrollToTop}
-                className={"fixed z-50 bg-white dark:bg-slate-900/80 hover:opacity-90 duration-100 rounded-xl bottom-0 right-0 mr-2 lg:mr-6 mb-8"}
+                className={"fixed z-50 bg-slate-50 dark:bg-slate-800 hover:opacity-90 duration-100 rounded-xl bottom-0 right-0 mr-2 lg:mr-6 mb-8"}
                 style={{
                     opacity: isVisible ? 1 : 0,
                     transform: isVisible ? "scale(1)" : "scale(0)",

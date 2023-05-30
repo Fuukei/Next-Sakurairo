@@ -13,7 +13,8 @@ function MenuItem ({ onClick, children }: MenuItemProps) {
         <Menu.Item>
             {({ active }) => (
                 <div onClick={onClick}
-                     className={"flex px-2 py-1 items-center rounded-sm"}>
+                     className={"flex px-2 py-1 items-center rounded-md border-transparent border-2 " +
+                         "hover:border-slate-300 hover:dark:border-slate-600"}>
                     {children}
                 </div>
             )}
@@ -25,7 +26,7 @@ export default function ThemeToggle() {
     const { setTheme } = useTheme()
 
     return (
-        <Menu as={"div"} className={"bg-white dark:bg-slate-900/80 rounded-md relative inline-block text-left my-4"}>
+        <Menu as={"div"} className={"bg-slate-50 dark:bg-slate-800 rounded-md relative inline-block text-left my-4"}>
             <Menu.Button className={"w-full h-full flex p-2.5"}>
                 <SunIcon className={"w-6 h-6 dark:hidden"}></SunIcon>
                 <MoonIcon className={"w-6 h-6 hidden dark:block"}></MoonIcon>
@@ -39,7 +40,8 @@ export default function ThemeToggle() {
                 leaveFrom="transform opacity-100 scale-100"
                 leaveTo="transform opacity-0 scale-95"
             >
-                <Menu.Items className={"bg-white dark:bg-slate-900/80 absolute md:right-0 mt-2 rounded-md"}>
+                <Menu.Items className={"bg-slate-50 dark:bg-slate-800 absolute md:right-0 mt-2 rounded-md " +
+                    "left-1/2 md:left-auto transform -translate-x-1/2 md:translate-x-0"}>
                     <div className={"p-2"}>
                         <MenuItem onClick={() => setTheme("light")}>
                             <SunIcon className={"w-4 h-4 mr-2"}/>
