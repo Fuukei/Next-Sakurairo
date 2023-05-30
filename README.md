@@ -14,19 +14,19 @@ This is an early work in progress.
   - [x] Footer
   - [x] Landing page
   - [x] Article page
-  - [ ] 404 page
+  - [x] 404 page
   - [x] Template pages
   - [x] Theme switch
   - [ ] Scroll bar
-  - [ ] and more...
+  - [ ] Animation
+  - [ ] Better prose style
 - [ ] Search function
 - [ ] Tagging function
 - [ ] TOC generation
 - [x] Use [giscus](https://giscus.app/) for comments
 - [ ] OG generator
   - [ ] Option for AI generated description
-- [ ] Better prose structure
-- [ ] Loading
+- [ ] Loading components
 - [ ] Documentation
   - [ ] Customization
   - [ ] Deployment
