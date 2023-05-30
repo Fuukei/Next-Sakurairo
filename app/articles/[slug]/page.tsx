@@ -7,18 +7,16 @@ import GiscusComments from "@/components/GiscusComments";
 export const generateStaticParams = async () => allArticles.map((article) => ({ slug: article.slug }))
 
 export const generateMetadata = ({ params }: { params: { slug: string } }) => {
-    const article = allArticles.find((article) => article.slug === params.slug)
-    if (!article) throw new Error(`Post not found for slug: ${params.slug}`)
+    const article = allArticles.find((article) => article.slug === params.slug) || {
+        title: "Article not found"
+    }
     return { title: article.title }
 }
 
 const ArticleLayout = ({ params }: { params: { slug: string } }) => {
-    // Find the article for the current page.
     const article = allArticles.find((article) => article.slug === params.slug)
 
-    // 404 if the article does not exist.
     if (!article) notFound()
-
 
     return (
         <div className={"min-h-screen bg-white/60 dark:bg-gray-900/75 backdrop-blur-md"}>
