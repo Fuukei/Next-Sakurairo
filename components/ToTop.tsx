@@ -36,7 +36,7 @@ export default function ToTop() {
                     transform: isVisible ? "scale(1)" : "scale(0)",
                     transition: 'opacity 0.5s, transform 0.7s',
                 }}>
-            <ChevronUpIcon className={"text-amber-600 p-1 h-12 w-12"} />
+            <ChevronUpIcon className={"text-primary_color dark:text-primary_color-dark p-1 h-12 w-12"} />
         </button>
     )
 }

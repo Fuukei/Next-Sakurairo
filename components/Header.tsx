@@ -5,6 +5,7 @@ import {Fragment, useEffect, useState} from "react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import ThemeToggle from "@/components/ThemeToggle";
 import Link from "next/link";
+import {cn} from "@/lib/utils";
 
 const headerItems = [
     {name: "Item1"},
@@ -37,28 +38,43 @@ export default function Header() {
         <header className={"fixed flex w-full z-40"}>
             <div onMouseEnter={() => setHeaderHover(true)}
                  onMouseLeave={() => setHeaderHover(false)}
-                 className={headerHover || isScrolled ?
-                     "w-full backdrop-blur-sm md:rounded-2xl md:mt-5 md:mx-10 md:py-1 px-4 md:px-0 bg-slate-100/70 dark:bg-slate-950/80 duration-500" :
+                 className={cn({
+                         "backdrop-blur-sm bg-slate-100/70 dark:bg-slate-950/80": headerHover || isScrolled,
+                     },
                      "w-full md:rounded-2xl md:mt-5 md:mx-10 px-4 md:px-0 md:py-1 duration-500"
-            }>
+                 )}>
                 <div className="hidden md:flex w-full items-center justify-between">
                     <Link href={"/"}
                           onMouseEnter={() => setLogoHover(true)}
                           onMouseLeave={() => setLogoHover(false)}
-                          className={headerHover || isScrolled ?
-                              "space-x-2 md:rounded-2xl p-4 py-6 md:px-7 bg-slate-100/0 dark:bg-slate-950/0 duration-500" :
-                              "space-x-2 md:rounded-2xl p-4 py-6 md:px-7 bg-slate-100/70 dark:bg-slate-950/80 duration-500"}>
-                        <span className={logoHover ? "pt-3 pb-1 rounded-xl bg-amber-400" : "pt-3 pb-1 rounded-xl bg-white/40"}>Next Sakurairo</span>
-                        <span className={""}>の</span>
-                        <span>Site</span>
+                          className={cn({
+                                  "bg-slate-100/0 dark:bg-slate-950/0": headerHover || isScrolled,
+                                  "bg-slate-100/70 dark:bg-slate-950/80": !headerHover && !isScrolled,
+                              },
+                              "space-x-2 md:rounded-2xl p-4 py-6 md:px-7 duration-500"
+                          )}>
+                        <span className={cn({
+                                "bg-primary_color dark:bg-primary_color-dark": logoHover,
+                                "bg-white/40": !logoHover,
+                            },
+                            "pt-3 pb-1 rounded-xl"
+                        )}>
+                            Next Sakurairo
+                        </span>
+                        <span className={"text-primary_color dark:text-primary_color-dark"}>の</span>
+                        <span className={"text-primary_color dark:text-primary_color-dark"}>Site</span>
                     </Link>
 
-                    <div className={headerHover || isScrolled ?
-                        "flex items-center md:rounded-2xl md:px-6 md:py-1 bg-slate-100/0 dark:bg-slate-950/0 duration-500" :
-                        "flex items-center md:rounded-2xl md:px-6 md:py-1 bg-slate-100/70 dark:bg-slate-950/80 duration-500"}>
+                    <div className={cn({
+                            "bg-slate-100/0 dark:bg-slate-950/0": headerHover || isScrolled,
+                            "bg-slate-100/70 dark:bg-slate-950/80": !headerHover && !isScrolled,
+                        },
+                        "flex items-center md:rounded-2xl md:px-6 md:py-1 duration-500",
+                        "text-primary_color dark:text-primary_color-dark"
+                    )}>
                         {headerItems.map((item) => (
                             <div key={item.name}
-                                 className={"px-2 font-semibold"}>
+                                 className={"px-2 font-semibold text-primary_color dark:text-primary_color-dark"}>
                                 {item.name}
                             </div>
                         ))}
