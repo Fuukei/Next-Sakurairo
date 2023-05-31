@@ -20,16 +20,19 @@ export default function GiscusComments () {
         }
     }
     return (
-        <Giscus
-            repo={"cocdeshijie/next-sakurairo"}
-            repoId={"R_kgDOJoJfqg"}
-            category={"Announcements"}
-            categoryId={"DIC_kwDOJoJfqs4CWz2I"}
-            mapping={"url"}
-            inputPosition={"bottom"}
-            theme={theme}
-            lang={"en"}
-            loading={"lazy"}
-        />
+        <div className={"md:px-8"}>
+            <Giscus
+                repo={"cocdeshijie/next-sakurairo"}
+                repoId={"R_kgDOJoJfqg"}
+                category={"Announcements"}
+                categoryId={"DIC_kwDOJoJfqs4CWz2I"}
+                mapping={"url"}
+                inputPosition={"bottom"}
+                theme={theme}
+                lang={"en"}
+                loading={"lazy"}
+            />
+        </div>
+
     )
 }
