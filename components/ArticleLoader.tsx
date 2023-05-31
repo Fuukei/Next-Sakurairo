@@ -24,7 +24,7 @@ export default function ArticleLoader({ articles, articlesPerLoad }: ArticleLoad
     return (
         <>
             {displayedArticles.map((article: Article, idx: number) => (
-                <ArticleCard key={idx} {...article} />
+                <ArticleCard key={idx} idx={idx} article={article} />
             ))}
             <div className={"p-6 flex justify-center"}>
                 {hasMore ? (
