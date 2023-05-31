@@ -4,7 +4,7 @@ This is a blog built with Next.js, Tailwind CSS, Typescript, and ContentLayer wi
 
 The appearance is inspired by WordPress theme [Sakura](https://github.com/mashirozx/sakura) and [Sakurairo](https://github.com/mirai-mamori/Sakurairo)
 
-This is an early work in progress.
+This is a work in progress.
 
 ### Todo
 - [x] Use Next.js 13 app directory
@@ -19,15 +19,15 @@ This is an early work in progress.
   - [x] Theme switch
   - [ ] Scroll bar
   - [ ] Animation
-  - [ ] Better prose style
+  - [x] Better prose style
 - [ ] Search function
 - [ ] Tagging function
-- [ ] TOC generation
+- [ ] TOC generation for articles
 - [x] Use [giscus](https://giscus.app/) for comments
 - [ ] OG generator
   - [ ] Option for AI generated description
 - [ ] Loading components
-- [ ] Configs
+- [x] Configs
 - [ ] Documentation
   - [ ] Customization
   - [ ] Deployment
