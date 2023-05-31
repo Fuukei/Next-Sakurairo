@@ -21,12 +21,12 @@ module.exports = {
           dark: colors.pink[600]
         },
         secondary_color: {
-          DEFAULT: colors.purple[400],
-          dark: colors.purple[600]
+          DEFAULT: colors.amber[400],
+          dark: colors.amber[600]
         },
         accent_color: {
-          DEFAULT: colors.yellow[400],
-          dark: colors.yellow[600]
+          DEFAULT: colors.cyan[400],
+          dark: colors.cyan[600]
         }
       }
     },
