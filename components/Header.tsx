@@ -85,24 +85,22 @@ export default function Header() {
                             <Bars3Icon className={"w-6 h-6"} aria-hidden={"true"}></Bars3Icon>
                         </button>
                     </div>
-
                 </div>
-                <Transition show={mobileMenuOpen}
-                            as={Fragment}>
+
+                <Transition show={mobileMenuOpen} as={Fragment}>
                     <Dialog
-                            as="div"
-                            open={mobileMenuOpen}
-                            onClose={() => setMobileMenuOpen(false)}
-                            className={"md:hidden z-50"}
+                        as="div"
+                        onClose={() => setMobileMenuOpen(false)}
+                        className={"md:hidden z-50"}
                     >
                         <Transition.Child
                             as={Fragment}
                             enter="ease-out duration-300"
-                            enterFrom="translate-x-full"
-                            enterTo="opacity-100"
+                            enterFrom="opacity-0 translate-x-full"
+                            enterTo="opacity-100 translate-x-0"
                             leave="ease-in duration-200"
-                            leaveFrom="opacity-100"
-                            leaveTo="opacity-0"
+                            leaveFrom="opacity-100 translate-x-0"
+                            leaveTo="opacity-0 translate-x-full"
                         >
                             <div className="fixed inset-x-0 inset-y-16 h-full bg-black/70 dark:bg-white/10" />
                         </Transition.Child>
