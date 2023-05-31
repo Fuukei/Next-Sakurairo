@@ -38,7 +38,7 @@ export default function Header() {
             <div onMouseEnter={() => setHeaderHover(true)}
                  onMouseLeave={() => setHeaderHover(false)}
                  className={headerHover || isScrolled ?
-                     "w-full backdrop-blur-sm md:rounded-2xl md:mt-5 md:mx-10 md:py-1 px-4 md:px-6 bg-slate-100/70 dark:bg-slate-950/80 duration-500" :
+                     "w-full backdrop-blur-sm md:rounded-2xl md:mt-5 md:mx-10 md:py-1 px-4 md:px-0 bg-slate-100/70 dark:bg-slate-950/80 duration-500" :
                      "w-full md:rounded-2xl md:mt-5 md:mx-10 px-4 md:px-0 md:py-1 duration-500"
             }>
                 <div className="hidden md:flex w-full items-center justify-between">
@@ -46,16 +46,16 @@ export default function Header() {
                           onMouseEnter={() => setLogoHover(true)}
                           onMouseLeave={() => setLogoHover(false)}
                           className={headerHover || isScrolled ?
-                              "space-x-2 duration-500" :
-                              "space-x-2 backdrop-blur-sm md:rounded-2xl p-4 py-6 md:px-7 bg-slate-100/70 dark:bg-slate-950/80 duration-500"}>
+                              "space-x-2 md:rounded-2xl p-4 py-6 md:px-7 bg-slate-100/0 dark:bg-slate-950/0 duration-500" :
+                              "space-x-2 md:rounded-2xl p-4 py-6 md:px-7 bg-slate-100/70 dark:bg-slate-950/80 duration-500"}>
                         <span className={logoHover ? "pt-3 pb-1 rounded-xl bg-amber-400" : "pt-3 pb-1 rounded-xl bg-white/40"}>Next Sakurairo</span>
                         <span className={""}>の</span>
                         <span>Site</span>
                     </Link>
 
                     <div className={headerHover || isScrolled ?
-                        "flex items-center duration-500" :
-                        "flex items-center backdrop-blur-sm md:rounded-2xl md:px-6 md:py-1 bg-slate-100/70 dark:bg-slate-950/80 duration-500"}>
+                        "flex items-center md:rounded-2xl md:px-6 md:py-1 bg-slate-100/0 dark:bg-slate-950/0 duration-500" :
+                        "flex items-center md:rounded-2xl md:px-6 md:py-1 bg-slate-100/70 dark:bg-slate-950/80 duration-500"}>
                         {headerItems.map((item) => (
                             <div key={item.name}
                                  className={"px-2 font-semibold"}>
