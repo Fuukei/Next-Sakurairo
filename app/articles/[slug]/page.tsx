@@ -29,9 +29,13 @@ const ArticleLayout = ({ params }: { params: { slug: string } }) => {
                             {article.title}
                         </h1>
                         <hr className={"h-1 mt-1 md:mb-2 border-0 rounded bg-gray-700"}/>
-                        <span className={"text-xs md:text-base font-light"}>
-                            {format(parseISO(article.date), 'LLLL d, yyyy')}
-                        </span>
+                        <div className={"flex mb-4"}>
+                            <div className={"bg-amber-200/50 rounded-lg"}>
+                                <span className={"text-xs py-1 px-2"}>
+                                    Published on {format(parseISO(article.date), 'LLLL d, yyyy')}
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
