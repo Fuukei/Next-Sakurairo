@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Article } from "contentlayer/generated";
 import ArticleCard from "@/components/ArticleCard";
+import { cn } from "@/lib/utils";
 
 type ArticleLoaderProps = {
     articles: Article[];
@@ -29,10 +30,14 @@ export default function ArticleLoader({ articles, articlesPerLoad }: ArticleLoad
             <div className={"p-6 flex justify-center"}>
                 {hasMore ? (
                     <button type={"button"}
-                            className={"rounded-full bg-white dark:bg-gray-900/75 px-5 py-2 ring-1 ring-slate-400"}
-                            onClick={loadMore}>Load more</button>
+                            onClick={loadMore}
+                            className={cn(
+                                "rounded-full bg-white dark:bg-gray-900/75 px-5 py-2 ring-1",
+                                "text-primary_color dark:text-primary_color-dark",
+                                "hover:ring-accent_color hover:dark:ring-accent_color-dark"
+                            )}>Load more</button>
                 ) : (
-                    <a>No more articles</a>
+                    <a>You&apos;ve reached the end :)</a>
                 )}
             </div>
 

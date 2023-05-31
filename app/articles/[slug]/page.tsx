@@ -25,12 +25,12 @@ const ArticleLayout = ({ params }: { params: { slug: string } }) => {
                      backgroundSize: 'cover'}}>
                 <div className={"flex w-full backdrop-blur-sm"}>
                     <div className={"self-end w-full pb-8 mx-4 lg:mx-auto lg:px-4 max-w-3xl"}>
-                        <h1 className={"text-lg md:text-3xl font-bold"}>
+                        <h1 className={"text-lg md:text-3xl font-bold text-secondary_color dark:text-secondary_color-dark"}>
                             {article.title}
                         </h1>
                         <hr className={"h-1 mt-1 md:mb-2 border-0 rounded bg-gray-700"}/>
                         <div className={"flex mb-4"}>
-                            <div className={"bg-amber-200/50 rounded-lg"}>
+                            <div className={"bg-accent_color/60 dark:bg-accent_color-dark/60 rounded-lg"}>
                                 <span className={"text-xs py-1 px-2"}>
                                     Published on {format(parseISO(article.date), 'LLLL d, yyyy')}
                                 </span>

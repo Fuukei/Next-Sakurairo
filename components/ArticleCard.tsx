@@ -25,7 +25,7 @@ export default function ArticleCard({ article, idx }: ArticleCardProps) {
 
             <div className="w-full md:w-5/12 p-4 lg:px-8">
                 <div className={"flex mb-4"}>
-                    <div className={"bg-amber-200/50 rounded-lg"}>
+                    <div className={"bg-accent_color/50 dark:bg-accent_color-dark/50 rounded-lg"}>
                         <div className={"text-xs py-1 px-2"}>Posted on {format(parseISO(article.date), 'LLLL d, yyyy')}</div>
                     </div>
                 </div>
