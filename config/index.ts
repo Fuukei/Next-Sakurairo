@@ -5,7 +5,7 @@ import {BlogConfig} from "@/config/type";
  *
  */
 
-const blogConfig: BlogConfig = {
+export const blogConfig: BlogConfig = {
     url: '',
     author: "cocdeshijie",
 
@@ -20,5 +20,3 @@ const blogConfig: BlogConfig = {
         }
     ]
 }
-
-module.exports = { blogConfig };

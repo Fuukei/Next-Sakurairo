@@ -5,13 +5,10 @@ import {Fragment, useEffect, useState} from "react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import ThemeToggle from "@/components/ThemeToggle";
 import Link from "next/link";
-import {cn} from "@/lib/utils";
+import { cn } from "@/lib/utils";
+import { blogConfig } from "@/config";
 
-const headerItems = [
-    {name: "Item1"},
-    {name: "Item2"},
-    {name: "Item3"},
-]
+const navigationItems = blogConfig.navigation;
 
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -69,14 +66,15 @@ export default function Header() {
                             "bg-slate-100/0 dark:bg-slate-950/0": headerHover || isScrolled,
                             "bg-slate-100/70 dark:bg-slate-950/80": !headerHover && !isScrolled,
                         },
-                        "flex items-center md:rounded-2xl md:px-6 md:py-1 duration-500",
+                        "flex items-center md:rounded-2xl md:px-6 md:py-1 space-x-4 duration-500",
                         "text-primary_color dark:text-primary_color-dark"
                     )}>
-                        {headerItems.map((item) => (
-                            <div key={item.name}
-                                 className={"px-2 font-semibold text-primary_color dark:text-primary_color-dark"}>
-                                {item.name}
-                            </div>
+                        {navigationItems.map((item, idx:number) => (
+                            <Link href={item.href} key={idx}>
+                                <div className={"px-2 font-semibold text-primary_color dark:text-primary_color-dark"}>
+                                    {item.title}
+                                </div>
+                            </Link>
                         ))}
                         <ThemeToggle />
                     </div>
@@ -87,17 +85,22 @@ export default function Header() {
                           onMouseEnter={() => setLogoHover(true)}
                           onMouseLeave={() => setLogoHover(false)}
                           className={"space-x-2"}>
-                        <span className={logoHover ? "pt-3 pb-1 rounded-xl bg-amber-400" : "pt-3 pb-1 rounded-xl bg-white/40"}>Next Sakurairo</span>
+                        <span className={cn({
+                                "bg-amber-400": logoHover,
+                                "bg-white/40": !logoHover,
+                            },
+                            "pt-3 pb-1 rounded-xl"
+                        )}>Next Sakurairo</span>
                         <span className={""}>の</span>
                         <span>Site</span>
                     </Link>
                     <div>
                         <button
                             type="button"
-                            className="bg-slate-200 dark:bg-slate-800 m-2.5 inline-flex items-center justify-center rounded-md p-2.5"
+                            className={"bg-slate-200 dark:bg-slate-800 m-2.5 inline-flex items-center justify-center rounded-md p-2.5"}
                             onClick={() => setMobileMenuOpen(true)}
                         >
-                            <span className="sr-only">Open main menu</span>
+                            <span className="sr-only">Open menu</span>
                             <Bars3Icon className={"w-6 h-6"} aria-hidden={"true"}></Bars3Icon>
                         </button>
                     </div>
@@ -132,14 +135,12 @@ export default function Header() {
                             <Dialog.Panel className={"fixed border-t inset-y-16 right-0 z-50 h-full bg-slate-100 " +
                                 "dark:bg-slate-900 px-6 py-6 w-3/4"}>
                                 <div className="flex flex-col items-center justify-between">
-                                    <a href="#" className="m-1.5 p-1.5">
-                                        <span className="">Next Sakurairo</span>
-                                    </a>
-                                    {headerItems.map((item) => (
-                                        <div key={item.name}
-                                             className={"px-2 font-semibold"}>
-                                            {item.name}
-                                        </div>
+                                    {navigationItems.map((item, idx:number) => (
+                                        <Link href={item.href} key={idx}>
+                                            <div className={"px-2 font-semibold text-primary_color dark:text-primary_color-dark"}>
+                                                {item.title}
+                                            </div>
+                                        </Link>
                                     ))}
                                     <ThemeToggle />
                                 </div>
