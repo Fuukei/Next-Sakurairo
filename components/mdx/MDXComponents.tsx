@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 /**
  * Use <Link> for internal links and <a> for external links and anchors
