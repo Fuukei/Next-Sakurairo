@@ -1,10 +1,10 @@
 
 export type BlogConfig = {
-    url: string;
-    author: string;
+    url: string | "next-sakurairo.qwq.xyz";
+    author: string | "cocdeshijie";
 
     navigation: {
         title: string;
         href: string;
-    }[];
+    }[] | [{title: "Home", href:"/"}];
 }
