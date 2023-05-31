@@ -1,5 +1,5 @@
 import { allPages} from "contentlayer/generated";
-import { MDXContent } from "@/components/mdx/mdx-content";
+import { MDXContent } from "@/components/mdx/MDXContent";
 import {notFound} from "next/navigation";
 
 export const generateStaticParams = async () => allPages.map((page) => ({ slug: page.slug }))

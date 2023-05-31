@@ -1,6 +1,6 @@
 import { format, parseISO } from "date-fns";
 import { allArticles } from "contentlayer/generated";
-import { MDXContent } from "@/components/mdx/mdx-content";
+import { MDXContent } from "@/components/mdx/MDXContent";
 import {notFound} from "next/navigation";
 import GiscusComments from "@/components/GiscusComments";
 
@@ -41,10 +41,8 @@ const ArticleLayout = ({ params }: { params: { slug: string } }) => {
             </div>
 
             <div className={"pb-8 mx-4 lg:mx-auto lg:px-4 max-w-4xl"}>
-                <section className={"mt-6 text-justify max-w-none prose hyphens-auto"}>
-                    <MDXContent code={article.body.code} />
-                    <GiscusComments/>
-                </section>
+                <MDXContent code={article.body.code} />
+                <GiscusComments/>
             </div>
         </div>
     )
