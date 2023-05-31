@@ -31,7 +31,7 @@ export default function ArticleCard({ article, idx }: ArticleCardProps) {
                 </div>
 
                 <div className={`${idx % 2 === 0 ? 'lg:justify-items-end text-end' : 'lg:justify-items-start'} lg:grid`}>
-                    <h2 className="font-bold text-lg mb-2 line-clamp-2 hover:text-amber-400 duration-200">
+                    <h2 className="font-bold text-lg mb-2 line-clamp-2 hover:text-primary_color hover:dark:text-primary_color-dark duration-200">
                         <Link href={article.url}>{article.title}</Link>
                     </h2>
 
