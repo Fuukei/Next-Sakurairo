@@ -32,9 +32,10 @@ export default function ArticleLoader({ articles, articlesPerLoad }: ArticleLoad
                     <button type={"button"}
                             onClick={loadMore}
                             className={cn(
-                                "rounded-full bg-white dark:bg-gray-900/75 px-5 py-2 ring-1",
+                                "rounded-full px-5 py-2",
+                                "bg-white dark:bg-slate-800/75",
                                 "text-primary_color dark:text-primary_color-dark",
-                                "hover:ring-accent_color hover:dark:ring-accent_color-dark"
+                                "hover:ring-1 hover:ring-accent_color hover:dark:ring-accent_color-dark"
                             )}>Load more</button>
                 ) : (
                     <a>You&apos;ve reached the end :)</a>
