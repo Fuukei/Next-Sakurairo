@@ -1,6 +1,6 @@
 # Next Sakurairo
 
-This is a blog built with Next.js, Tailwind CSS, Typescript, and ContentLayer with MDX. 
+This is a blog built with Next.js, Tailwind CSS, Radix UI, Framer Motion, and ContentLayer with MDX. 
 
 The appearance is inspired by WordPress theme [Sakura](https://github.com/mashirozx/sakura) and [Sakurairo](https://github.com/mirai-mamori/Sakurairo)
 
@@ -18,7 +18,7 @@ This is a work in progress.
   - [x] Template pages
   - [x] Theme switch
   - [ ] Scroll bar
-  - [ ] Animation
+  - [x] Animation
   - [x] Better prose style
 - [ ] Search function
 - [ ] Tagging function
