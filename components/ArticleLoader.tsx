@@ -27,34 +27,37 @@ export default function ArticleLoader({ articles, articlesPerLoad }: ArticleLoad
         setTimeout(() => setContentLoaded(true), 100);
     };
 
-    const cardVariants = {
-        offscreen: {
-            y: 300
-        },
-        onscreen: {
-            y: 0,
-            rotate: 0,
-            transition: {
-                type: "spring",
-                bounce: 0.1,
-                duration: 0.5
-            }
-        }
-    };
-
     return (
         <>
-            {displayedArticles.map((article: Article, idx: number) => (
-                <motion.div
-                    key={idx}
-                    initial="offscreen"
-                    whileInView="onscreen"
-                    variants={cardVariants}
-                    viewport={{ once: true }}
-                >
-                    <ArticleCard idx={idx} article={article} />
-                </motion.div>
-            ))}
+            {displayedArticles.map((article: Article, idx: number) => {
+                const cardVariants = {
+                    offscreen: {
+                        x: idx % 2 === 0 ? 300 : -300
+                    },
+                    onscreen: {
+                        x: 0,
+                        rotate: 0,
+                        transition: {
+                            ease: "easeInOut",
+                            type: "spring",
+                            bounce: 0.4,
+                            duration: 1
+                        }
+                    }
+                };
+
+                return (
+                    <motion.div
+                        key={idx}
+                        initial="offscreen"
+                        whileInView="onscreen"
+                        variants={cardVariants}
+                        viewport={{ once: true }}
+                    >
+                        <ArticleCard idx={idx} article={article} />
+                    </motion.div>
+                );
+            })}
             <div className={"p-6 flex justify-center"}>
                 {hasMore ? (
                     <button type={"button"}
