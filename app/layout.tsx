@@ -2,7 +2,7 @@ import "./globals.css";
 import { Roboto_Mono } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ScrollProgress from "@/components/ScrollProgress";
+import {ScrollProgressProvider} from "@/components/ScrollProgress";
 import ToTop from "@/components/ToTop";
 import { ThemeProvider } from "@/components/ThemeProvider"
 import { TailwindIndicator } from "@/components/TailwindIndicator";
@@ -26,14 +26,15 @@ export default function RootLayout({
                 backgroundSize: 'cover',
                 backgroundAttachment: 'fixed'}}>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className={"min-h-screen flex flex-col"}>
-              <ScrollProgress />
-              <ToTop />
-              <Header />
-              {children}
-              <Footer />
-              <TailwindIndicator />
-          </div>
+          <ScrollProgressProvider>
+              <div className={"min-h-screen flex flex-col"}>
+                  <ToTop />
+                  <Header />
+                  {children}
+                  <Footer />
+                  <TailwindIndicator />
+              </div>
+          </ScrollProgressProvider>
       </ThemeProvider>
 
       </body>
