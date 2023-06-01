@@ -17,15 +17,17 @@ function MobileMenu() {
     return (
         <Dialog.Root onOpenChange={(mobileMenuOpen) => setMobileMenuOpen(mobileMenuOpen)}>
             <Dialog.Trigger>
-                <div
+                <motion.div
+                    whileTap={{ scale: 0.8 }}
+                    transition={{ duration: 0.3 }}
                     className={cn(
                         "m-2.5 inline-flex items-center justify-center rounded-md p-2.5",
-                        "bg-slate-200 dark:bg-slate-800"
+                        "bg-slate-200 dark:bg-slate-800 text-primary_color dark:text-primary_color-dark"
                     )}
                 >
                     <span className="sr-only">Open menu</span>
                     <Bars3Icon className={"w-6 h-6"} aria-hidden={"true"}></Bars3Icon>
-                </div>
+                </motion.div>
             </Dialog.Trigger>
             <AnimatePresence>
                 {mobileMenuOpen ? (
