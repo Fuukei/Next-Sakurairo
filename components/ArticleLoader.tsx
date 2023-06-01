@@ -4,7 +4,8 @@ import { useState } from "react";
 import { Article } from "contentlayer/generated";
 import ArticleCard from "@/components/ArticleCard";
 import { cn } from "@/lib/utils";
-import { useScrollContext } from "./ScrollProgress"; // Import context here
+import { useScrollContext } from "@/components/ScrollProgress";
+import { motion } from "framer-motion";
 
 type ArticleLoaderProps = {
     articles: Article[];
@@ -26,10 +27,33 @@ export default function ArticleLoader({ articles, articlesPerLoad }: ArticleLoad
         setTimeout(() => setContentLoaded(true), 100);
     };
 
+    const cardVariants = {
+        offscreen: {
+            y: 300
+        },
+        onscreen: {
+            y: 0,
+            rotate: 0,
+            transition: {
+                type: "spring",
+                bounce: 0.1,
+                duration: 0.5
+            }
+        }
+    };
+
     return (
         <>
             {displayedArticles.map((article: Article, idx: number) => (
-                <ArticleCard key={idx} idx={idx} article={article} />
+                <motion.div
+                    key={idx}
+                    initial="offscreen"
+                    whileInView="onscreen"
+                    variants={cardVariants}
+                    viewport={{ once: true }}
+                >
+                    <ArticleCard idx={idx} article={article} />
+                </motion.div>
             ))}
             <div className={"p-6 flex justify-center"}>
                 {hasMore ? (
