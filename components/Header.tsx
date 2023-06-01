@@ -1,17 +1,78 @@
 "use client";
 
-import {Dialog, Transition} from '@headlessui/react'
-import {Fragment, useEffect, useState} from "react";
+import { useEffect, useState} from "react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import ThemeToggle from "@/components/ThemeToggle";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { blogConfig } from "@/config";
+import * as Dialog from '@radix-ui/react-dialog';
+import { AnimatePresence, motion } from "framer-motion";
 
 const navigationItems = blogConfig.navigation;
 
-export default function Header() {
+function MobileMenu() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+    return (
+        <Dialog.Root onOpenChange={(mobileMenuOpen) => setMobileMenuOpen(mobileMenuOpen)}>
+            <Dialog.Trigger>
+                <div
+                    className={cn(
+                        "m-2.5 inline-flex items-center justify-center rounded-md p-2.5",
+                        "bg-slate-200 dark:bg-slate-800"
+                    )}
+                >
+                    <span className="sr-only">Open menu</span>
+                    <Bars3Icon className={"w-6 h-6"} aria-hidden={"true"}></Bars3Icon>
+                </div>
+            </Dialog.Trigger>
+            <AnimatePresence>
+                {mobileMenuOpen ? (
+                    <Dialog.Portal forceMount>
+                        <Dialog.Overlay>
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 0.6 }}
+                                exit={{ opacity: 0 }}
+                                className={cn(
+                                    "fixed inset-x-0 inset-y-16 h-screen",
+                                    "bg-slate-900 dark:bg-slate-500"
+                                )}
+                            >
+                            </motion.div>
+                        </Dialog.Overlay>
+                        <Dialog.Content>
+                            <motion.div
+                                initial={{ x: '100%' }}
+                                animate={{ x: 0 }}
+                                exit={{ x: '100%' }}
+                                transition={{ ease: 'linear', duration: 0.15 }}
+                                className={cn(
+                                    "fixed inset-y-16 right-0 z-50 w-3/4 h-screen px-6 py-6",
+                                    "bg-slate-100 dark:bg-slate-900"
+                                )}
+                            >
+                                <div className="flex flex-col items-center justify-between">
+                                    {navigationItems.map((item, idx:number) => (
+                                        <Link href={item.href} key={idx}>
+                                            <div className={"px-2 font-semibold text-primary_color dark:text-primary_color-dark"}>
+                                                {item.title}
+                                            </div>
+                                        </Link>
+                                    ))}
+                                    <ThemeToggle />
+                                </div>
+                            </motion.div>
+                        </Dialog.Content>
+                    </Dialog.Portal>
+                ) : null}
+            </AnimatePresence>
+        </Dialog.Root>
+    )
+}
+
+export default function Header() {
     const [logoHover, setLogoHover] = useState(false);
     const [headerHover, setHeaderHover] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
@@ -94,61 +155,8 @@ export default function Header() {
                         <span className={""}>の</span>
                         <span>Site</span>
                     </Link>
-                    <div>
-                        <button
-                            type="button"
-                            className={"bg-slate-200 dark:bg-slate-800 m-2.5 inline-flex items-center justify-center rounded-md p-2.5"}
-                            onClick={() => setMobileMenuOpen(true)}
-                        >
-                            <span className="sr-only">Open menu</span>
-                            <Bars3Icon className={"w-6 h-6"} aria-hidden={"true"}></Bars3Icon>
-                        </button>
-                    </div>
+                    <MobileMenu/>
                 </div>
-
-                <Transition show={mobileMenuOpen} as={Fragment}>
-                    <Dialog
-                        as="div"
-                        onClose={() => setMobileMenuOpen(false)}
-                        className={"md:hidden z-50"}
-                    >
-                        <Transition.Child
-                            as={Fragment}
-                            enter="ease-out duration-300"
-                            enterFrom="opacity-0 translate-x-full"
-                            enterTo="opacity-100 translate-x-0"
-                            leave="ease-in duration-200"
-                            leaveFrom="opacity-100 translate-x-0"
-                            leaveTo="opacity-0 translate-x-full"
-                        >
-                            <div className="fixed inset-x-0 inset-y-16 h-full bg-black/70 dark:bg-white/10" />
-                        </Transition.Child>
-                        <Transition.Child
-                            as={Fragment}
-                            enter="ease-out duration-300"
-                            enterFrom="opacity-0 translate-x-full"
-                            enterTo="opacity-100 translate-x-0"
-                            leave="ease-in duration-200"
-                            leaveFrom="opacity-100 translate-x-0"
-                            leaveTo="opacity-0 translate-x-full"
-                        >
-                            <Dialog.Panel className={"fixed border-t inset-y-16 right-0 z-50 h-full bg-slate-100 " +
-                                "dark:bg-slate-900 px-6 py-6 w-3/4"}>
-                                <div className="flex flex-col items-center justify-between">
-                                    {navigationItems.map((item, idx:number) => (
-                                        <Link href={item.href} key={idx}>
-                                            <div className={"px-2 font-semibold text-primary_color dark:text-primary_color-dark"}>
-                                                {item.title}
-                                            </div>
-                                        </Link>
-                                    ))}
-                                    <ThemeToggle />
-                                </div>
-                            </Dialog.Panel>
-                        </Transition.Child>
-                    </Dialog>
-                </Transition>
-
             </div>
         </header>
     )
