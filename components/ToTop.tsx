@@ -1,7 +1,9 @@
 "use client";
 
-import { useState, useEffect } from 'react';
-import {ChevronUpIcon} from "@heroicons/react/24/solid";
+import { useState, useEffect } from "react";
+import { ChevronUpIcon } from "@heroicons/react/24/solid";
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 export default function ToTop() {
     const [isVisible, setIsVisible] = useState(false);
@@ -28,15 +30,25 @@ export default function ToTop() {
         });
     }
 
+    const buttonVariants = {
+        hidden: { scale: 0, opacity: 0 },
+        visible: { scale: 1, opacity: 1 }
+    }
+
     return (
-        <button onClick={scrollToTop}
-                className={"fixed z-40 bg-slate-50 dark:bg-slate-800 hover:opacity-90 duration-100 rounded-xl bottom-0 right-0 mr-2 lg:mr-6 mb-8"}
-                style={{
-                    opacity: isVisible ? 1 : 0,
-                    transform: isVisible ? "scale(1)" : "scale(0)",
-                    transition: 'opacity 0.5s, transform 0.7s',
-                }}>
+        <motion.button
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.8 }}
+            transition={{ duration: 0.3 }}
+            onClick={scrollToTop}
+            className={cn(
+                "fixed z-40 rounded-xl bottom-0 right-0 mr-2 lg:mr-6 mb-8",
+                "bg-slate-50 dark:bg-slate-800",
+            )}
+            variants={buttonVariants}
+            initial="hidden"
+            animate={isVisible ? "visible" : "hidden"}>
             <ChevronUpIcon className={"text-primary_color dark:text-primary_color-dark p-1 h-12 w-12"} />
-        </button>
+        </motion.button>
     )
 }
