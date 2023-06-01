@@ -26,17 +26,39 @@ function MenuItem ({ onClick, children }: MenuItemProps) {
 
 export default function ThemeToggle() {
     const [open, setOpen] = useState(false);
-    const { setTheme } = useTheme()
+    const { theme, setTheme } = useTheme();
+    const isDark = theme === "dark";
 
     return (
         <DropdownMenu.Root open={open} onOpenChange={setOpen} modal={false}>
-            <DropdownMenu.Trigger className={"bg-slate-50 dark:bg-slate-800 rounded-md relative inline-block text-left my-4"}>
-                <div
-                    className={"w-full h-full flex p-2.5"}>
-                    <SunIcon className={"w-6 h-6 dark:hidden"}></SunIcon>
-                    <MoonIcon className={"w-6 h-6 hidden dark:block"}></MoonIcon>
-                </div>
-            </DropdownMenu.Trigger>
+            <motion.div
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.8 }}
+                transition={{ duration: 0.3 }}
+                className={"bg-slate-50 dark:bg-slate-800 rounded-md relative inline-block text-left my-4"}
+            >
+                <DropdownMenu.Trigger>
+                    <div className={"w-full h-full flex p-2.5"}>
+                        <div className={"relative w-6 h-6 text-primary_color dark:text-primary_color-dark"}>
+                            <motion.div
+                                animate={{ x: isDark ? "-50%" : 0, opacity: isDark ? 0 : 1 }}
+                                transition={{ duration: 0.3 }}
+                                className="absolute inset-0"
+                            >
+                                <SunIcon className="w-full h-full" />
+                            </motion.div>
+                            <motion.div
+                                animate={{ x: isDark ? 0 : "50%", opacity: isDark ? 1 : 0 }}
+                                transition={{ duration: 0.3 }}
+                                className="absolute inset-0"
+                            >
+                                <MoonIcon className="w-full h-full" />
+                            </motion.div>
+                        </div>
+
+                    </div>
+                </DropdownMenu.Trigger>
+            </motion.div>
             <AnimatePresence>
                 {open && (
                     <DropdownMenu.Portal forceMount>
@@ -48,7 +70,7 @@ export default function ThemeToggle() {
                                 transition={{ ease: 'easeIn', duration: 0.1 }}
                                 className={cn(
                                 "my-2 p-2 rounded-md",
-                                "bg-slate-50 dark:bg-slate-800 float-left"
+                                "bg-slate-50 dark:bg-slate-800 float-left text-primary_color dark:text-primary_color-dark"
                             )}>
                                 <MenuItem onClick={() => setTheme("light")}>
                                     <SunIcon className={"w-4 h-4 mr-2"}/>
@@ -68,7 +90,6 @@ export default function ThemeToggle() {
                 )}
             </AnimatePresence>
         </DropdownMenu.Root>
-
     )
 }
 
