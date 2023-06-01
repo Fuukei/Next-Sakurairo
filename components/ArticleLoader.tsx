@@ -17,7 +17,7 @@ export default function ArticleLoader({ articles, articlesPerLoad }: ArticleLoad
     const loadMore = () => {
         const nextPosts = articles.slice(displayedArticles.length, displayedArticles.length+articlesPerLoad);
         setDisplayedPosts([...displayedArticles, ...nextPosts]);
-        if (articles.length >= displayedArticles.length) {
+        if (articles.length >= displayedArticles.length + nextPosts.length) {
             setHasMore(false);
         }
     };
