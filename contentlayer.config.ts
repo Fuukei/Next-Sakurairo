@@ -1,4 +1,8 @@
-import { defineDocumentType, makeSource, type ComputedFields } from '@contentlayer/source-files'
+import { defineDocumentType, makeSource, type ComputedFields } from "@contentlayer/source-files";
+import { remarkCodeHike } from "@code-hike/mdx";
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+const theme = require("shiki/themes/nord.json");
 
 const computedFields: ComputedFields = {
     slug: {
@@ -47,5 +51,16 @@ export const Page = defineDocumentType(() => ({
 
 export default makeSource({
     contentDirPath: './content',
-    documentTypes: [Article, Page]
+    documentTypes: [Article, Page],
+    mdx: {
+        remarkPlugins: [
+            [remarkCodeHike,
+                {
+                    showCopyButton: true,
+                    theme: theme,
+                    lineNumbers: true,
+                }
+            ]
+        ]
+    }
 })
