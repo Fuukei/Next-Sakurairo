@@ -15,6 +15,5 @@ export function MDXContent({ code }: MDXContentProps) {
         <MDXStyles>
             <Component components={MDXComponents} />
         </MDXStyles>
-
     );
 }
