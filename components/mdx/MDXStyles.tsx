@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils';
+import "@code-hike/mdx/dist/index.css"
 
 type MDXStylesProps = {
     children: React.ReactNode;
