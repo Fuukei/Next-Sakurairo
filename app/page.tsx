@@ -3,6 +3,7 @@ import { allArticles } from "contentlayer/generated";
 import ArticleLoader from "@/components/ArticleLoader";
 import {Square3Stack3DIcon} from "@heroicons/react/24/solid";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export default function Home() {
     const articles = allArticles.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
@@ -11,7 +12,15 @@ export default function Home() {
       <>
           <div className={"grid content-center justify-items-center min-h-screen"}>
               <div className={"text-center"}>
-                  <img src="https://qwq.xyz/wp-content/uploads/2022/03/cocdeshijie.gif" alt="Profile Image" className="w-36 h-36 mx-auto mb-3 hover:rotate-[360deg] duration-500" />
+                  <div className="w-36 h-36 mx-auto mb-3">
+                      <Image
+                          src="https://qwq.xyz/wp-content/uploads/2022/03/cocdeshijie.gif"
+                          alt="Profile Image"
+                          width={144}
+                          height={144}
+                          className="object-cover hover:rotate-[360deg] duration-500 transform"
+                      />
+                  </div>
               </div>
               <div className={"w-10/12 max-w-xl"}>
                   <div className={cn(
