@@ -1,5 +1,3 @@
-"use client";
-
 import { allArticles } from "contentlayer/generated";
 import { MDXContent } from "@/components/mdx/MDXContent";
 import { notFound } from "next/navigation";
