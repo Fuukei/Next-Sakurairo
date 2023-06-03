@@ -31,6 +31,11 @@ const ArticleLayout = ({ params }: { params: { slug: string } }) => {
         visible: { scaleX: 1, transition: { duration: 0.5 } }
     };
 
+    const mdxVariants = {
+        hidden: { y: 50, opacity: 0 },
+        visible: { y: 0, opacity: 1, transition: { duration: 0.5 } }
+    };
+
     return (
         <div className={"min-h-screen bg-slate-200/70 dark:bg-gray-900/75 backdrop-blur-md"}>
             <div className={"flex min-h-[200px] md:min-h-[300px] rounded-b-2xl overflow-hidden"}
@@ -65,7 +70,13 @@ const ArticleLayout = ({ params }: { params: { slug: string } }) => {
             </div>
 
             <div className={"pb-8 mx-4 lg:mx-auto lg:px-4 max-w-4xl"}>
-                <MDXContent code={article.body.code} />
+                <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    variants={mdxVariants}
+                >
+                    <MDXContent code={article.body.code} />
+                </motion.div>
                 <GiscusComments/>
             </div>
         </div>
