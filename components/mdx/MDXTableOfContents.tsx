@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from 'react';
+import { motion } from "framer-motion";
 
 type MDXTableOfContentsProps = {
     raw: string;
@@ -13,6 +14,20 @@ interface Header {
 
 export default function MDXTableOfContents({ raw }: MDXTableOfContentsProps) {
     const [toc, setToc] = useState<Header[]>([]);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const show = window.scrollY > 100; // choose your threshold for the scroll position to show the component
+            if (show !== isScrolled) {
+                setIsScrolled(show);
+            }
+        };
+        document.addEventListener("scroll", handleScroll);
+        return () => {
+            document.removeEventListener("scroll", handleScroll);
+        };
+    }, [isScrolled]);
 
     useEffect(() => {
         const lines = raw.split("\n");
@@ -35,18 +50,35 @@ export default function MDXTableOfContents({ raw }: MDXTableOfContentsProps) {
         setToc(headers);
     }, [raw]);
 
+    const variants = {
+        hidden: { x: 300, opacity: 0 },
+        visible: {
+            x: 0,
+            opacity: 1,
+            transition: {
+                duration: 0.3,
+                ease: "easeInOut"
+            }
+        }
+    };
+
     return (
-        <div>
-            <h2>Table of Contents</h2>
-            <ul>
+        <motion.div
+            initial="hidden"
+            animate={isScrolled ? "visible" : "hidden"}
+            variants={variants}
+            className="p-6 rounded shadow-md fixed top-1/4 right-8 z-30 hidden lg:block"
+        >
+            <h2 className="text-2xl font-semibold mb-3">Table of Contents</h2>
+            <ul className="list-disc pl-5 space-y-2">
                 {toc.map((header, index) => (
-                    <li key={index}>
-                        <a href={`#${header.text.toLowerCase().split(' ').join('-')}`} style={{ marginLeft: (header.level - 1) * 20 }}>
+                    <li key={index} className={`pl-${header.level - 1}`}>
+                        <a href={`#${header.text.toLowerCase().split(' ').join('-')}`} className="text-blue-500 hover:underline">
                             {header.text}
                         </a>
                     </li>
                 ))}
             </ul>
-        </div>
+        </motion.div>
     );
 }
