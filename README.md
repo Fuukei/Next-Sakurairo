@@ -22,7 +22,7 @@ This is a work in progress.
   - [x] Better prose style
 - [ ] Search function
 - [ ] Tagging function
-- [ ] TOC generation for articles
+- [x] TOC generation for articles
 - [x] Use [giscus](https://giscus.app/) for comments
 - [ ] OG generator
   - [ ] Option for AI generated description
