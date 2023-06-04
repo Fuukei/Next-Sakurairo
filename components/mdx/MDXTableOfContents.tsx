@@ -16,11 +16,20 @@ export default function MDXTableOfContents({ raw }: MDXTableOfContentsProps) {
 
     useEffect(() => {
         const lines = raw.split("\n");
+        let inCodeBlock = false; // Track if we're inside a code block
         const headers = lines
-            .filter(line => line.startsWith('#'))
+            .filter(line => {
+                if (line.startsWith("```")) {
+                    // If line starts with ```, invert the flag
+                    inCodeBlock = !inCodeBlock;
+                    return false;
+                }
+                // Only consider as header if we're not inside a code block, line starts with #, and # is followed by a space
+                return !inCodeBlock && line.startsWith('#') && line.charAt(line.lastIndexOf('#') + 1) === ' ';
+            })
             .map(line => {
-                const level = line.lastIndexOf('#') + 1;  // Count the number of '#' to determine the level of heading
-                const text = line.slice(level).trim();   // Remove '#' characters to get the heading text
+                const level = line.lastIndexOf('#') + 1;
+                const text = line.slice(level).trim();
                 return { text, level };
             });
         setToc(headers);
