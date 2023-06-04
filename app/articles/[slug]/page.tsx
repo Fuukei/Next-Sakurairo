@@ -1,8 +1,9 @@
 import { allArticles } from "contentlayer/generated";
-import { MDXContent } from "@/components/mdx/MDXContent";
+import MDXContent from "@/components/mdx/MDXContent";
 import { notFound } from "next/navigation";
 import GiscusComments from "@/components/GiscusComments";
 import ArticlePageHeading from "@/components/ArticlePageHeading";
+import MDXTableOfContents from "@/components/mdx/MDXTableOfContents";
 
 export const generateStaticParams = async () => allArticles.map((article) => ({ slug: article.slug }))
 
@@ -27,8 +28,9 @@ const ArticleLayout = ({ params }: { params: { slug: string } }) => {
             </div>
 
             <div className={"pb-8 mx-4 lg:mx-auto lg:px-4 max-w-4xl"}>
+                <MDXTableOfContents raw={article.body.raw} />
                 <MDXContent code={article.body.code} />
-                <GiscusComments/>
+                <GiscusComments />
             </div>
         </div>
     )
