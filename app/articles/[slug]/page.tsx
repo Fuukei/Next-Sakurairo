@@ -27,10 +27,14 @@ const ArticleLayout = ({ params }: { params: { slug: string } }) => {
                 <ArticlePageHeading title={article.title} date={article.date}/>
             </div>
 
-            <div className={"pb-8 mx-4 lg:mx-auto lg:px-4 max-w-4xl"}>
-                <MDXTableOfContents raw={article.body.raw} />
-                <MDXContent code={article.body.code} />
-                <GiscusComments />
+            <div className={"pb-8 mx-4 lg:mx-auto lg:px-4 max-w-4xl flex"}>
+                <div className={"flex-grow"}>
+                    <MDXContent code={article.body.code} />
+                    <GiscusComments />
+                </div>
+                <div className={"sticky top-1/4 self-start hidden lg:block"}>
+                    <MDXTableOfContents raw={article.body.raw} />
+                </div>
             </div>
         </div>
     )
