@@ -9,7 +9,7 @@ export default function MDXStyles({ children }: MDXStylesProps) {
     return (
         <section
             className={cn(
-                "py-8 text-justify max-w-none hyphens-auto",
+                "text-justify max-w-none hyphens-auto",
                 "prose prose-slate dark:prose-invert dark:text-pink-50",
                 "prose-headings:drop-shadow-sm dark:prose-headings:text-pink-200",
                 "prose-ul:my-6 prose-li:my-0 marker:text-slate-600 dark:marker:text-slate-400",
