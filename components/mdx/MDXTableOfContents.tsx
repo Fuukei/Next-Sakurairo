@@ -112,8 +112,8 @@ export default function MDXTableOfContents({ raw }: MDXTableOfContentsProps) {
                                     "bg-slate-50 dark:bg-slate-800 text-primary_color dark:text-primary_color-dark"
                                 )}>
                                 <MDXStyles>
-                                    <h2 className="text-md font-semibold mb-3">Table of Contents</h2>
-                                    <div className="whitespace-nowrap">
+                                    <h2 className="text-sm font-semibold mb-3">Table of Contents</h2>
+                                    <div className="text-sm whitespace-nowrap">
                                         {toc.map((header, index) => (
                                             <div key={index}
                                                  style={{ paddingLeft: `${header.level * 5}px` }}
