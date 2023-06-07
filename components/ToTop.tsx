@@ -42,7 +42,7 @@ export default function ToTop() {
             transition={{ duration: 0.3 }}
             onClick={scrollToTop}
             className={cn(
-                "fixed z-40 rounded-xl bottom-0 right-0 mr-2 lg:mr-6 mb-8",
+                "fixed z-30 rounded-xl bottom-0 right-0 mr-2 lg:mr-6 mb-8",
                 "bg-slate-50 dark:bg-slate-800",
             )}
             variants={buttonVariants}

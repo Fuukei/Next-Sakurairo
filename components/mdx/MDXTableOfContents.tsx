@@ -85,7 +85,7 @@ export default function MDXTableOfContents({ raw }: MDXTableOfContentsProps) {
                 whileTap={{ scale: 0.8 }}
                 transition={{ duration: 0.3 }}
                 className={cn(
-                    "fixed z-40 rounded-xl bottom-14 right-0 mr-2 lg:mr-6 mb-8 h-12 w-12",
+                    "fixed z-30 rounded-xl bottom-14 right-0 mr-2 lg:mr-6 mb-8 h-12 w-12",
                     "bg-slate-50 dark:bg-slate-800",
                 )}
                 variants={buttonVariants}

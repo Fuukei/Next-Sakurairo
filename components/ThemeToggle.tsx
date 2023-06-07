@@ -62,7 +62,7 @@ export default function ThemeToggle() {
             <AnimatePresence>
                 {open && (
                     <DropdownMenu.Portal forceMount>
-                        <DropdownMenu.Content className={"z-50"} align={"center"}>
+                        <DropdownMenu.Content className={"z-40"} align={"center"}>
                             <motion.div
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
