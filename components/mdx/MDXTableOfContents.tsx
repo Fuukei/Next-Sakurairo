@@ -113,6 +113,7 @@ export default function MDXTableOfContents({ raw }: MDXTableOfContentsProps) {
                                 )}>
                                 <MDXStyles>
                                     <h2 className="text-sm font-semibold mb-3">Table of Contents</h2>
+                                    <hr className={"my-2"}/>
                                     <div className="text-sm whitespace-nowrap">
                                         {toc.map((header, index) => (
                                             <div key={index}
