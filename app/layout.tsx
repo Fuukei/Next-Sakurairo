@@ -28,11 +28,11 @@ export default function RootLayout({
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <ScrollProgressProvider>
               <div className={"min-h-screen flex flex-col"}>
-                  <ToTop />
                   <Header />
                   {children}
                   <Footer />
                   <TailwindIndicator />
+                  <ToTop />
               </div>
           </ScrollProgressProvider>
       </ThemeProvider>
