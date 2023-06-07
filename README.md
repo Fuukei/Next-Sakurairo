@@ -20,13 +20,15 @@ This is a work in progress.
   - [ ] Scroll bar
   - [x] Animation
   - [x] Better prose style
+- [ ] Multi-level navigation
 - [ ] Search function
 - [ ] Tagging function
 - [ ] TOC generation for articles
+  - [x] Basic TOC generation
   - [ ] Highlight current section heading ...?
 - [x] Use [giscus](https://giscus.app/) for comments
 - [ ] OG generator
-  - [ ] Option for AI generated description
+  - [ ] Option for AI generated description...?
 - [ ] Loading components
 - [x] Configs
 - [ ] Documentation
