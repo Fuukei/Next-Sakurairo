@@ -4,17 +4,32 @@ import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import * as Dialog from '@radix-ui/react-dialog';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function Search() {
     const [searchOpen, setSearchOpen] = useState(false)
+
+    useEffect(() => {
+        function handleKeyDown(event: KeyboardEvent) {
+            if (event.key === 'k' && (event.ctrlKey || event.metaKey)) {
+                event.preventDefault();
+                setSearchOpen(prevState => !prevState);
+            }
+        }
+        document.addEventListener('keydown', handleKeyDown);
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown);
+        }
+    }, []);  // Run the effect only on component mount and unmount
+
     return (
-        <Dialog.Root onOpenChange={(searchOpen) => setSearchOpen(searchOpen)}>
+        <Dialog.Root open={searchOpen}>
             <Dialog.Trigger>
                 <motion.div
                     whileTap={{ scale: 0.8 }}
                     transition={{ duration: 0.3 }}
+                    onClick={() => setSearchOpen(true)}
                     className={cn(
                         "m-2.5 inline-flex items-center justify-center rounded-md p-2.5",
                         "bg-slate-200 dark:bg-slate-800 text-primary_color dark:text-primary_color-dark"
@@ -32,6 +47,7 @@ export default function Search() {
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 0.6 }}
                                 exit={{ opacity: 0 }}
+                                onClick={() => setSearchOpen(false)}
                                 className={cn(
                                     "fixed z-50 inset-x-0 inset-y-0 h-screen",
                                     "bg-slate-900 dark:bg-slate-500"
