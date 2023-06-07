@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import {ChevronUpIcon, ListBulletIcon} from "@heroicons/react/24/solid";
+import { ListBulletIcon } from "@heroicons/react/24/solid";
 import { cn } from "@/lib/utils";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import MDXStyles from "@/components/mdx/MDXStyles";
