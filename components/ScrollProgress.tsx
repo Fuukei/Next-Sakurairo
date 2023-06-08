@@ -33,7 +33,7 @@ function ScrollProgress() {
     }, [contentLoaded]); // Add contentLoaded as a dependency
 
     return (
-        <div className={"fixed z-40 h-0.5 md:h-1 duration-1000 bg-primary_color dark:bg-primary_color-dark"}
+        <div className={"fixed z-50 h-0.5 md:h-1 duration-1000 bg-primary_color dark:bg-primary_color-dark"}
              style={{ width: `${scroll}%` }}>
         </div>
     );
