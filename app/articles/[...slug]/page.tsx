@@ -1,21 +1,31 @@
-import { allArticles } from "contentlayer/generated";
+import {allArticles} from "contentlayer/generated";
 import MDXContent from "@/components/mdx/MDXContent";
-import { notFound } from "next/navigation";
+import {notFound} from "next/navigation";
 import GiscusComments from "@/components/GiscusComments";
 import ArticlePageHeading from "@/components/ArticlePageHeading";
 import MDXTableOfContents from "@/components/mdx/MDXTableOfContents";
 
-export const generateStaticParams = async () => allArticles.map((article) => ({ slug: article.slug }))
+type ArticlePageProps = {
+    params: {
+        slug: string[];
+    };
+};
 
-export const generateMetadata = ({ params }: { params: { slug: string } }) => {
-    const article = allArticles.find((article) => article.slug === params.slug) || {
+export async function generateStaticParams(): Promise<ArticlePageProps['params'][]> {
+    return allArticles.map(({slug}) => ({
+        slug: slug.split('/')
+    }));
+}
+
+export const generateMetadata = ({ params }: ArticlePageProps) => {
+    const article =  allArticles.find(({ slug }) => slug === params.slug.join('/')) || {
         title: "Article not found"
     }
     return { title: article.title }
 }
 
-const ArticleLayout = ({ params }: { params: { slug: string } }) => {
-    const article = allArticles.find((article) => article.slug === params.slug)
+const ArticlePage = ({ params }: ArticlePageProps) => {
+    const article = allArticles.find(({ slug }) => slug === params.slug.join('/'));
 
     if (!article) notFound()
 
@@ -38,4 +48,4 @@ const ArticleLayout = ({ params }: { params: { slug: string } }) => {
     )
 }
 
-export default ArticleLayout
+export default ArticlePage
