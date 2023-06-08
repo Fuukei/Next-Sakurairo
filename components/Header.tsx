@@ -3,12 +3,13 @@
 import { useEffect, useState} from "react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import ThemeToggle from "@/components/ThemeToggle";
-import Search from "@/components/Search";
+import Search from "@/components/search/Search";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { blogConfig } from "@/config";
 import * as Dialog from '@radix-ui/react-dialog';
 import { AnimatePresence, motion } from "framer-motion";
+import { allArticles } from "contentlayer/generated";
 
 const navigationItems = blogConfig.navigation;
 
@@ -64,7 +65,7 @@ function MobileMenu() {
                                             </div>
                                         </Link>
                                     ))}
-                                    <Search />
+                                    <Search articles={allArticles} />
                                     <ThemeToggle />
                                 </div>
                             </motion.div>
@@ -143,7 +144,7 @@ export default function Header() {
                                 </div>
                             </Link>
                         ))}
-                        <Search />
+                        <Search articles={allArticles} />
                         <ThemeToggle />
                     </div>
                 </div>

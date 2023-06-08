@@ -4,32 +4,51 @@ import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import * as Dialog from '@radix-ui/react-dialog';
-import { useState, useEffect } from "react";
-import Link from "next/link";
+import { useEffect, useMemo } from "react";
+import SearchInput from "@/components/search/SearchInput";
+import { type Article } from 'contentlayer/generated';
+import { useSearchStore } from '@/stores/search-store';
+import { shallow } from "zustand/shallow";
+import {searchArticles} from "@/lib/search";
+import SearchResults from "@/components/search/SearchResults";
 
-export default function Search() {
-    const [searchOpen, setSearchOpen] = useState(false)
+type SearchProps = {
+    articles: Article[];
+};
+
+export default function Search({ articles }: SearchProps) {
+    const { query, isSearching, toggleSearch } = useSearchStore(
+        (state) => ({
+            query: state.query,
+            isSearching: state.isSearching,
+            toggleSearch: state.toggleSearch,
+        }),
+        shallow,
+    );
+
+    const results = useMemo(() => searchArticles(query, articles), [query, articles]);
 
     useEffect(() => {
         function handleKeyDown(event: KeyboardEvent) {
             if (event.key === 'k' && (event.ctrlKey || event.metaKey)) {
                 event.preventDefault();
-                setSearchOpen(prevState => !prevState);
+                toggleSearch()
             }
         }
         document.addEventListener('keydown', handleKeyDown);
         return () => {
             document.removeEventListener('keydown', handleKeyDown);
         }
-    }, []);  // Run the effect only on component mount and unmount
+    }, [toggleSearch]);  // Run the effect only on component mount and unmount
 
     return (
-        <Dialog.Root open={searchOpen}>
+        <Dialog.Root open={isSearching}>
             <Dialog.Trigger>
                 <motion.div
+                    whileHover={{ scale: 1.2 }}
                     whileTap={{ scale: 0.8 }}
                     transition={{ duration: 0.3 }}
-                    onClick={() => setSearchOpen(true)}
+                    onClick={() => toggleSearch()}
                     className={cn(
                         "m-2.5 inline-flex items-center justify-center rounded-md p-2.5",
                         "bg-slate-200 dark:bg-slate-800 text-primary_color dark:text-primary_color-dark"
@@ -40,14 +59,14 @@ export default function Search() {
                 </motion.div>
             </Dialog.Trigger>
             <AnimatePresence>
-                {searchOpen ? (
+                {isSearching ? (
                     <Dialog.Portal forceMount>
                         <Dialog.Overlay>
                             <motion.div
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 0.6 }}
                                 exit={{ opacity: 0 }}
-                                onClick={() => setSearchOpen(false)}
+                                onClick={() => toggleSearch()}
                                 className={cn(
                                     "fixed z-50 inset-x-0 inset-y-0 h-screen",
                                     "bg-slate-900 dark:bg-slate-500"
@@ -63,18 +82,13 @@ export default function Search() {
                                 transition={{ ease: 'linear', duration: 0.15 }}
                                 className={cn(
                                     "fixed z-50 px-6 py-6 rounded-xl",
-                                    "md:inset-1/4 md:w-1/2 md:h-1/2",
-                                    "inset-[10%] w-[80%] h-[85%]",
+                                    "md:inset-1/4 md:w-1/2 h-fit md:min-h-1/3 md:max-h-2/3",
+                                    "inset-[10%] w-[80%] h-fit min-h-[40%] max-h-[85%]",
                                     "bg-slate-100 dark:bg-slate-900"
                                 )}
                             >
-                                <div className="flex flex-col items-center justify-between">
-                                    <Link href={"/"}>
-                                        <div className={"px-2 font-semibold text-primary_color dark:text-primary_color-dark"}>
-                                            Test
-                                        </div>
-                                    </Link>
-                                </div>
+                                <SearchInput hasResults={false}/>
+                                <SearchResults query={query} results={results}/>
                             </motion.div>
                         </Dialog.Content>
                     </Dialog.Portal>
