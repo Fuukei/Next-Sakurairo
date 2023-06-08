@@ -1,9 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { format, parseISO } from "date-fns";
 import { Article } from "contentlayer/generated";
 import { cn } from "@/lib/utils";
 import { HashtagIcon } from "@heroicons/react/24/solid";
+import { useState } from "react";
 
 type ArticleCardProps = {
     article: Article;
@@ -11,21 +14,28 @@ type ArticleCardProps = {
 }
 
 export default function ArticleCard({ article, idx }: ArticleCardProps) {
+    const [hover, setHover] = useState(false);
 
     return (
-        <div className={cn({
-            "md:flex-row-reverse": idx % 2 !== 0,
-            "md:flex-row": idx % 2 === 0
-            },
-            "bg-white dark:bg-gray-900/75 ",
-            "mb-4 md:mb-6 md:h-72",
-            "flex w-full flex-col rounded-xl overflow-hidden shadow-lg hover:shadow-2xl duration-500"
-        )}>
+        <div onMouseEnter={() => setHover(true)}
+             onMouseLeave={() => setHover(false)}
+             className={cn({
+                     "md:flex-row-reverse": idx % 2 !== 0,
+                     "md:flex-row": idx % 2 === 0
+                 },
+                 "bg-slate-50 dark:bg-gray-900/75 ",
+                 "mb-4 md:mb-6 md:h-72",
+                 "flex w-full flex-col rounded-xl overflow-hidden shadow-lg hover:shadow-2xl duration-500"
+             )}>
             <div className="w-full md:w-7/12 overflow-hidden">
                 <Link href={article.url}>
                     <Image src={article.image}
                            alt={article.title}
-                           className={"w-full h-64 md:h-full object-cover hover:scale-110 duration-500"}
+                           className={cn({
+                               "scale-110": hover
+                           },
+                               "w-full h-64 md:h-full object-cover duration-500",
+                           )}
                            width={1920}
                            height={1080}/>
                 </Link>
@@ -65,14 +75,15 @@ export default function ArticleCard({ article, idx }: ArticleCardProps) {
                 </div>
 
                 <div className={cn({
-                        "lg:justify-items-end  lg:text-end": idx % 2 === 0,
+                        "lg:justify-items-end lg:text-end": idx % 2 === 0,
                         "lg:justify-items-start": idx % 2 !== 0
                     },
                     "lg:grid"
                 )}>
-                    <h2 className={cn(
-                        "font-bold text-lg mb-2 line-clamp-2",
-                        "hover:text-primary_color hover:dark:text-primary_color-dark duration-200"
+                    <h2 className={cn({
+                        "text-primary_color dark:text-primary_color-dark": hover
+                    },
+                        "font-bold text-lg mb-2 line-clamp-2 duration-200",
                     )}>
                         <Link href={article.url}>{article.title}</Link>
                     </h2>
