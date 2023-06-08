@@ -51,7 +51,7 @@ export default function Search({ articles }: SearchProps) {
                     onClick={() => toggleSearch()}
                     className={cn(
                         "m-2.5 inline-flex items-center justify-center rounded-md p-2.5",
-                        "bg-slate-200 dark:bg-slate-800 text-primary_color dark:text-primary_color-dark"
+                        "bg-slate-50 dark:bg-slate-800 text-primary_color dark:text-primary_color-dark"
                     )}
                 >
                     <span className="sr-only">Open menu</span>
