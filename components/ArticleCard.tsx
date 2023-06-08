@@ -65,7 +65,7 @@ export default function ArticleCard({ article, idx }: ArticleCardProps) {
                 </div>
 
                 <div className={cn({
-                        "lg:justify-items-end text-end": idx % 2 === 0,
+                        "lg:justify-items-end  lg:text-end": idx % 2 === 0,
                         "lg:justify-items-start": idx % 2 !== 0
                     },
                     "lg:grid"
