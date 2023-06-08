@@ -24,7 +24,7 @@ const ArticleLayout = ({ params }: { params: { slug: string } }) => {
             <div className={"min-h-screen bg-slate-200/70 dark:bg-gray-900/75 backdrop-blur-md"}>
                 <div className={"flex min-h-[200px] md:min-h-[300px] rounded-b-2xl overflow-hidden"}
                      style={{backgroundImage: 'url(' + article.image +')', backgroundSize: 'cover'}}>
-                    <ArticlePageHeading title={article.title} date={article.date}/>
+                    <ArticlePageHeading title={article.title} date={article.date} tags={article.tags}/>
                 </div>
                 <div className={"pb-8 mx-4 lg:mx-auto lg:px-4 max-w-4xl flex"}>
                     <div className={"flex-grow py-8"}>

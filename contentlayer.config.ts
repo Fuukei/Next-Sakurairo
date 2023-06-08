@@ -18,6 +18,7 @@ export const Article = defineDocumentType(() => ({
     fields: {
         title: { type: 'string', required: true },
         date: { type: 'date', required: true },
+        tags: { type: 'list', of: { type: 'string' }, required: false },
         image: { type: 'string', required: false, default: 'https://www.loliapi.com/acg/pc/' },
     },
     computedFields: {
@@ -25,7 +26,7 @@ export const Article = defineDocumentType(() => ({
             type: 'string',
             resolve: (article) => `/${article._raw.flattenedPath}`
         },
-        test: {
+        image: {
             type: 'string',
             resolve: (article) => article.image = article.image + "?r=" + Math.random(),
         },
