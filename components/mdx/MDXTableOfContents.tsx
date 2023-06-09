@@ -41,7 +41,7 @@ export default function MDXTableOfContents({ raw }: MDXTableOfContentsProps) {
 
         const quarterHeight = window.innerHeight / 4;  // Calculate the quarter of the viewport height.
         const sectionTop = section.getBoundingClientRect().top;  // Get the position of the section.
-        const position = sectionTop - quarterHeight + window.pageYOffset;  // Calculate the position you want to scroll to.
+        const position = sectionTop - quarterHeight + window.scrollY;  // Calculate the position you want to scroll to.
         window.scrollTo({top: position, behavior: 'smooth'});  // Scroll to the desired position.
     }
 
