@@ -9,7 +9,7 @@ import SearchInput from "@/components/search/SearchInput";
 import { type Article } from 'contentlayer/generated';
 import { useSearchStore } from '@/stores/search-store';
 import { shallow } from "zustand/shallow";
-import {searchArticles} from "@/lib/search";
+import { searchArticles } from "@/lib/search";
 import SearchResults from "@/components/search/SearchResults";
 
 type SearchProps = {
@@ -81,13 +81,13 @@ export default function Search({ articles }: SearchProps) {
                                 exit={{ opacity: 0 }}
                                 transition={{ ease: 'linear', duration: 0.15 }}
                                 className={cn(
-                                    "fixed z-50 px-6 py-6 rounded-xl",
-                                    "md:inset-1/4 md:w-1/2 h-fit md:min-h-1/3 md:max-h-2/3",
-                                    "inset-[10%] w-[80%] h-fit min-h-[40%] max-h-[85%]",
-                                    "bg-slate-100 dark:bg-slate-900"
+                                    "fixed flex flex-col z-50 px-6 py-6 rounded-xl",
+                                    "md:inset-1/4 md:w-1/2 h-fit md:min-h-1/3 md:max-h-[66%]",
+                                    "inset-[5%] inset-y-[10%] w-[90%] h-fit min-h-[40%] max-h-[85%]",
+                                    "bg-slate-100/80 dark:bg-slate-900/80"
                                 )}
                             >
-                                <SearchInput hasResults={false}/>
+                                <SearchInput />
                                 <SearchResults query={query} results={results}/>
                             </motion.div>
                         </Dialog.Content>
