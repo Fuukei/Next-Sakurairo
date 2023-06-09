@@ -2,7 +2,6 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import * as Dialog from '@radix-ui/react-dialog';
 import { useEffect, useMemo } from "react";
 import SearchInput from "@/components/search/SearchInput";
@@ -22,7 +21,7 @@ export default function Search() {
         shallow,
     );
 
-    const results = useMemo(() => searchArticles(query, allArticles), [query, allArticles]);
+    const results = useMemo(() => searchArticles(query, allArticles), [query]);
 
     useEffect(() => {
         function handleKeyDown(event: KeyboardEvent) {
