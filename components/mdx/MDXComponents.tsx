@@ -1,9 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { HashtagIcon } from "@heroicons/react/24/solid";
-import { cn } from "@/lib/utils";
-import { useState } from "react"
 
 function a({ href, children }: React.HTMLProps<HTMLAnchorElement>) {
     if (href && href.startsWith('/')) {
