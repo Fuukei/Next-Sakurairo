@@ -6,17 +6,13 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import * as Dialog from '@radix-ui/react-dialog';
 import { useEffect, useMemo } from "react";
 import SearchInput from "@/components/search/SearchInput";
-import { type Article } from 'contentlayer/generated';
+import { allArticles } from 'contentlayer/generated';
 import { useSearchStore } from '@/stores/search-store';
 import { shallow } from "zustand/shallow";
 import { searchArticles } from "@/lib/search";
 import SearchResults from "@/components/search/SearchResults";
 
-type SearchProps = {
-    articles: Article[];
-};
-
-export default function Search({ articles }: SearchProps) {
+export default function Search() {
     const { query, isSearching, toggleSearch } = useSearchStore(
         (state) => ({
             query: state.query,
@@ -26,7 +22,7 @@ export default function Search({ articles }: SearchProps) {
         shallow,
     );
 
-    const results = useMemo(() => searchArticles(query, articles), [query, articles]);
+    const results = useMemo(() => searchArticles(query, allArticles), [query, allArticles]);
 
     useEffect(() => {
         function handleKeyDown(event: KeyboardEvent) {
@@ -39,24 +35,24 @@ export default function Search({ articles }: SearchProps) {
         return () => {
             document.removeEventListener('keydown', handleKeyDown);
         }
-    }, [toggleSearch]);  // Run the effect only on component mount and unmount
+    }, [toggleSearch]);
 
     return (
         <Dialog.Root open={isSearching}>
             <Dialog.Trigger>
-                <motion.div
-                    whileHover={{ scale: 1.2 }}
-                    whileTap={{ scale: 0.8 }}
-                    transition={{ duration: 0.3 }}
-                    onClick={() => toggleSearch()}
-                    className={cn(
-                        "m-2.5 inline-flex items-center justify-center rounded-md p-2.5",
-                        "bg-slate-50 dark:bg-slate-800 text-primary_color dark:text-primary_color-dark"
-                    )}
-                >
-                    <span className="sr-only">Open menu</span>
-                    <MagnifyingGlassIcon className={"w-6 h-6"} aria-hidden={"true"}/>
-                </motion.div>
+                {/*<motion.div*/}
+                {/*    whileHover={{ scale: 1.2 }}*/}
+                {/*    whileTap={{ scale: 0.8 }}*/}
+                {/*    transition={{ duration: 0.3 }}*/}
+                {/*    onClick={() => toggleSearch()}*/}
+                {/*    className={cn(*/}
+                {/*        "m-2.5 inline-flex items-center justify-center rounded-md p-2.5",*/}
+                {/*        "bg-slate-50 dark:bg-slate-800 text-primary_color dark:text-primary_color-dark"*/}
+                {/*    )}*/}
+                {/*>*/}
+                {/*    <span className="sr-only">Open menu</span>*/}
+                {/*    <MagnifyingGlassIcon className={"w-6 h-6"} aria-hidden={"true"}/>*/}
+                {/*</motion.div>*/}
             </Dialog.Trigger>
             <AnimatePresence>
                 {isSearching ? (

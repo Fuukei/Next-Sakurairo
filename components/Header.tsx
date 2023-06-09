@@ -1,15 +1,15 @@
 "use client";
 
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import ThemeToggle from "@/components/ThemeToggle";
-import Search from "@/components/search/Search";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { blogConfig } from "@/config";
 import * as Dialog from '@radix-ui/react-dialog';
 import { AnimatePresence, motion } from "framer-motion";
-import { allArticles } from "contentlayer/generated";
+import Search from "@/components/search/Search";
+import SearchTrigger from "@/components/search/SearchTrigger";
 
 const navigationItems = blogConfig.navigation;
 
@@ -65,7 +65,7 @@ function MobileMenu() {
                                             </div>
                                         </Link>
                                     ))}
-                                    <Search articles={allArticles} />
+                                    <SearchTrigger />
                                     <ThemeToggle />
                                 </div>
                             </motion.div>
@@ -99,6 +99,7 @@ export default function Header() {
 
     return (
         <header className={"fixed flex w-full z-40"}>
+            <Search />
             <div onMouseEnter={() => setHeaderHover(true)}
                  onMouseLeave={() => setHeaderHover(false)}
                  className={cn({
@@ -144,7 +145,7 @@ export default function Header() {
                                 </div>
                             </Link>
                         ))}
-                        <Search articles={allArticles} />
+                        <SearchTrigger />
                         <ThemeToggle />
                     </div>
                 </div>
