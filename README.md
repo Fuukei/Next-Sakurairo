@@ -21,8 +21,8 @@ This is a work in progress.
   - [x] Animation
   - [x] Better prose style
 - [ ] Multi-level navigation
-- [ ] Search function
-- [ ] Tagging function
+- [x] Search function
+- [x] Tagging function
 - [ ] TOC generation for articles
   - [x] Basic TOC generation
   - [ ] Highlight current section heading ...?
