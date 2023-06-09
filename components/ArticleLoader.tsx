@@ -77,7 +77,6 @@ export default function ArticleLoader({ articles, articlesPerLoad }: ArticleLoad
                     <a>You&apos;ve reached the end :)</a>
                 )}
             </div>
-
         </>
     )
 }

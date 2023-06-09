@@ -36,7 +36,6 @@ export default function RootLayout({
               </div>
           </ScrollProgressProvider>
       </ThemeProvider>
-
       </body>
     </html>
   )
