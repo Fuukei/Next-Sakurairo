@@ -88,9 +88,7 @@ export default function ArticleCard({ article, idx }: ArticleCardProps) {
                         <Link href={article.url}>{article.title}</Link>
                     </h2>
                     <p className="text-sm line-clamp-4">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam justo neque,
-                        aliquet sit amet elementum eu, eget massa. Donec metus mauris,
-                        aliquam id dolor id, blandit condimentum magna.
+                        {article.excerpt}
                     </p>
                 </div>
             </div>
