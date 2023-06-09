@@ -32,7 +32,7 @@ export default function ArticleLoader({ articles, articlesPerLoad }: ArticleLoad
             {displayedArticles.map((article: Article, idx: number) => {
                 const cardVariants = {
                     offscreen: {
-                        x: idx % 2 === 0 ? 300 : -300
+                        x: idx % 2 === 0 ? 200 : -200
                     },
                     onscreen: {
                         x: 0,
