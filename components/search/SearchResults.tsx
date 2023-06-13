@@ -3,8 +3,8 @@ import { allArticles } from "contentlayer/generated";
 import {cn} from "@/lib/utils";
 import Link from "next/link";
 import { useSearchStore } from '@/stores/search-store';
-import {format, parseISO} from "date-fns";
-import {HashtagIcon} from "@heroicons/react/24/solid";
+import { format, parseISO } from "date-fns";
+import { HashtagIcon } from "@heroicons/react/24/solid";
 
 type ArticleCardProps = {
     article: Article;
@@ -37,10 +37,9 @@ function ArticleCard({ article }: ArticleCardProps) {
                             return (
                                 <div className={cn(
                                     "inline-flex text-xs rounded-md items-center",
-                                    "bg-secondary_color/50 dark:bg-secondary_color-dark/70"
+                                    "bg-secondary_color/20 dark:bg-secondary_color-dark/20"
                                 )}>
-                                    <HashtagIcon className={"w-3 h-3 ml-1"}/>
-                                    <div className={"text-xs py-1 px-1"}>No tags</div>
+                                    <div className={"text-xs py-1 px-1 opacity-70"}>No tags</div>
                                 </div>
                             )
                         } else {
