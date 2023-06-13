@@ -23,9 +23,12 @@ export default function ArticleCard({ article, idx }: ArticleCardProps) {
                      "md:flex-row-reverse": idx % 2 !== 0,
                      "md:flex-row": idx % 2 === 0
                  },
+                 {
+                     "shadow-lg  shadow-primary_color dark:shadow-primary_color-dark": hover,
+                 },
                  "bg-slate-50 dark:bg-gray-900/75 ",
                  "mb-4 md:mb-6 md:h-72",
-                 "flex w-full flex-col rounded-xl overflow-hidden shadow-lg hover:shadow-2xl duration-500"
+                 "flex w-full flex-col rounded-xl overflow-hidden duration-500"
              )}>
             <div className="w-full md:w-7/12 overflow-hidden">
                 <Link href={article.url}>
