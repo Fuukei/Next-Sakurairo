@@ -24,7 +24,7 @@ export default function ArticleCard({ article, idx }: ArticleCardProps) {
                      "md:flex-row": idx % 2 === 0
                  },
                  {
-                     "shadow-lg  shadow-primary_color dark:shadow-primary_color-dark": hover,
+                     "shadow-lg  shadow-primary_color/50 dark:shadow-primary_color-dark/50": hover,
                  },
                  "bg-slate-50 dark:bg-gray-900/75 ",
                  "mb-4 md:mb-6 md:h-72",
