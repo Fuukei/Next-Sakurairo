@@ -1,9 +1,10 @@
 import { compareDesc } from "date-fns";
 import { allArticles } from "contentlayer/generated";
 import ArticleLoader from "@/components/ArticleLoader";
-import {Square3Stack3DIcon} from "@heroicons/react/24/solid";
+import { Square3Stack3DIcon } from "@heroicons/react/24/solid";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { Typing } from "@/app/Typing";
 
 export default function Home() {
     const articles = allArticles.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
@@ -27,7 +28,8 @@ export default function Home() {
                       "backdrop-blur-sm w-full rounded-2xl text-center py-5",
                       "bg-secondary_color/60 dark:bg-secondary_color-dark/60"
                       )}>
-                      <span>誰でも大好き!</span>
+                      <Typing />
+
                   </div>
               </div>
               <div className="flex justify-center mt-5 space-x-3">
