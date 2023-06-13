@@ -2,6 +2,12 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Typing } from "@/app/Typing";
 import { Square3Stack3DIcon } from "@heroicons/react/24/solid";
+import Link from "next/link";
+import { blogConfig } from "@/config";
+import {Article} from "contentlayer/generated";
+import {motion} from "framer-motion";
+import ArticleCard from "@/components/ArticleCard";
+import {BlogConfig} from "@/config/type";
 
 export default function HeroSection() {
     return (
@@ -26,28 +32,20 @@ export default function HeroSection() {
                 </div>
             </div>
             <div className="flex justify-center mt-5 space-x-3">
-                <a href={"#"}
-                   className={cn(
-                       "backdrop-blur-sm rounded-xl overflow-hidden w-8 h-8",
-                       "bg-secondary_color/80 dark:bg-secondary_color-dark/80"
-                   )}>
-                    <Square3Stack3DIcon className={"p-1"} />
-                </a>
-
-                <a href={"#"}
-                   className={cn(
-                       "backdrop-blur-sm rounded-xl overflow-hidden w-8 h-8",
-                       "bg-secondary_color/80 dark:bg-secondary_color-dark/80"
-                   )}>
-                    <Square3Stack3DIcon className={"p-1"} />
-                </a>
-                <a href={"#"}
-                   className={cn(
-                       "backdrop-blur-sm rounded-xl overflow-hidden w-8 h-8",
-                       "bg-secondary_color/80 dark:bg-secondary_color-dark/80"
-                   )}>
-                    <Square3Stack3DIcon className={"p-1"} />
-                </a>
+                {blogConfig.social.map((social) => {
+                    return (
+                        <Link href={social.href}
+                              key={social.title}
+                              className={cn(
+                                  "backdrop-blur-sm rounded-xl overflow-hidden w-8 h-8",
+                                  "bg-secondary_color/80 dark:bg-secondary_color-dark/80"
+                              )}>
+                            <div className={"m-1"}>
+                                {social.icon}
+                            </div>
+                        </Link>
+                    );
+                })}
             </div>
         </div>
     )

@@ -1,5 +1,5 @@
 import { BlogConfig } from "@/config/type";
-import { Square3Stack3DIcon} from "@heroicons/react/24/solid";
+import { AcademicCapIcon, Square3Stack3DIcon } from "@heroicons/react/24/solid";
 
 /**
  * Configure file for the blog.
@@ -25,8 +25,13 @@ export const blogConfig: BlogConfig = {
     social: [
         {
             title: "GitHub",
-            icon: <Square3Stack3DIcon className="w-5 h-5" />,
-            href: ""
+            icon: <Square3Stack3DIcon/>,
+            href: "https://github.com"
+        },
+        {
+            title: "Twitter",
+            icon: <AcademicCapIcon/>,
+            href: "https://twitter.com"
         }
     ]
 }
