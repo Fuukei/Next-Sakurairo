@@ -56,10 +56,9 @@ export default function ArticleCard({ article, idx }: ArticleCardProps) {
                             return (
                                 <div className={cn(
                                     "inline-flex text-xs rounded-md mr-2 items-center",
-                                    "bg-secondary_color/50 dark:bg-secondary_color-dark/70"
+                                    "bg-secondary_color/20 dark:bg-secondary_color-dark/20"
                                 )}>
-                                    <HashtagIcon className={"w-3 h-3 ml-1"}/>
-                                    <div className={"text-xs py-1 px-1"}>No tags</div>
+                                    <div className={"text-xs py-1 px-1 opacity-70"}>No tags</div>
                                 </div>
                             )
                         } else {
