@@ -6,8 +6,9 @@ import {BlogConfig} from "@/config/type";
  */
 
 export const blogConfig: BlogConfig = {
-    url: '',
+    url: 'https://next-sakurairo.qwq.xyz',
     author: "cocdeshijie",
+    typist: "by cocdeshijie",
 
     navigation: [
         {

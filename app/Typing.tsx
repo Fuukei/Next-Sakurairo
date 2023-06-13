@@ -1,6 +1,7 @@
 "use client"
 
 import Typist from "react-typist-component";
+import { blogConfig } from "@/config";
 
 
 export function Typing() {
@@ -8,7 +9,7 @@ export function Typing() {
     return (
         <Typist typingDelay={100}
         >
-            <span>誰でも大好き!</span>
+            <span>{blogConfig.typist}</span>
         </Typist>
     )
 }

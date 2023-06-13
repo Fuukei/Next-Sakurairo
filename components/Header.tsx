@@ -110,7 +110,7 @@ export default function Header() {
                      "w-full md:rounded-2xl md:mt-5 md:mx-10 px-4 md:px-0 md:py-1 duration-500"
                  )}>
                 <div className="hidden md:flex w-full items-center justify-between">
-                    <Link href={"/"}
+                    <Link href={blogConfig.url}
                           onMouseEnter={() => setLogoHover(true)}
                           onMouseLeave={() => setLogoHover(false)}
                           className={cn({
