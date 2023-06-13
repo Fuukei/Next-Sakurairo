@@ -1,13 +1,8 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Typing } from "@/app/Typing";
-import { Square3Stack3DIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { blogConfig } from "@/config";
-import {Article} from "contentlayer/generated";
-import {motion} from "framer-motion";
-import ArticleCard from "@/components/ArticleCard";
-import {BlogConfig} from "@/config/type";
 
 export default function HeroSection() {
     return (
