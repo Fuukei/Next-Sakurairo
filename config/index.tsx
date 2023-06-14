@@ -8,6 +8,8 @@ import { AcademicCapIcon, Square3Stack3DIcon } from "@heroicons/react/24/solid";
 
 export const blogConfig: BlogConfig = {
     url: 'https://next-sakurairo.qwq.xyz',
+    title: "Next Sakurairo",
+    description: "A blog system made with Next.js.",
     author: "cocdeshijie",
     typist: "by cocdeshijie",
 

@@ -2,6 +2,8 @@ import { ReactNode } from "react";
 
 export type BlogConfig = {
     url: string;
+    title: string;
+    description: string;
     author: string;
     typist: string;
 

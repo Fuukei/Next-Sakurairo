@@ -1,9 +1,11 @@
-import {allArticles} from "contentlayer/generated";
+import { allArticles } from "contentlayer/generated";
 import MDXContent from "@/components/mdx/MDXContent";
-import {notFound} from "next/navigation";
+import { notFound } from "next/navigation";
 import GiscusComments from "@/components/GiscusComments";
 import ArticlePageHeading from "@/components/ArticlePageHeading";
 import MDXTableOfContents from "@/components/mdx/MDXTableOfContents";
+import { type Metadata } from "next/types";
+import { blogConfig } from "@/config";
 
 type ArticlePageProps = {
     params: {
@@ -17,11 +19,25 @@ export async function generateStaticParams(): Promise<ArticlePageProps['params']
     }));
 }
 
-export const generateMetadata = ({ params }: ArticlePageProps) => {
-    const article =  allArticles.find(({ slug }) => slug === params.slug.join('/')) || {
-        title: "Article not found"
+export const generateMetadata = ({ params }: ArticlePageProps): Metadata => {
+    const { title, url} =  allArticles.find(({ slug }) => slug === params.slug.join('/')) || {
+        title: "Article not found",
+        url: "/"
     }
-    return { title: article.title }
+    return {
+        title: title,
+        description: "Description placeholder",
+        openGraph: {
+            type: "website",
+            url: `${blogConfig.url}${url}`,
+            title: title,
+            description: "Description placeholder",
+        },
+        twitter: {
+            title: title,
+            description: "Description placeholder"
+        }
+    }
 }
 
 const ArticlePage = ({ params }: ArticlePageProps) => {

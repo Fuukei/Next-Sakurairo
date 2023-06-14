@@ -2,6 +2,22 @@ import { compareDesc } from "date-fns";
 import { allArticles } from "contentlayer/generated";
 import ArticleLoader from "@/components/ArticleLoader";
 import HeroSection from "@/components/hero/HeroSection";
+import { type Metadata } from "next/types";
+import { blogConfig } from "@/config";
+
+export const metadata: Metadata = {
+    title: blogConfig.title,
+    description: blogConfig.description,
+    openGraph: {
+        type: "website",
+        url: blogConfig.url,
+        title: blogConfig.title,
+        description: blogConfig.description
+    },
+    twitter: {
+        description: blogConfig.description
+    }
+}
 
 export default function Home() {
     const articles = allArticles.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
