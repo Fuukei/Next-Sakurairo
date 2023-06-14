@@ -1,4 +1,4 @@
-const colors = require('tailwindcss/colors');
+import { blogConfig } from "./config";
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -17,16 +17,16 @@ module.exports = {
       },
       colors: {
         primary_color: {
-          DEFAULT: colors.pink[400],
-          dark: colors.pink[600]
+          DEFAULT: blogConfig.colors.primary_color.light,
+          dark: blogConfig.colors.primary_color.dark
         },
         secondary_color: {
-          DEFAULT: colors.amber[400],
-          dark: colors.amber[600]
+          DEFAULT: blogConfig.colors.secondary_color.light,
+          dark: blogConfig.colors.secondary_color.dark
         },
         accent_color: {
-          DEFAULT: colors.cyan[400],
-          dark: colors.cyan[600]
+          DEFAULT: blogConfig.colors.accent_color.light,
+          dark: blogConfig.colors.accent_color.dark
         }
       }
     },

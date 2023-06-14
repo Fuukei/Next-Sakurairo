@@ -1,5 +1,7 @@
 import { BlogConfig } from "@/config/type";
 import { AcademicCapIcon, Square3Stack3DIcon } from "@heroicons/react/24/solid";
+const colors = require('tailwindcss/colors');
+
 
 /**
  * Configure file for the blog.
@@ -35,5 +37,20 @@ export const blogConfig: BlogConfig = {
             icon: <AcademicCapIcon/>,
             href: "https://twitter.com"
         }
-    ]
+    ],
+
+    colors: {
+        primary_color: {
+            light: colors.pink[400],
+            dark: colors.pink[600]
+        },
+        secondary_color: {
+            light: colors.amber[400],
+            dark: colors.amber[600]
+        },
+        accent_color: {
+            light: colors.cyan[400],
+            dark: colors.cyan[600]
+        },
+    }
 }

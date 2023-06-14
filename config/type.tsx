@@ -17,4 +17,19 @@ export type BlogConfig = {
         icon: ReactNode;
         href: string;
     }[];
+
+    colors: {
+        primary_color: {
+            light: string;
+            dark: string;
+        },
+        secondary_color: {
+            light: string;
+            dark: string;
+        },
+        accent_color: {
+            light: string;
+            dark: string;
+        },
+    }
 }
