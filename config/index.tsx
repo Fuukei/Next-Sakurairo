@@ -1,6 +1,6 @@
 import { BlogConfig } from "@/config/type";
 import { AcademicCapIcon, Square3Stack3DIcon } from "@heroicons/react/24/solid";
-const colors = require('tailwindcss/colors');
+const colors = require("tailwindcss/colors");
 
 
 /**
