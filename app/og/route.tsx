@@ -4,7 +4,6 @@ import { blogConfig } from "@/config";
 
 export async function GET(req: NextRequest) {
     const primaryColor = blogConfig.colors.primary_color.light;
-    console.log(primaryColor)
     const secondaryColor = blogConfig.colors.secondary_color.light;
     const accentColor = blogConfig.colors.accent_color.light;
 
