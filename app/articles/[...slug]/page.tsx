@@ -20,22 +20,33 @@ export async function generateStaticParams(): Promise<ArticlePageProps['params']
 }
 
 export const generateMetadata = ({ params }: ArticlePageProps): Metadata => {
-    const { title, url} =  allArticles.find(({ slug }) => slug === params.slug.join('/')) || {
+    const { title, url, excerpt, date} =  allArticles.find(({ slug }) => slug === params.slug.join('/')) || {
         title: "Article not found",
-        url: "/"
+        excerpt: "",
+        url: "/",
+        date: new Date().toISOString()
     }
+
+    const ogImage = {
+        url: `${blogConfig.url}/og?title=${title}&excerpt=${excerpt ?? ''}`,
+    };
+
     return {
         title: title,
-        description: "Description placeholder",
+        description: excerpt,
         openGraph: {
-            type: "website",
+            type: "article",
             url: `${blogConfig.url}${url}`,
             title: title,
-            description: "Description placeholder",
+            description: excerpt,
+            publishedTime: date,
+            images: [ogImage]
         },
         twitter: {
             title: title,
-            description: "Description placeholder"
+            description: excerpt,
+            images: ogImage,
+            card: 'summary_large_image',
         }
     }
 }

@@ -5,6 +5,10 @@ import HeroSection from "@/components/hero/HeroSection";
 import { type Metadata } from "next/types";
 import { blogConfig } from "@/config";
 
+const ogImage = {
+    url: `${blogConfig.url}/og`,
+};
+
 export const metadata: Metadata = {
     title: blogConfig.title,
     description: blogConfig.description,
@@ -12,10 +16,13 @@ export const metadata: Metadata = {
         type: "website",
         url: blogConfig.url,
         title: blogConfig.title,
-        description: blogConfig.description
+        description: blogConfig.description,
+        images: [ogImage]
     },
     twitter: {
-        description: blogConfig.description
+        description: blogConfig.description,
+        images: ogImage,
+        card: "summary_large_image",
     }
 }
 
