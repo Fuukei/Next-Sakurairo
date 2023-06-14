@@ -16,7 +16,7 @@ function MenuItem ({ onClick, children }: MenuItemProps) {
             <div onClick={onClick}
                  className={cn(
                      "flex px-2 py-1 items-center rounded-md border-transparent border-2",
-                     "hover:border-slate-300 hover:dark:border-slate-600"
+                     "hover:border-primary_color/25 hover:dark:border-primary_color-dark/25",
                  )}>
                 {children}
             </div>
