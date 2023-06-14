@@ -80,7 +80,7 @@ export default makeSource({
                         type: 'element',
                         tagName: 'svg',
                         properties: {
-                            style: 'height: 0.8em; width: 0.8em; margin: 0.25rem; opacity: 0.6;',
+                            style: 'display: inline-block; height: 0.8em; width: 0.8em; margin: 0.25rem; opacity: 0.6;',
                             className: ['text-primary_color', 'dark:text-primary_color-dark'],
                             xmlns: 'http://www.w3.org/2000/svg',
                             fill: 'none',

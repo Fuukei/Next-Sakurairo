@@ -18,4 +18,6 @@ function a({ href, children }: React.HTMLProps<HTMLAnchorElement>) {
     );
 }
 
-export const MDXComponents = { a };
+export const MDXComponents = {
+    a
+}
