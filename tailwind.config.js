@@ -1,4 +1,4 @@
-import {blogConfig} from "./config";
+import { blogConfig } from "./config";
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
