@@ -27,7 +27,7 @@ This is a work in progress.
   - [x] Basic TOC generation
   - [ ] Highlight current section heading ...?
 - [x] Use [giscus](https://giscus.app/) for comments
-- [ ] OG generator
+- [x] OG generator
   - [ ] Option for AI generated description...?
 - [ ] Loading components
 - [x] Configs
