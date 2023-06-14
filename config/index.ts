@@ -1,4 +1,5 @@
 import { BlogConfig } from "@/config/type";
+const { createElement } = require("react");
 import { AcademicCapIcon, Square3Stack3DIcon } from "@heroicons/react/24/solid";
 const colors = require("tailwindcss/colors");
 
@@ -29,12 +30,12 @@ export const blogConfig: BlogConfig = {
     social: [
         {
             title: "GitHub",
-            icon: <Square3Stack3DIcon/>,
+            icon: createElement(Square3Stack3DIcon),
             href: "https://github.com"
         },
         {
             title: "Twitter",
-            icon: <AcademicCapIcon/>,
+            icon: createElement(AcademicCapIcon),
             href: "https://twitter.com"
         }
     ],
