@@ -156,7 +156,7 @@ export default function Header() {
                           onMouseLeave={() => setLogoHover(false)}
                           className={"space-x-2"}>
                         <span className={cn({
-                                "bg-amber-400": logoHover,
+                                "bg-primary_color dark:bg-primary_color-dark": logoHover,
                                 "bg-white/40": !logoHover,
                             },
                             "pt-3 pb-1 rounded-xl"
