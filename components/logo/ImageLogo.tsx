@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const logoSetting = require("@/config").blogConfig.header_logo.settings
 
-export default function Logo({logoHover}: {logoHover: boolean}) {
+export default function ImageLogo({logoHover}: {logoHover: boolean}) {
 
     return (
         <div className={"h-16"}>

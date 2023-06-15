@@ -1,18 +1,13 @@
-import TextLogo from '@/components/logo/TextLogo';
-import ImageLogo from '@/components/logo/ImageLogo';
+import { FC } from 'react';
+import * as LogoComponents from '@/components/logo/dynamic';
 
-const logoComponents = {
-    TextLogo: TextLogo,
-    ImageLogo: ImageLogo
-};
-
-type LogoOptionKeys = keyof typeof logoComponents;
+type LogoOptionKeys = keyof typeof LogoComponents;
 
 const logoOption: LogoOptionKeys = require("@/config").blogConfig.header_logo.option;
-const SelectedLogo = logoComponents[logoOption];
+const SelectedLogo = LogoComponents[logoOption];
 
-export default function Logo({logoHover}: {logoHover: boolean}) {
-    return (
-        <SelectedLogo logoHover={logoHover}/>
-    )
-}
+const Logo: FC<{ logoHover: boolean }> = ({ logoHover }) => {
+    return <SelectedLogo logoHover={logoHover} />;
+};
+
+export default Logo;

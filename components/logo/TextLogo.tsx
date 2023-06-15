@@ -5,7 +5,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 const logoSetting = require("@/config").blogConfig.header_logo.settings
 
-export default function Logo({logoHover}: {logoHover: boolean}) {
+export default function TextLogo({logoHover}: {logoHover: boolean}) {
     const controls = useAnimation();
     const textControls = useAnimation();
 
