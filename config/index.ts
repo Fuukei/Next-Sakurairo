@@ -27,6 +27,16 @@ export const blogConfig: BlogConfig = {
         }
     ],
 
+    header_logo: {
+        option: "Text Logo",
+        settings: {
+            text_front: "Next Sakurairo",
+            text_middle: "の",
+            text_end: "Site",
+            text_bottom: "qwq~"
+        }
+    },
+
     social: [
         {
             title: "GitHub",

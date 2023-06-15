@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
+const logoSetting = require("@/config").blogConfig.header_logo.settings
 
 export default function Logo({logoHover}: {logoHover: boolean}) {
     const controls = useAnimation();
@@ -38,16 +39,16 @@ export default function Logo({logoHover}: {logoHover: boolean}) {
                     },
                     "pt-3 pb-2 rounded-xl items-center"
                 )}>
-                    Next Sakurairo
+                    {logoSetting.text_front}
                 </div>
                 <motion.div
                     className={"text-primary_color dark:text-primary_color-dark"}
                     animate={controls}
                     variants={rotationVariant}
                 >
-                    の
+                    {logoSetting.text_middle}
                 </motion.div>
-                <div className={"text-primary_color dark:text-primary_color-dark"}>Site</div>
+                <div className={"text-primary_color dark:text-primary_color-dark"}>{logoSetting.text_end}</div>
             </div>
             <motion.div
                 className={"text-[10px] font-normal text-primary_color dark:text-primary_color-dark"}
@@ -55,7 +56,7 @@ export default function Logo({logoHover}: {logoHover: boolean}) {
                 transition={{ type: "ease", duration: 0.5 }}
                 initial={{ opacity: 0 }}
             >
-                qwq qwq~
+                {logoSetting.text_bottom}
             </motion.div>
         </div>
     )
