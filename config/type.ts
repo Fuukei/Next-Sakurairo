@@ -76,7 +76,7 @@ export type BlogConfig = {
             text_bottom: string;
         } }
         /*
-         * Future options
+         * Option Image Logo
          */
         | { option: "ImageLogo";
             settings: {
