@@ -54,19 +54,21 @@ export async function GET(req: NextRequest) {
 
         return new ImageResponse(
             (
-                <div tw={"h-full w-full flex flex-col items-center justify-center opacity-70"}
-                     style={{
-                         backgroundImage: `linear-gradient(${Math.floor(Math.random() * 360)}deg, ${gradientColors})`
-                     }}
-                >
-                    <div tw="flex flex-row items-center text-7xl mb-8">
-                        Placeholder for site icon
-                    </div>
-                    <div tw="text-5xl text-slate-800 text-center mb-4">
-                        {title}
-                    </div>
-                    <div tw="text-3xl text-slate-800 text-center">
-                        {excerpt}
+                <div tw={"h-full w-full flex bg-white"}>
+                    <div tw={"h-full w-full flex flex-col items-center justify-center opacity-70"}
+                         style={{
+                             backgroundImage: `linear-gradient(${Math.floor(Math.random() * 360)}deg, ${gradientColors})`
+                         }}
+                    >
+                        <div tw="flex flex-row items-center text-7xl mb-8">
+                            Placeholder for site icon
+                        </div>
+                        <div tw="text-5xl text-slate-800 text-center mb-4">
+                            {title}
+                        </div>
+                        <div tw="text-3xl text-slate-800 text-center">
+                            {excerpt}
+                        </div>
                     </div>
                 </div>
             )
