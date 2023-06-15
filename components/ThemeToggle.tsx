@@ -12,22 +12,22 @@ interface MenuItemProps {
 
 function MenuItem ({ onClick, children }: MenuItemProps) {
     return (
-        <DropdownMenu.Item>
-            <div onClick={onClick}
-                 className={cn(
-                     "flex px-2 py-1 items-center rounded-md border-transparent border-2",
-                     "hover:border-primary_color/25 hover:dark:border-primary_color-dark/25",
-                 )}>
-                {children}
-            </div>
+        <DropdownMenu.Item
+            onSelect={onClick}
+            className={cn(
+                "flex px-2 py-1 items-center rounded-md border-transparent border-2",
+                "data-[highlighted]:bg-primary_color/25 data-[highlighted]:dark:bg-primary_color-dark/25",
+                "data-[highlighted]:text-slate-600 data-[highlighted]:dark:text-slate-400",
+                )}>
+            {children}
         </DropdownMenu.Item>
     )
 }
 
 export default function ThemeToggle() {
     const [open, setOpen] = useState(false);
-    const { theme, setTheme } = useTheme();
-    const isDark = theme === "dark";
+    const { theme, setTheme, resolvedTheme } = useTheme();
+    const isDark = resolvedTheme === "dark";
 
     return (
         <DropdownMenu.Root open={open} onOpenChange={setOpen} modal={false}>
