@@ -1,0 +1,114 @@
+---
+title: 开发者文档
+date: 2023-06-15
+excerpt: Next Sakurairo 中文开发文档.
+tags:
+- Documentation
+---
+
+## Getting Started
+
+
+## 组件
+
+### 新组件选项
+
+只需3个步骤即可创建新的组件选项。
+
+1. 在 _`/components/<component-name>`_ 下创建新的组件文件
+2. 在 _`/components/<component-name>/dynamic.ts`_ 中添加动态导入
+3. 在 _`/config/type.ts`_ 中添加新的选项类型
+
+让我们使用 _`/components/logo`_ 下的现有组件作为示例。
+
+如果我们想要添加 ImageLogo.tsx 使用图片作为顶部 logo，我们首先需要创建文件  _`/components/logo/ImageLogo.tsx`_
+
+```tsx /components/logo/ImageLogo.tsx
+import Image from "next/image";
+
+// 注意这需要在第三步完成后设置
+// 在组件开发期间请使用占位符
+// mark
+const logoSetting = require("@/config").blogConfig.header_logo.settings
+// 这里，logoHover 不能删除，因为它通过 Logo.tsx 传递给 TextLogo 或其他组件
+// mark[35:67]
+export default function ImageLogo({logoHover}: {logoHover: boolean}) {
+    return (
+        <div className={"h-16"}>
+            <Image src={logoSetting.image_path}
+                   alt={"logo"}
+                   width={0}
+                   height={0}
+                   sizes="100vw"
+                   style={{ width: 'auto', height: '90%' }}
+            />
+        </div>
+
+    )
+}
+```
+
+然后我们会在 _`/components/logo/dynamic.ts`_ 中添加动态导入
+
+```ts /components/logo/dynamic.ts
+import dynamic from 'next/dynamic';
+
+export const TextLogo = dynamic(() => import('./TextLogo'));
+// 添加新的组件
+// mark
+export const ImageLogo = dynamic(() => import('./ImageLogo'));
+```
+
+最后，在  _`/config/type.ts`_ 中添加新的选项类型
+
+我们会将选项及其适当的设置添加到  _`header_logo`_
+```ts /config/type.ts
+export type BlogConfig = {
+    // 其他配置类型
+    header_logo:
+        | {
+        option: "TextLogo";
+        settings: {
+            // TextLogo 设置
+        } }
+        // mark(1:5)
+        // ImageLogo 示例
+        | { option: "ImageLogo";
+            settings: {
+                image_path: string;
+            } }
+    // 其他配置类型
+}
+```
+
+添加类型后，我们可以在 _`/config/index.ts`_ 中使用新选项。在 _`/config/index.ts`_ 中的任何配置设置都可以用于在组件中导入。这为用户和开发者提供了配置和开发适合他们使用组件的灵活性。
+
+### 启用组件的配置选项
+
+如果组件不在一个拥有 _`dynamic.ts`_ 的文件夹中，那么它在配置文件中没有可配置的选项。
+
+要使一个组件可配置化，有4个步骤。
+
+1. 在 _`/components`_ 下创建一个新的目录，以组件的名称命名。
+2. 在新目录中创建基础组件文件。
+
+让我们以 logo 组件为例。基础组件文件将是 _`/components`_，它处理根据配置文件中的选项导入并显示正确的 logo 变体。
+
+```typescript /components/logo/Logo.tsx
+import { FC } from 'react';
+import * as LogoComponents from '@/components/logo/dynamic';
+
+type LogoOptionKeys = keyof typeof LogoComponents;
+
+const logoOption: LogoOptionKeys = require("@/config").blogConfig.header_logo.option;
+const SelectedLogo = LogoComponents[logoOption];
+
+const Logo: FC<{ logoHover: boolean }> = ({ logoHover }) => {
+    return <SelectedLogo logoHover={logoHover} />;
+};
+
+export default Logo;
+```
+
+3. 在新目录中创建 _`dynamic.ts`_。此文件将负责根据配置文件中的选项动态导入适当的组件。
+4. 要添加新的组件变体，遵循 [新组件选项](#新组件选项) 中的步骤

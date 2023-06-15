@@ -1,0 +1,31 @@
+---
+title: Documentation for Users
+date: 2023-06-15
+excerpt: English documentation of Next Sakurairo.
+---
+
+## Getting Started
+
+
+
+### Components
+Some components, such as the logo component, can be switched out dynamically. You can identify these components by looking for folders with a _`dynamic.ts`_ file.
+
+The _`dynamic.ts`_ file contains dynamic imports for different versions of a component. The version used by your site is determined by the option field in your configuration file.
+
+To configure for a different component, you need to modify your configuration file (config/index.ts).
+
+Let's take the logo component as an example. If you want to change your logo from TextLogo to ImageLogo, you'd make the following change:
+```typescript config/index.ts
+export const blogConfig: BlogConfig = {
+    // rest of config
+    header_logo: {
+        option: "ImageLogo",
+        settings: {
+            image_path: "/logo.png"
+        }
+    },
+    // rest of config
+}
+```
+In this example, we've changed the option field under header_logo from "TextLogo" to "ImageLogo". This tells the blog to use the ImageLogo component instead of the TextLogo component.

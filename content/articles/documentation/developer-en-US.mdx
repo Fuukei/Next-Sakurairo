@@ -1,0 +1,114 @@
+---
+title: Documentation for Developers
+date: 2023-06-15
+excerpt: English documentation of Next Sakurairo.
+tags:
+- Documentation
+---
+
+## Getting Started
+
+
+## Components
+
+### New Component Options
+
+There are 3 steps to create a new component option.
+
+1. Create new component file under _`/components/<component-name>`_
+2. Add dynamic import to _`/components/<component-name>/dynamic.ts`_
+3. Add new option typing to _`/config/type.ts`_
+
+Let's take a look at existing components under _`/components/logo`_ as an example.
+
+If we want to add ImageLogo.tsx to show an image as logo in the header, we would first create the file _`/components/logo/ImageLogo.tsx`_
+
+```tsx /components/logo/ImageLogo.tsx
+import Image from "next/image";
+
+// note this need to be done after the third step is completed
+// use placeholders during component development
+// mark
+const logoSetting = require("@/config").blogConfig.header_logo.settings
+// Here, logoHover is needed because it is passed through in Logo.tsx to be used in TextLogo component
+// mark[35:67]
+export default function ImageLogo({logoHover}: {logoHover: boolean}) {
+    return (
+        <div className={"h-16"}>
+            <Image src={logoSetting.image_path}
+                   alt={"logo"}
+                   width={0}
+                   height={0}
+                   sizes="100vw"
+                   style={{ width: 'auto', height: '90%' }}
+            />
+        </div>
+
+    )
+}
+```
+
+Then we would add the dynamic import to _`/components/logo/dynamic.ts`_
+
+```ts /components/logo/dynamic.ts
+import dynamic from 'next/dynamic';
+
+export const TextLogo = dynamic(() => import('./TextLogo'));
+// add new components like this
+// mark
+export const ImageLogo = dynamic(() => import('./ImageLogo'));
+```
+
+Finally, we would add the new option typing to _`/config/type.ts`_
+
+We would add the option and its appropriate settings to _`header_logo`_
+```ts /config/type.ts
+export type BlogConfig = {
+    // Rest of config types
+    header_logo:
+        | {
+        option: "TextLogo";
+        settings: {
+            // TextLogo Settings
+        } }
+        // mark(1:5)
+        // example for ImageLogo
+        | { option: "ImageLogo";
+            settings: {
+                image_path: string;
+            } }
+    // Rest of config types
+}
+```
+
+After types are added, we can use the new option in _`/config/index.ts`_. Any config settings in _`/config/index.ts`_ can be used to import in components. This give the user and developer the flexibility to configure and develop components fitting for their use.
+
+### Enable Config Options for Components
+
+If a component is not in a folder with _`dynamic.ts`_, it means there are no options for it to be configured in the config files.
+
+To make a component configurable, there are 4 steps.
+
+1. Create a new directory under the _`/components`_ with the name of the component.
+2. Create the base component file in the new directory.
+
+    Let's use the logo components as an example. The base component file would be _`/components/logo/Logo.tsx`_, it handles importing and displaying the correct logo variant based on the option set in the config file.
+
+```typescript /components/logo/Logo.tsx
+import { FC } from 'react';
+import * as LogoComponents from '@/components/logo/dynamic';
+
+type LogoOptionKeys = keyof typeof LogoComponents;
+
+const logoOption: LogoOptionKeys = require("@/config").blogConfig.header_logo.option;
+const SelectedLogo = LogoComponents[logoOption];
+
+const Logo: FC<{ logoHover: boolean }> = ({ logoHover }) => {
+    return <SelectedLogo logoHover={logoHover} />;
+};
+
+export default Logo;
+```
+
+3. Create _`dynamic.ts`_ in the new directory. This file will be responsible for dynamically importing the appropriate component based on the option set in the config file.
+4. To add new component variations, follow the steps in [New Component Options](#new-component-options)
