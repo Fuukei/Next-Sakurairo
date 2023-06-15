@@ -51,7 +51,7 @@ export type BlogConfig = {
          * Option Text Logo
          */
         | {
-        option: "Text Logo";
+        option: "TextLogo";
         settings: {
             /*
              * The text at beginning of the logo.
@@ -74,12 +74,19 @@ export type BlogConfig = {
              * @example "qwq~"
              */
             text_bottom: string;
-        }
-        }
+        } }
         /*
          * Future options
          */
-        | { option: 2; subSetting2: boolean }
+        | { option: "ImageLogo";
+            settings: {
+                /*
+                 * The path of the image.
+                 * If logo.png is under public folder, the path should be "/logo.png".
+                 * @example "/logo.png"
+                 */
+                image_path: string;
+            } }
     /*
      * A list of social media links.
      * They will appear in front page landing screen.

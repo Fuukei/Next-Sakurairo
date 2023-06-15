@@ -10,7 +10,7 @@ import * as Dialog from '@radix-ui/react-dialog';
 import { AnimatePresence, motion } from "framer-motion";
 import Search from "@/components/search/Search";
 import SearchTrigger from "@/components/search/SearchTrigger";
-import Logo from "@/components/Logo";
+import Logo from "@/components/logo/Logo";
 
 const navigationItems = blogConfig.navigation;
 

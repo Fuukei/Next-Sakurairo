@@ -28,7 +28,7 @@ export const blogConfig: BlogConfig = {
     ],
 
     header_logo: {
-        option: "Text Logo",
+        option: "TextLogo",
         settings: {
             text_front: "Next Sakurairo",
             text_middle: "の",
