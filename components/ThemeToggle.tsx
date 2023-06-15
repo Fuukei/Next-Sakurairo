@@ -26,7 +26,7 @@ function MenuItem ({ onClick, children }: MenuItemProps) {
 
 export default function ThemeToggle() {
     const [open, setOpen] = useState(false);
-    const { theme, setTheme, resolvedTheme } = useTheme();
+    const { setTheme, resolvedTheme } = useTheme();
     const isDark = resolvedTheme === "dark";
 
     return (
