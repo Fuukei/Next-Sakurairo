@@ -10,6 +10,7 @@ import * as Dialog from '@radix-ui/react-dialog';
 import { AnimatePresence, motion } from "framer-motion";
 import Search from "@/components/search/Search";
 import SearchTrigger from "@/components/search/SearchTrigger";
+import Logo from "@/components/Logo";
 
 const navigationItems = blogConfig.navigation;
 
@@ -107,34 +108,19 @@ export default function Header() {
                          "md:backdrop-blur-none md:bg-transparent md:dark:bg-transparent": !(headerHover || isScrolled)
                      },
                      "backdrop-blur-sm bg-slate-100/70 dark:bg-slate-950/80",
-                     "w-full md:rounded-2xl md:mt-5 md:mx-10 px-4 md:px-0 md:py-1 duration-500"
+                     "w-full md:rounded-2xl md:mt-5 md:mx-10 px-4 md:px-0 duration-500"
                  )}>
                 <div className="hidden md:flex w-full items-center justify-between">
                     <Link href={blogConfig.url}
                           onMouseEnter={() => setLogoHover(true)}
                           onMouseLeave={() => setLogoHover(false)}
-                          className={cn({
-                                  "bg-slate-100/0 dark:bg-slate-950/0": headerHover || isScrolled,
-                                  "bg-slate-100/70 dark:bg-slate-950/80": !headerHover && !isScrolled,
-                              },
-                              "space-x-2 md:rounded-2xl p-4 py-6 md:px-7 duration-500"
+                          className={cn(
+                              "rounded-2xl px-7 pt-2 pb-0"
                           )}>
-                        <span className={cn({
-                                "bg-primary_color dark:bg-primary_color-dark": logoHover,
-                                "bg-white/40": !logoHover,
-                            },
-                            "pt-3 pb-1 rounded-xl"
-                        )}>
-                            Next Sakurairo
-                        </span>
-                        <span className={"text-primary_color dark:text-primary_color-dark"}>の</span>
-                        <span className={"text-primary_color dark:text-primary_color-dark"}>Site</span>
+                        <Logo logoHover={logoHover}/>
                     </Link>
 
-                    <div className={cn({
-                            "bg-slate-100/0 dark:bg-slate-950/0": headerHover || isScrolled,
-                            "bg-slate-100/70 dark:bg-slate-950/80": !headerHover && !isScrolled,
-                        },
+                    <div className={cn(
                         "flex items-center md:rounded-2xl md:px-6 md:py-1 space-x-4 duration-500",
                         "text-primary_color dark:text-primary_color-dark"
                     )}>
@@ -154,15 +140,8 @@ export default function Header() {
                     <Link href={"/"}
                           onMouseEnter={() => setLogoHover(true)}
                           onMouseLeave={() => setLogoHover(false)}
-                          className={"space-x-2"}>
-                        <span className={cn({
-                                "bg-primary_color dark:bg-primary_color-dark": logoHover,
-                                "bg-white/40": !logoHover,
-                            },
-                            "pt-3 pb-1 rounded-xl"
-                        )}>Next Sakurairo</span>
-                        <span className={""}>の</span>
-                        <span>Site</span>
+                          className={"mt-2"}>
+                        <Logo logoHover={logoHover}/>
                     </Link>
                     <MobileMenu/>
                 </div>
