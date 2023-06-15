@@ -27,6 +27,11 @@ export type BlogConfig = {
      */
     typist: string;
     /*
+     * The number of articles per load.
+     * @example 5
+     */
+    articles_per_load: number;
+    /*
      * The navigation bar of the blog.
      */
     navigation: {

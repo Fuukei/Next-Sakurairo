@@ -15,6 +15,7 @@ export const blogConfig: BlogConfig = {
     description: "A blog system made with Next.js.",
     author: "cocdeshijie",
     typist: "by cocdeshijie",
+    articles_per_load: 5,
 
     navigation: [
         {
