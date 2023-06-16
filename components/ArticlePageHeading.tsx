@@ -1,9 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { format, parseISO } from "date-fns";
-import { cn } from "@/lib/utils";
 import { HashtagIcon } from "@heroicons/react/24/solid";
+import { DateTag, NoTag, Tag } from "@/components/Tags";
 
 interface ArticlePageHeadingProps {
     title: string;
@@ -55,11 +54,7 @@ export default function ArticlePageHeading({ title, date, tags }: ArticlePageHea
                         className={"flex mb-2"}
                         variants={FADE_DOWN_ANIMATION_VARIANTS}
                     >
-                        <div className={"bg-accent_color/60 dark:bg-accent_color-dark/60 rounded-lg"}>
-                            <div className={"text-xs py-1 px-2"}>
-                                Published on {format(parseISO(date), 'LLLL d, yyyy')}
-                            </div>
-                        </div>
+                        <DateTag date={date}/>
                     </motion.div>
                     <motion.div
                         className={"flex"}
@@ -69,23 +64,14 @@ export default function ArticlePageHeading({ title, date, tags }: ArticlePageHea
                             {(() => {
                                 if (!tags || tags.length === 0) {
                                     return (
-                                        <div className={cn(
-                                            "inline-flex text-xs rounded-md mr-2 items-center",
-                                            "bg-secondary_color/20 dark:bg-secondary_color-dark/20"
-                                        )}>
-                                            <div className={"text-xs py-1 px-1 opacity-70"}>No tags</div>
-                                        </div>
+                                        <NoTag/>
                                     )
                                 } else {
                                     return tags.map((tag) => (
-                                        <div key={tag}
-                                             className={cn(
-                                                 "inline-flex text-xs rounded-md mr-2 items-center",
-                                                 "bg-secondary_color/50 dark:bg-secondary_color-dark/70"
-                                             )}>
+                                        <Tag key={tag}>
                                             <HashtagIcon className={"w-3 h-3 ml-1"}/>
                                             <div className={"text-xs py-1 px-1"}>{tag}</div>
-                                        </div>
+                                        </Tag>
                                     ))
                                 }
                             })()}

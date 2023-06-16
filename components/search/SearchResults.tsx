@@ -3,8 +3,8 @@ import { allArticles } from "contentlayer/generated";
 import {cn} from "@/lib/utils";
 import Link from "next/link";
 import { useSearchStore } from '@/stores/search-store';
-import { format, parseISO } from "date-fns";
 import { HashtagIcon } from "@heroicons/react/24/solid";
+import { DateTag, NoTag, Tag } from "@/components/Tags";
 
 type ArticleCardProps = {
     article: Article;
@@ -29,29 +29,18 @@ function ArticleCard({ article }: ArticleCardProps) {
                     {article.excerpt}
                 </p>
                 <div className={"flex space-x-1"}>
-                    <div className={"bg-accent_color/50 dark:bg-accent_color-dark/70 rounded-md"}>
-                        <div className={"text-xs py-0.5 px-1"}>Posted on {format(parseISO(article.date), 'LLLL d, yyyy')}</div>
-                    </div>
+                    <DateTag date={article.date} />
                     {(() => {
                         if (!article.tags || article.tags.length === 0) {
                             return (
-                                <div className={cn(
-                                    "inline-flex text-xs rounded-md items-center",
-                                    "bg-secondary_color/20 dark:bg-secondary_color-dark/20"
-                                )}>
-                                    <div className={"text-xs py-1 px-1 opacity-70"}>No tags</div>
-                                </div>
+                                <NoTag />
                             )
                         } else {
                             return article.tags.map((tag) => (
-                                <div key={tag}
-                                     className={cn(
-                                         "inline-flex text-xs rounded-md items-center",
-                                         "bg-secondary_color/50 dark:bg-secondary_color-dark/70"
-                                     )}>
+                                <Tag key={tag}>
                                     <HashtagIcon className={"w-3 h-3 ml-1"}/>
                                     <div className={"text-xs py-1 px-1"}>{tag}</div>
-                                </div>
+                                </Tag>
                             ))
                         }
                     })()}

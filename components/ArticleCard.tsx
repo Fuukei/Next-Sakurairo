@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { format, parseISO } from "date-fns";
 import { Article } from "contentlayer/generated";
 import { cn } from "@/lib/utils";
 import { HashtagIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
+import { DateTag, NoTag, Tag } from "@/components/Tags";
 
 type ArticleCardProps = {
     article: Article;
@@ -46,31 +46,20 @@ export default function ArticleCard({ article, idx }: ArticleCardProps) {
 
             <div className="w-full md:w-5/12 p-4 lg:px-8">
                 <div className={"flex mb-2"}>
-                    <div className={"bg-accent_color/50 dark:bg-accent_color-dark/70 rounded-md"}>
-                        <div className={"text-xs py-1 px-2"}>Posted on {format(parseISO(article.date), 'LLLL d, yyyy')}</div>
-                    </div>
+                    <DateTag date={article.date}></DateTag>
                 </div>
                 <div className={"flex mb-3"}>
                     {(() => {
                         if (!article.tags || article.tags.length === 0) {
                             return (
-                                <div className={cn(
-                                    "inline-flex text-xs rounded-md mr-2 items-center",
-                                    "bg-secondary_color/20 dark:bg-secondary_color-dark/20"
-                                )}>
-                                    <div className={"text-xs py-1 px-1 opacity-70"}>No tags</div>
-                                </div>
+                                <NoTag/>
                             )
                         } else {
                             return article.tags.map((tag) => (
-                                <div key={tag}
-                                     className={cn(
-                                    "inline-flex text-xs rounded-md mr-2 items-center",
-                                    "bg-secondary_color/50 dark:bg-secondary_color-dark/70"
-                                )}>
+                                <Tag key={tag}>
                                     <HashtagIcon className={"w-3 h-3 ml-1"}/>
                                     <div className={"text-xs py-1 px-1"}>{tag}</div>
-                                </div>
+                                </Tag>
                             ))
                         }
                     })()}
