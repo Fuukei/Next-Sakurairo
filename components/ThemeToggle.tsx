@@ -62,8 +62,8 @@ export default function ThemeToggle() {
                                 exit={{ opacity: 0 }}
                                 transition={{ ease: 'easeIn', duration: 0.1 }}
                                 className={cn(
-                                "my-2 p-2 rounded-md",
-                                "bg-slate-50 dark:bg-slate-800 float-left text-primary_color dark:text-primary_color-dark"
+                                "mt-5 p-2 rounded-md",
+                                "bg-slate-100/80 dark:bg-slate-800/80 text-primary_color dark:text-primary_color-dark"
                             )}>
                                 <MenuItem onClick={() => setTheme("light")}>
                                     <SunIcon className={"w-4 h-4 mr-2"}/>

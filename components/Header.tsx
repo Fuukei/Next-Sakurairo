@@ -30,12 +30,13 @@ function MobileMenu() {
                     <Dialog.Portal forceMount>
                         <Dialog.Overlay>
                             <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 0.6 }}
-                                exit={{ opacity: 0 }}
+                                initial={{ x: '400%' }}
+                                animate={{ x: 0 }}
+                                exit={{ x: '400%' }}
+                                transition={{ ease: 'linear', duration: 0.15 }}
                                 className={cn(
-                                    "fixed inset-x-0 inset-y-16 h-screen",
-                                    "bg-slate-900 dark:bg-slate-500"
+                                    "fixed inset-x-0 inset-y-16 h-screen w-1/4",
+                                    "bg-slate-800/50"
                                 )}
                             >
                             </motion.div>
@@ -48,7 +49,7 @@ function MobileMenu() {
                                 transition={{ ease: 'linear', duration: 0.15 }}
                                 className={cn(
                                     "fixed inset-y-16 right-0 z-40 w-3/4 h-screen px-6 py-6",
-                                    "bg-slate-100 dark:bg-slate-900"
+                                    "bg-slate-100/80 dark:bg-slate-800/80 backdrop-blur-md"
                                 )}
                             >
                                 <div className="flex flex-col items-center justify-between">
