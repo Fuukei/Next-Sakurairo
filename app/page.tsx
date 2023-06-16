@@ -4,7 +4,6 @@ import ArticleLoader from "@/components/ArticleLoader";
 import HeroSection from "@/components/hero/HeroSection";
 import { type Metadata } from "next/types";
 import { blogConfig } from "@/config";
-import { cn } from "@/lib/utils";
 
 const ogImage = {
     url: `${blogConfig.url}/og`,
