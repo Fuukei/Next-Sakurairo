@@ -6,6 +6,7 @@ import ArticlePageHeading from "@/components/ArticlePageHeading";
 import MDXTableOfContents from "@/components/mdx/MDXTableOfContents";
 import { type Metadata } from "next/types";
 import { blogConfig } from "@/config";
+import { cn } from "@/lib/utils";
 
 type ArticlePageProps = {
     params: {
@@ -63,7 +64,11 @@ const ArticlePage = ({ params }: ArticlePageProps) => {
                      style={{backgroundImage: 'url(' + article.image +')', backgroundSize: 'cover'}}>
                     <ArticlePageHeading title={article.title} date={article.date} tags={article.tags}/>
                 </div>
-                <div className={"pb-8 mx-4 lg:mx-auto lg:px-4 max-w-sm lg:max-w-4xl flex"}>
+                <div className={cn(
+                    "pb-8 mx-4 md:mx-auto lg:px-4",
+                    "md:max-w-3xl lg:max-w-4xl"
+
+                )}>
                     <div className={"py-8"}>
                         <MDXContent code={article.body.code} />
                         <GiscusComments />
