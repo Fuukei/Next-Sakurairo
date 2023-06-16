@@ -12,9 +12,9 @@ interface ArticlePageHeadingProps {
 }
 
 export default function ArticlePageHeading({ title, date, tags }: ArticlePageHeadingProps) {
-    const textVariants = {
-        hidden: { y: -50, opacity: 0 },
-        visible: { y: 0, opacity: 1, transition: { duration: 0.3 } }
+    let FADE_DOWN_ANIMATION_VARIANTS = {
+        hidden: { opacity: 0, y: -10 },
+        show: { opacity: 1, y: 0, transition: { type: "spring" } },
     };
 
     const hrVariants = {
@@ -25,64 +25,72 @@ export default function ArticlePageHeading({ title, date, tags }: ArticlePageHea
     return (
         <div className={"flex w-full backdrop-blur-sm"}>
             <div className={"self-end w-full pb-2 md:pb-4 mx-4 lg:mx-auto lg:px-4 max-w-3xl"}>
-                <motion.h1
-                    className={"text-lg md:text-3xl font-bold text-primary_color dark:text-primary_color-dark"}
-                    initial="hidden"
-                    animate="visible"
-                    variants={textVariants}
-                >
-                    {title}
-                </motion.h1>
-                <motion.hr
-                    style={{transformOrigin: "left"}}
-                    className={"h-1 m-1 md:mb-2 border-0 rounded bg-gray-700"}
-                    initial="hidden"
-                    animate="visible"
-                    variants={hrVariants}
-                />
                 <motion.div
-                    className={"flex mb-2"}
                     initial="hidden"
-                    animate="visible"
-                    variants={textVariants}
+                    animate="show"
+                    viewport={{ once: true }}
+                    variants={{
+                        hidden: {},
+                        show: {
+                            transition: {
+                                staggerChildren: 0.15,
+                            },
+                        },
+                    }}
                 >
-                    <div className={"bg-accent_color/60 dark:bg-accent_color-dark/60 rounded-lg"}>
-                        <div className={"text-xs py-1 px-2"}>
-                            Published on {format(parseISO(date), 'LLLL d, yyyy')}
+                    <motion.h1
+                        className={"text-lg md:text-3xl font-bold text-primary_color dark:text-primary_color-dark"}
+                        variants={FADE_DOWN_ANIMATION_VARIANTS}
+                    >
+                        {title}
+                    </motion.h1>
+                    <motion.hr
+                        style={{transformOrigin: "left"}}
+                        className={"h-1 m-1 md:mb-2 border-0 rounded bg-gray-700"}
+                        initial="hidden"
+                        animate="visible"
+                        variants={hrVariants}
+                    />
+                    <motion.div
+                        className={"flex mb-2"}
+                        variants={FADE_DOWN_ANIMATION_VARIANTS}
+                    >
+                        <div className={"bg-accent_color/60 dark:bg-accent_color-dark/60 rounded-lg"}>
+                            <div className={"text-xs py-1 px-2"}>
+                                Published on {format(parseISO(date), 'LLLL d, yyyy')}
+                            </div>
                         </div>
-                    </div>
-                </motion.div>
-                <motion.div
-                    className={"flex"}
-                    initial="hidden"
-                    animate="visible"
-                    variants={textVariants}
-                >
-                    <div className={"flex mb-3"}>
-                        {(() => {
-                            if (!tags || tags.length === 0) {
-                                return (
-                                    <div className={cn(
-                                        "inline-flex text-xs rounded-md mr-2 items-center",
-                                        "bg-secondary_color/20 dark:bg-secondary_color-dark/20"
-                                    )}>
-                                        <div className={"text-xs py-1 px-1 opacity-70"}>No tags</div>
-                                    </div>
-                                )
-                            } else {
-                                return tags.map((tag) => (
-                                    <div key={tag}
-                                         className={cn(
-                                             "inline-flex text-xs rounded-md mr-2 items-center",
-                                             "bg-secondary_color/50 dark:bg-secondary_color-dark/70"
-                                         )}>
-                                        <HashtagIcon className={"w-3 h-3 ml-1"}/>
-                                        <div className={"text-xs py-1 px-1"}>{tag}</div>
-                                    </div>
-                                ))
-                            }
-                        })()}
-                    </div>
+                    </motion.div>
+                    <motion.div
+                        className={"flex"}
+                        variants={FADE_DOWN_ANIMATION_VARIANTS}
+                    >
+                        <div className={"flex mb-3"}>
+                            {(() => {
+                                if (!tags || tags.length === 0) {
+                                    return (
+                                        <div className={cn(
+                                            "inline-flex text-xs rounded-md mr-2 items-center",
+                                            "bg-secondary_color/20 dark:bg-secondary_color-dark/20"
+                                        )}>
+                                            <div className={"text-xs py-1 px-1 opacity-70"}>No tags</div>
+                                        </div>
+                                    )
+                                } else {
+                                    return tags.map((tag) => (
+                                        <div key={tag}
+                                             className={cn(
+                                                 "inline-flex text-xs rounded-md mr-2 items-center",
+                                                 "bg-secondary_color/50 dark:bg-secondary_color-dark/70"
+                                             )}>
+                                            <HashtagIcon className={"w-3 h-3 ml-1"}/>
+                                            <div className={"text-xs py-1 px-1"}>{tag}</div>
+                                        </div>
+                                    ))
+                                }
+                            })()}
+                        </div>
+                    </motion.div>
                 </motion.div>
             </div>
         </div>

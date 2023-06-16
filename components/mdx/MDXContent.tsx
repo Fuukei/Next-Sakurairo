@@ -13,14 +13,15 @@ export default function MDXContent({ code }: MDXContentProps) {
     const Component = useMDXComponent(code);
 
     const mdxVariants = {
-        hidden: { y: 50, opacity: 0 },
-        visible: { y: 0, opacity: 1, transition: { duration: 0.5 } }
+        hidden: { filter: "blur(10px)", opacity: 0 },
+        visible: { filter: "blur(0px)", opacity: 1 },
     };
 
     return (
         <motion.div
             initial="hidden"
             animate="visible"
+            transition={{ duration: 0.5 }}
             variants={mdxVariants}
         >
             <MDXStyles>
