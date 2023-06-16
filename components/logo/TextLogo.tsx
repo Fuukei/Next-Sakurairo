@@ -32,12 +32,12 @@ export default function TextLogo({logoHover}: {logoHover: boolean}) {
 
     return (
         <div className="flex flex-col items-center -space-y-1 font-medium">
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-3 md:text-xl">
                 <div className={cn({
                         "bg-primary_color dark:bg-primary_color-dark": logoHover,
                         "bg-white/40": !logoHover,
                     },
-                    "pt-3 pb-2 rounded-xl items-center"
+                    "py-3 rounded-xl items-center"
                 )}>
                     {logoSetting.text_front}
                 </div>
