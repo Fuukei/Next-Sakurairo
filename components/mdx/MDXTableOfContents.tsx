@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import {useEffect, useRef, useState} from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ListBulletIcon } from "@heroicons/react/24/solid";
 import { cn } from "@/lib/utils";
@@ -15,12 +15,18 @@ type MDXTableOfContentsProps = {
 interface Header {
     text: string;
     level: number;
+    boundingTop: number;
+    isActive: boolean;
 }
 
+
 export default function MDXTableOfContents({ raw }: MDXTableOfContentsProps) {
+    const [offsetY, setOffsetY] = useState(0);
     const [toc, setToc] = useState<Header[]>([]);
     const [isVisible, setIsVisible] = useState(false);
     const [open, setOpen] = useState(false);
+    const [activeId, setActiveId] = useState("");
+    const marginTop = 200;
 
     const toggleVisibility = () => {
         setOpen(false); //close toc when scrolled
@@ -40,9 +46,8 @@ export default function MDXTableOfContents({ raw }: MDXTableOfContentsProps) {
             return;
         }
 
-        const quarterHeight = window.innerHeight / 4;  // Calculate the quarter of the viewport height.
         const sectionTop = section.getBoundingClientRect().top;  // Get the position of the section.
-        const position = sectionTop - quarterHeight + window.scrollY;  // Calculate the position you want to scroll to.
+        const position = sectionTop - marginTop + window.scrollY;  // Calculate the position you want to scroll to.
         window.scrollTo({top: position, behavior: 'smooth'});  // Scroll to the desired position.
     }
 
@@ -69,10 +74,45 @@ export default function MDXTableOfContents({ raw }: MDXTableOfContentsProps) {
             .map(line => {
                 const level = line.lastIndexOf('#') + 1;
                 const text = line.slice(level).trim();
-                return { text, level };
+                const el = document.getElementById(text.toLowerCase().split(' ').join('-'));  // Get the section element.
+                const boundingTop = el ? el.getBoundingClientRect().top : 0;
+                return { text, level, boundingTop, isActive: false };
             });
         setToc(headers);
     }, [raw]);
+
+    useEffect(() => {
+        const onScroll = () => {
+            setOffsetY(window.pageYOffset);
+        };
+        window.addEventListener('scroll', onScroll);
+
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
+    useEffect(() => {
+        if (toc.length === 0) return;
+
+        if (toc.length === 1) {
+            toc[0].isActive = true;
+            return;
+        }
+
+        toc.forEach((header: Header, index: number) => {
+            if (index === 0) {
+                header.isActive =
+                    toc[index + 1].boundingTop > offsetY + marginTop;
+            } else {
+                if (toc[index + 1]) {
+                    header.isActive =
+                        toc[index + 1].boundingTop > offsetY + marginTop &&
+                        toc[index].boundingTop <= offsetY + marginTop;
+                } else {
+                    header.isActive = toc[index].boundingTop <= offsetY + marginTop;
+                }
+            }
+        });
+    }, [toc, offsetY]);
 
     const buttonVariants = {
         hidden: { scale: 0, opacity: 0 },
@@ -118,18 +158,24 @@ export default function MDXTableOfContents({ raw }: MDXTableOfContentsProps) {
                                     <hr className={"my-2"}/>
                                     <div className="text-sm whitespace-nowrap">
                                         {toc.map((header, index) => (
-                                            <div key={index}
-                                                 style={{ paddingLeft: `${header.level * 20 - 20}px` }}
-                                                 onClick={(event) => {
-                                                     const id = header.text.toLowerCase().split(' ').join('-');
-                                                     scrollToSection(event, id);
-                                                     setOpen(false);
-                                                 }}>
-                                                <a href={`#${header.text.toLowerCase().split(' ').join('-')}`}>
+                                            <div
+                                                key={index}
+                                                style={{ paddingLeft: `${header.level * 20}px` }}
+                                                onClick={(event) => {
+                                                    const id = header.text.toLowerCase().split(' ').join('-');
+                                                    scrollToSection(event, id);
+                                                    setOpen(false);
+                                                }}
+                                            >
+                                                <a
+                                                    href={`#${header.text.toLowerCase().split(' ').join('-')}`}
+                                                    className={header.isActive ? "text-primary_color dark:text-primary_color-dark" : ""}
+                                                >
                                                     {header.text}
                                                 </a>
                                             </div>
                                         ))}
+
                                     </div>
                                 </MDXStyles>
 
