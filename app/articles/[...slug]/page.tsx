@@ -58,13 +58,13 @@ const ArticlePage = ({ params }: ArticlePageProps) => {
 
     return (
         <>
-            <div className={"min-h-screen bg-slate-200/70 dark:bg-gray-900/75 backdrop-blur-md"}>
+            <div className={"min-h-screen backdrop-blur-3xl bg-slate-50/50 dark:bg-gray-800/70"}>
                 <div className={"flex min-h-[200px] md:min-h-[300px] rounded-b-2xl overflow-hidden"}
                      style={{backgroundImage: 'url(' + article.image +')', backgroundSize: 'cover'}}>
                     <ArticlePageHeading title={article.title} date={article.date} tags={article.tags}/>
                 </div>
-                <div className={"pb-8 mx-4 lg:mx-auto lg:px-4 max-w-4xl flex"}>
-                    <div className={"flex-grow py-8"}>
+                <div className={"pb-8 mx-4 lg:mx-auto lg:px-4 max-w-sm lg:max-w-4xl flex"}>
+                    <div className={"py-8"}>
                         <MDXContent code={article.body.code} />
                         <GiscusComments />
                     </div>

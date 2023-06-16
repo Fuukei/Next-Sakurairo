@@ -11,8 +11,8 @@ export default function HeroSection() {
                 <Image
                     src="https://qwq.xyz/wp-content/uploads/2022/03/cocdeshijie.gif"
                     alt="Profile Image"
-                    width={0}
-                    height={0}
+                    width={256}
+                    height={256}
                     style={{ width: 'auto', height: '100%' }}
                     className="object-cover hover:rotate-[360deg] duration-500"/>
             </div>
