@@ -6,6 +6,7 @@ import { ListBulletIcon } from "@heroicons/react/24/solid";
 import { cn } from "@/lib/utils";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import MDXStyles from "@/components/mdx/MDXStyles";
+import IconButton from "@/components/IconButton";
 
 type MDXTableOfContentsProps = {
     raw: string;
@@ -81,43 +82,44 @@ export default function MDXTableOfContents({ raw }: MDXTableOfContentsProps) {
     return (
         <DropdownMenu.Root open={open} onOpenChange={setOpen} modal={false}>
             <motion.div
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.8 }}
-                transition={{ duration: 0.3 }}
                 className={cn(
-                    "fixed z-30 rounded-xl bottom-14 right-0 mr-2 lg:mr-6 mb-8 h-12 w-12",
-                    "bg-slate-50 dark:bg-slate-800",
+                    "fixed z-30 bottom-14 right-0 mr-2 lg:mr-6 mb-8",
                 )}
                 variants={buttonVariants}
                 initial="hidden"
-                animate={isVisible ? "visible" : "hidden"}
-            >
-                <DropdownMenu.Trigger>
-                    <div className={"text-primary_color dark:text-primary_color-dark"}>
-                        <ListBulletIcon className={"w-full h-full p-1"}/>
-                    </div>
-                </DropdownMenu.Trigger>
+                animate={isVisible ? "visible" : "hidden"}>
+                <IconButton>
+                    <DropdownMenu.Trigger>
+                        <div className={"text-primary_color dark:text-primary_color-dark"}>
+                            <ListBulletIcon className={"w-6 h-6"}/>
+                        </div>
+                    </DropdownMenu.Trigger>
+                </IconButton>
             </motion.div>
+
             <AnimatePresence>
                 {(open && isVisible)  &&  (
                     <DropdownMenu.Portal forceMount>
                         <DropdownMenu.Content className={"z-30"} side={"left"} align={"center"} sideOffset={10}>
                             <motion.div
-                                initial={{ opacity: 0, x: 20 }} // start off the right of the screen
-                                animate={{ opacity: 1, x: 0 }} // animate back to normal position
+                                initial={{ opacity: 0, x: 10 }}
+                                animate={{ opacity: 1, x: 0 }}
                                 exit={{ opacity: 0 }}
                                 transition={{ ease: 'easeIn', duration: 0.15 }}
                                 className={cn(
-                                    "my-2 p-2 rounded-lg max-w-xs overflow-scroll",
-                                    "bg-slate-50 dark:bg-slate-800 text-primary_color dark:text-primary_color-dark"
+                                    "mr-2 p-4 rounded-lg max-w-xs md:max-w-md overflow-scroll",
+                                    "bg-slate-100/80 dark:bg-slate-800/80 backdrop-blur-2xl",
+                                    "text-primary_color dark:text-primary_color-dark"
                                 )}>
                                 <MDXStyles>
-                                    <h2 className="text-sm font-semibold mb-3">Table of Contents</h2>
+                                    <div className="text-lg font-medium mb-2 text-primary_color dark:text-primary_color-dark">
+                                        Table of Contents
+                                    </div>
                                     <hr className={"my-2"}/>
                                     <div className="text-sm whitespace-nowrap">
                                         {toc.map((header, index) => (
                                             <div key={index}
-                                                 style={{ paddingLeft: `${header.level * 5}px` }}
+                                                 style={{ paddingLeft: `${header.level * 20 - 20}px` }}
                                                  onClick={(event) => {
                                                      const id = header.text.toLowerCase().split(' ').join('-');
                                                      scrollToSection(event, id);
