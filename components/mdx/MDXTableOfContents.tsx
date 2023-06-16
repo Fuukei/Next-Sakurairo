@@ -1,6 +1,6 @@
 "use client";
 
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useState} from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ListBulletIcon } from "@heroicons/react/24/solid";
 import { cn } from "@/lib/utils";
@@ -25,7 +25,6 @@ export default function MDXTableOfContents({ raw }: MDXTableOfContentsProps) {
     const [toc, setToc] = useState<Header[]>([]);
     const [isVisible, setIsVisible] = useState(false);
     const [open, setOpen] = useState(false);
-    const [activeId, setActiveId] = useState("");
     const marginTop = 200;
 
     const toggleVisibility = () => {
