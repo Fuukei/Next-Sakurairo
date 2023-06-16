@@ -24,9 +24,9 @@ export default function ArticleCard({ article, idx }: ArticleCardProps) {
                      "md:flex-row": idx % 2 === 0
                  },
                  {
-                     "shadow-lg  shadow-primary_color/50 dark:shadow-primary_color-dark/50": hover,
+                     "shadow-xl shadow-primary_color/50 dark:shadow-primary_color-dark/30": hover,
                  },
-                 "bg-slate-50 dark:bg-gray-900/75 ",
+                 "bg-slate-50/60 dark:bg-gray-900/60",
                  "mb-4 md:mb-6 md:h-72",
                  "flex w-full flex-col rounded-xl overflow-hidden duration-500"
              )}>
@@ -85,11 +85,11 @@ export default function ArticleCard({ article, idx }: ArticleCardProps) {
                     <h2 className={cn({
                         "text-primary_color dark:text-primary_color-dark": hover
                     },
-                        "font-bold text-lg mb-2 line-clamp-2 duration-200",
+                        "font-medium text-lg mb-2 line-clamp-2 duration-200",
                     )}>
                         <Link href={article.url}>{article.title}</Link>
                     </h2>
-                    <p className="text-sm line-clamp-4">
+                    <p className="text-sm font-light line-clamp-4">
                         {article.excerpt}
                     </p>
                 </div>

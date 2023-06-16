@@ -99,7 +99,7 @@ export default function Header() {
                  className={cn({
                          "md:backdrop-blur-none md:bg-transparent md:dark:bg-transparent": !(headerHover || isScrolled)
                      },
-                     "backdrop-blur-md drop-shadow-lg bg-slate-100/70 dark:bg-slate-950/80",
+                     "backdrop-blur-md drop-shadow-lg bg-slate-100/80 dark:bg-slate-800/80",
                      "w-full md:rounded-2xl md:mt-5 md:mx-10 px-4 md:px-0 duration-500"
                  )}>
                 <div className="hidden md:flex w-full items-center justify-between">
