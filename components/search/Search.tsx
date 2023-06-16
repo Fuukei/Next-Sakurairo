@@ -49,7 +49,7 @@ export default function Search() {
                                 onClick={() => toggleSearch()}
                                 className={cn(
                                     "fixed z-50 inset-x-0 inset-y-0 h-screen",
-                                    "bg-slate-900 dark:bg-slate-500"
+                                    "bg-slate-800/50"
                                 )}
                             >
                             </motion.div>
@@ -64,7 +64,7 @@ export default function Search() {
                                     "fixed flex flex-col z-50 px-6 py-6 rounded-xl",
                                     "md:inset-1/4 md:w-1/2 h-fit md:min-h-1/3 md:max-h-[66%]",
                                     "inset-[5%] inset-y-[10%] w-[90%] h-fit min-h-[40%] max-h-[85%]",
-                                    "bg-slate-100/80 dark:bg-slate-900/80"
+                                    "bg-slate-100/80 dark:bg-slate-800/80 backdrop-blur-md"
                                 )}
                             >
                                 <SearchInput />
