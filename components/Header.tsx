@@ -11,6 +11,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Search from "@/components/search/Search";
 import SearchTrigger from "@/components/search/SearchTrigger";
 import Logo from "@/components/logo/Logo";
+import IconButton from "@/components/IconButton";
 
 const navigationItems = blogConfig.navigation;
 
@@ -20,17 +21,9 @@ function MobileMenu() {
     return (
         <Dialog.Root onOpenChange={(mobileMenuOpen) => setMobileMenuOpen(mobileMenuOpen)}>
             <Dialog.Trigger>
-                <motion.div
-                    whileTap={{ scale: 0.8 }}
-                    transition={{ duration: 0.3 }}
-                    className={cn(
-                        "m-2.5 inline-flex items-center justify-center rounded-md p-2.5",
-                        "bg-slate-200 dark:bg-slate-800 text-primary_color dark:text-primary_color-dark"
-                    )}
-                >
-                    <span className="sr-only">Open menu</span>
+                <IconButton>
                     <Bars3Icon className={"w-6 h-6"} aria-hidden={"true"}></Bars3Icon>
-                </motion.div>
+                </IconButton>
             </Dialog.Trigger>
             <AnimatePresence>
                 {mobileMenuOpen ? (
@@ -104,10 +97,9 @@ export default function Header() {
             <div onMouseEnter={() => setHeaderHover(true)}
                  onMouseLeave={() => setHeaderHover(false)}
                  className={cn({
-                         "md:backdrop-blur-sm md:bg-slate-100/70 md:dark:bg-slate-950/80": headerHover || isScrolled,
                          "md:backdrop-blur-none md:bg-transparent md:dark:bg-transparent": !(headerHover || isScrolled)
                      },
-                     "backdrop-blur-sm bg-slate-100/70 dark:bg-slate-950/80",
+                     "backdrop-blur-md drop-shadow-lg bg-slate-100/70 dark:bg-slate-950/80",
                      "w-full md:rounded-2xl md:mt-5 md:mx-10 px-4 md:px-0 duration-500"
                  )}>
                 <div className="hidden md:flex w-full items-center justify-between">

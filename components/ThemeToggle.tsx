@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
+import IconButton from "@/components/IconButton";
 
 interface MenuItemProps {
     onClick?: () => void,
@@ -31,34 +32,26 @@ export default function ThemeToggle() {
 
     return (
         <DropdownMenu.Root open={open} onOpenChange={setOpen} modal={false}>
-            <motion.div
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.8 }}
-                transition={{ duration: 0.3 }}
-                className={"bg-slate-50 dark:bg-slate-800 rounded-md relative inline-block text-left my-4"}
-            >
+            <IconButton>
                 <DropdownMenu.Trigger>
-                    <div className={"w-full h-full flex p-2.5"}>
-                        <div className={"relative w-6 h-6 text-primary_color dark:text-primary_color-dark"}>
-                            <motion.div
-                                animate={{ x: isDark ? "-50%" : 0, opacity: isDark ? 0 : 1 }}
-                                transition={{ duration: 0.3 }}
-                                className="absolute inset-0"
-                            >
-                                <SunIcon className="w-full h-full" />
-                            </motion.div>
-                            <motion.div
-                                animate={{ x: isDark ? 0 : "50%", opacity: isDark ? 1 : 0 }}
-                                transition={{ duration: 0.3 }}
-                                className="absolute inset-0"
-                            >
-                                <MoonIcon className="w-full h-full" />
-                            </motion.div>
-                        </div>
-
+                    <div className={"relative w-6 h-6 text-primary_color dark:text-primary_color-dark"}>
+                        <motion.div
+                            animate={{ x: isDark ? "-50%" : 0, opacity: isDark ? 0 : 1 }}
+                            transition={{ duration: 0.3 }}
+                            className="absolute inset-0"
+                        >
+                            <SunIcon className="w-full h-full" />
+                        </motion.div>
+                        <motion.div
+                            animate={{ x: isDark ? 0 : "50%", opacity: isDark ? 1 : 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="absolute inset-0"
+                        >
+                            <MoonIcon className="w-full h-full" />
+                        </motion.div>
                     </div>
                 </DropdownMenu.Trigger>
-            </motion.div>
+            </IconButton>
             <AnimatePresence>
                 {open && (
                     <DropdownMenu.Portal forceMount>
