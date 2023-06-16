@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { ChevronUpIcon } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
 import IconButton from "@/components/IconButton";
 
 export default function ToTop() {
