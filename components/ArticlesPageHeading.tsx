@@ -10,7 +10,7 @@ interface ArticlePageHeadingProps {
     tags?: string[];
 }
 
-export default function ArticlePageHeading({ title, date, tags }: ArticlePageHeadingProps) {
+export default function ArticlesPageHeading({ title, date, tags }: ArticlePageHeadingProps) {
     let FADE_DOWN_ANIMATION_VARIANTS = {
         hidden: { opacity: 0, y: -10 },
         show: { opacity: 1, y: 0, transition: { type: "spring" } },

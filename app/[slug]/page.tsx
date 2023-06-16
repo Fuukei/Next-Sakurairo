@@ -1,27 +1,37 @@
 import { allPages} from "contentlayer/generated";
 import MDXContent from "@/components/mdx/MDXContent";
-import {notFound} from "next/navigation";
-import {blogConfig} from "@/config";
+import { notFound } from "next/navigation";
+import { blogConfig } from "@/config";
+import PagesPageHeading from "@/components/PagesPageHeading";
+import {cn} from "@/lib/utils";
 
 export const generateStaticParams = async () => allPages.map((page) => ({ slug: page.slug }))
 
 export const generateMetadata = ({ params }: { params: { slug: string } }) => {
     const { title, url} = allPages.find((page) => page.slug === params.slug) || {
-        title: "Article not found",
-        url: "/"
+        title: "Page not found",
+        url: "/",
     }
+
+    const ogImage = {
+        url: `${blogConfig.url}/og?title=${title}`,
+    };
+
     return {
         title: title,
-        description: "Description placeholder",
+        description: title,
         openGraph: {
             type: "website",
             url: `${blogConfig.url}${url}`,
             title: title,
-            description: "Description placeholder",
+            description: title,
+            images: [ogImage]
         },
         twitter: {
             title: title,
-            description: "Description placeholder"
+            description: title,
+            images: ogImage,
+            card: 'summary_large_image',
         }
     }
 }
@@ -32,8 +42,14 @@ const PageLayout = ({ params }: { params: { slug: string } }) => {
     if (!page) notFound()
 
     return (
-        <div className={"min-h-screen bg-slate-200/70 dark:bg-gray-900/75 backdrop-blur-md"}>
-            <MDXContent code={page.body.code} />
+        <div className={"min-h-screen backdrop-blur-3xl bg-slate-50/50 dark:bg-gray-800/70"}>
+            <PagesPageHeading title={page.title} />
+            <div className={cn(
+                "py-8 mx-4 md:mx-auto lg:px-4",
+                "md:max-w-3xl lg:max-w-4xl"
+            )}>
+                <MDXContent code={page.body.code} />
+            </div>
         </div>
     )
 }

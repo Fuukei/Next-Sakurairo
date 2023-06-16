@@ -2,7 +2,7 @@ import { allArticles } from "contentlayer/generated";
 import MDXContent from "@/components/mdx/MDXContent";
 import { notFound } from "next/navigation";
 import GiscusComments from "@/components/GiscusComments";
-import ArticlePageHeading from "@/components/ArticlePageHeading";
+import ArticlesPageHeading from "@/components/ArticlesPageHeading";
 import MDXTableOfContents from "@/components/mdx/MDXTableOfContents";
 import { type Metadata } from "next/types";
 import { blogConfig } from "@/config";
@@ -62,12 +62,11 @@ const ArticlePage = ({ params }: ArticlePageProps) => {
             <div className={"min-h-screen backdrop-blur-3xl bg-slate-50/50 dark:bg-gray-800/70"}>
                 <div className={"flex min-h-[200px] md:min-h-[300px] rounded-b-2xl overflow-hidden"}
                      style={{backgroundImage: 'url(' + article.image +')', backgroundSize: 'cover'}}>
-                    <ArticlePageHeading title={article.title} date={article.date} tags={article.tags}/>
+                    <ArticlesPageHeading title={article.title} date={article.date} tags={article.tags}/>
                 </div>
                 <div className={cn(
                     "pb-8 mx-4 md:mx-auto lg:px-4",
                     "md:max-w-3xl lg:max-w-4xl"
-
                 )}>
                     <div className={"py-8"}>
                         <MDXContent code={article.body.code} />

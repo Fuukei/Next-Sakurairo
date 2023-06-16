@@ -20,7 +20,7 @@ export default function GiscusComments () {
         }
     }
     return (
-        <div className={"md:px-8"}>
+        <div className={"md:px-8 mt-8"}>
             <Giscus
                 repo={"cocdeshijie/next-sakurairo"}
                 repoId={"R_kgDOJoJfqg"}
