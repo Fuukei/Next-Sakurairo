@@ -32,8 +32,8 @@ export default function ThemeToggle() {
 
     return (
         <DropdownMenu.Root open={open} onOpenChange={setOpen} modal={false}>
-            <IconButton>
-                <DropdownMenu.Trigger>
+            <DropdownMenu.Trigger>
+                <IconButton>
                     <div className={"relative w-6 h-6 text-primary_color dark:text-primary_color-dark"}>
                         <motion.div
                             animate={{ x: isDark ? "-50%" : 0, opacity: isDark ? 0 : 1 }}
@@ -50,8 +50,8 @@ export default function ThemeToggle() {
                             <MoonIcon className="w-full h-full" />
                         </motion.div>
                     </div>
-                </DropdownMenu.Trigger>
-            </IconButton>
+                </IconButton>
+            </DropdownMenu.Trigger>
             <AnimatePresence>
                 {open && (
                     <DropdownMenu.Portal forceMount>

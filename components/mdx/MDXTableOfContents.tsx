@@ -127,13 +127,13 @@ export default function MDXTableOfContents({ raw }: MDXTableOfContentsProps) {
                 variants={buttonVariants}
                 initial="hidden"
                 animate={isVisible ? "visible" : "hidden"}>
-                <IconButton>
-                    <DropdownMenu.Trigger>
+                <DropdownMenu.Trigger>
+                    <IconButton>
                         <div className={"text-primary_color dark:text-primary_color-dark"}>
                             <ListBulletIcon className={"w-6 h-6"}/>
                         </div>
-                    </DropdownMenu.Trigger>
-                </IconButton>
+                    </IconButton>
+                </DropdownMenu.Trigger>
             </motion.div>
 
             <AnimatePresence>
