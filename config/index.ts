@@ -30,6 +30,10 @@ export const blogConfig: BlogConfig = {
 
     background_image: {
         option: "APIBackgroundImage",
+        settings: {
+            url: "https://www.loliapi.com/acg/pc",
+            filter: "grid"
+        }
     },
 
     hero: {

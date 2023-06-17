@@ -53,7 +53,10 @@ export type BlogConfig = {
     background_image:
         | {
         option: "APIBackgroundImage";
-        }
+        settings: {
+            url: string;
+            filter: | "grid" | "none";
+        } }
     /*
      * The hero of the blog.
      * This will appear on the front page landing screen.
