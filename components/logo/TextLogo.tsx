@@ -34,7 +34,7 @@ export default function TextLogo({logoHover}: {logoHover: boolean}) {
         <div className="flex flex-col items-center -space-y-1 font-medium">
             <div className="flex items-end space-x-3 md:text-xl">
                 <div className={cn({
-                        "bg-primary_color dark:bg-primary_color-dark": logoHover,
+                        "bg-primary_color dark:bg-primary_color-dark text-white": logoHover,
                         "bg-white/40 text-primary_color dark:text-primary_color-dark": !logoHover,
                     },
                     "pt-3 pb-1 rounded-xl items-center"
@@ -43,9 +43,9 @@ export default function TextLogo({logoHover}: {logoHover: boolean}) {
                 </div>
                 <motion.div
                     className={cn({
-                            "text-primary_color dark:text-primary_color-dark": logoHover,
+                            "dark:text-primary_color-dark": logoHover,
                         },
-                        "pb-1"
+                        "pb-1 dark:text-inherit text-primary_color"
                     )}
                     animate={controls}
                     variants={rotationVariant}
@@ -53,9 +53,9 @@ export default function TextLogo({logoHover}: {logoHover: boolean}) {
                     {logoSetting.text_middle}
                 </motion.div>
                 <div className={cn({
-                        "text-primary_color dark:text-primary_color-dark": logoHover,
+                        "dark:text-primary_color-dark": logoHover,
                     },
-                    "pb-1"
+                    "pb-1 dark:text-inherit text-primary_color"
                 )}>{logoSetting.text_end}</div>
             </div>
             <motion.div
