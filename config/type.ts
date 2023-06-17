@@ -46,6 +46,19 @@ export type BlogConfig = {
          */
         href: string;
     }[];
+    /*
+     * The background image of the blog.
+     * There are multiple options for the background image.
+     */
+    background_image:
+        | {
+        option: "APIBackgroundImage";
+        }
+    /*
+     * The hero of the blog.
+     * This will appear on the front page landing screen.
+     * There are multiple options for the hero.
+     */
     hero:
         | {
         option: "IconHero";

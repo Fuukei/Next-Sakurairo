@@ -1,6 +1,6 @@
-import Image from 'next/image';
+import Image from "next/image";
 
-export default function BackgroundImage() {
+export default function APIBackgroundImage() {
     return (
         <Image
             src="https://www.loliapi.com/acg/pc"

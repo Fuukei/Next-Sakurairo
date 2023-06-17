@@ -28,6 +28,10 @@ export const blogConfig: BlogConfig = {
         }
     ],
 
+    background_image: {
+        option: "APIBackgroundImage",
+    },
+
     hero: {
         option: "IconHero",
         settings: {

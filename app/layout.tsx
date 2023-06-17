@@ -7,7 +7,7 @@ import ToTop from "@/components/ToTop";
 import { ThemeProvider } from "@/components/ThemeProvider"
 import { TailwindIndicator } from "@/components/TailwindIndicator";
 import { cn } from "@/lib/utils";
-import BackgroundImage from "@/components/BackgroundImage";
+import BackgroundImage from "@/components/background-image/BackgroundImage";
 
 const inter = Roboto_Mono({ subsets: ['latin'] })
 
