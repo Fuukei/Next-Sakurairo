@@ -1,7 +1,7 @@
 import { compareDesc } from "date-fns";
 import { allArticles } from "contentlayer/generated";
 import ArticleLoader from "@/components/ArticleLoader";
-import HeroSection from "@/components/hero/HeroSection";
+import Hero from "@/components/hero/Hero";
 import { type Metadata } from "next/types";
 import { blogConfig } from "@/config";
 
@@ -31,7 +31,7 @@ export default function Home() {
 
   return (
       <>
-          <HeroSection />
+          <Hero />
           <main className={"backdrop-blur-2xl overflow-hidden bg-slate-50/50 dark:bg-gray-800/70"}>
               <div className={"mx-4 lg:mx-auto lg:w-full max-w-4xl"}>
                   <h1 className={"font-heading text-xl md:text-2 xl my-6"}>Articles</h1>

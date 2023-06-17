@@ -1,10 +1,12 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { Typing } from "@/app/Typing";
-import Link from "next/link";
+import { Typing } from "@/components/hero/typist/Typing";
 import { blogConfig } from "@/config";
+import Link from "next/link";
 
-export default function HeroSection() {
+
+export default function IconHero() {
+
     return (
         <div className={"grid content-center justify-items-center min-h-screen"}>
             <div className="w-36 h-36 mx-auto mb-3">

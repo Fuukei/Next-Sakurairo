@@ -28,6 +28,8 @@ export const blogConfig: BlogConfig = {
         }
     ],
 
+    hero: {option: "IconHero"},
+
     header_logo: {
         option: "TextLogo",
         settings: {
