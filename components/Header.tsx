@@ -130,7 +130,7 @@ export default function Header() {
                 </div>
 
                 <div className="flex md:hidden h-16 w-full items-center justify-between">
-                    <Link href={"/"}
+                    <Link href={blogConfig.url}
                           onMouseEnter={() => setLogoHover(true)}
                           onMouseLeave={() => setLogoHover(false)}
                           className={"mt-2"}>
