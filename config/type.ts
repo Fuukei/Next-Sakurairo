@@ -55,7 +55,7 @@ export type BlogConfig = {
         option: "APIBackgroundImage";
         settings: {
             url: string;
-            filter: | "grid" | "none";
+            filter: | "grid" | "dot" | "none";
         } }
     /*
      * The hero of the blog.
