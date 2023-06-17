@@ -28,7 +28,12 @@ export const blogConfig: BlogConfig = {
         }
     ],
 
-    hero: {option: "IconHero"},
+    hero: {
+        option: "IconHero",
+        settings: {
+            icon_path: "/img.png"
+        }
+    },
 
     header_logo: {
         option: "TextLogo",

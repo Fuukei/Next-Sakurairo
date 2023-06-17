@@ -47,7 +47,11 @@ export type BlogConfig = {
         href: string;
     }[];
     hero:
-        | {option: "IconHero"}
+        | {
+        option: "IconHero";
+        settings: {
+            icon_path: string;
+        } }
     /*
      * The logo of the blog.
      * This will appear on the header.

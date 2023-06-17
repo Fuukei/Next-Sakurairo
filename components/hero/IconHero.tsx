@@ -4,6 +4,7 @@ import { Typing } from "@/components/hero/typist/Typing";
 import { blogConfig } from "@/config";
 import Link from "next/link";
 
+const logoSetting = require("@/config").blogConfig.hero.settings
 
 export default function IconHero() {
 
@@ -11,7 +12,7 @@ export default function IconHero() {
         <div className={"grid content-center justify-items-center min-h-screen"}>
             <div className="w-36 h-36 mx-auto mb-3">
                 <Image
-                    src="https://qwq.xyz/wp-content/uploads/2022/03/cocdeshijie.gif"
+                    src={logoSetting.icon_path}
                     alt="Profile Image"
                     width={256}
                     height={256}
