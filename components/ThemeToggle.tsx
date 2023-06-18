@@ -16,7 +16,7 @@ function MenuItem ({ onClick, children }: MenuItemProps) {
         <DropdownMenu.Item
             onSelect={onClick}
             className={cn(
-                "flex px-2 py-1 items-center rounded-md border-transparent border-2",
+                "flex px-2 py-1 items-center rounded-md border-transparent border-2 outline-none",
                 "data-[highlighted]:bg-primary_color/25 data-[highlighted]:dark:bg-primary_color-dark/25",
                 "data-[highlighted]:text-slate-800 data-[highlighted]:dark:text-slate-100",
                 )}>

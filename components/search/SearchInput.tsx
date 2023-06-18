@@ -22,8 +22,8 @@ export default function SearchInput() {
                 autoComplete={"off"}
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                className="grow rounded-md border-0 px-3 py-1.5 w-full"
-                placeholder="Search articles..."
+                className="grow rounded-md border px-3 py-1.5 w-full bg-transparent outline-none"
+                placeholder="Search for articles..."
             />
             {query && (
                 <button type="button"
