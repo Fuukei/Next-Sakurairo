@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import {HomeIcon} from "@heroicons/react/24/solid";
+import { HomeIcon } from "@heroicons/react/24/solid";
 
 export default function NotFound() {
     return (
