@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+.light {
+    --scrollbar: theme('colors.primary_color.DEFAULT');
+    --scrollbar-bg: theme('colors.slate.100');
+}
+
+.dark {
+    --scrollbar: theme('colors.primary_color.dark');
+    --scrollbar-bg: theme('colors.slate.800');
+}
+
 ::-webkit-scrollbar {
-    display: none;
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar);
+    border-radius: 25px;
+}
+
+::-webkit-scrollbar-track, body.dark::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-bg);
 }
