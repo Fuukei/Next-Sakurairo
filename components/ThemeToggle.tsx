@@ -32,7 +32,7 @@ export default function ThemeToggle() {
 
     return (
         <DropdownMenu.Root open={open} onOpenChange={setOpen} modal={false}>
-            <DropdownMenu.Trigger>
+            <DropdownMenu.Trigger className={"outline-none"}>
                 <IconButton>
                     <div className={"relative w-6 h-6 text-primary_color dark:text-primary_color-dark"}>
                         <motion.div
