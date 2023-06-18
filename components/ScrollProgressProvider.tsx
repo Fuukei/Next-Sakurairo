@@ -12,7 +12,7 @@ export const ScrollContext = createContext<ScrollContextType>({ contentLoaded: f
 
 export const useScrollContext = () => useContext(ScrollContext);
 
-// ScrollProgress Component
+// ScrollProgressProvider Component
 function ScrollProgress() {
     const [scroll, setScroll] = useState(0);
     const { contentLoaded } = useScrollContext();
@@ -54,7 +54,7 @@ export const ScrollProgressProvider = ({ children }: ScrollProviderProps) => {
 
     return (
         <ScrollContext.Provider value={{ contentLoaded, setContentLoaded }}>
-            <ScrollProgress /> {/* ScrollProgress is now part of the ScrollProvider */}
+            <ScrollProgress /> {/* ScrollProgressProvider is now part of the ScrollProvider */}
             {children}
         </ScrollContext.Provider>
     )

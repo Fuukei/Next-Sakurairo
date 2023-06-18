@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Article } from "contentlayer/generated";
 import ArticleCard from "@/components/ArticleCard";
 import { cn } from "@/lib/utils";
-import { useScrollContext } from "@/components/ScrollProgress";
+import { useScrollContext } from "@/components/ScrollProgressProvider";
 import { motion } from "framer-motion";
 
 type ArticleLoaderProps = {

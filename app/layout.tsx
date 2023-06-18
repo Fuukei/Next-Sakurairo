@@ -2,7 +2,7 @@ import "./globals.css";
 import { Roboto_Mono } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ScrollProgressProvider } from "@/components/ScrollProgress";
+import { ScrollProgressProvider } from "@/components/ScrollProgressProvider";
 import ToTop from "@/components/ToTop";
 import { ThemeProvider } from "@/components/ThemeProvider"
 import { TailwindIndicator } from "@/components/TailwindIndicator";
@@ -24,10 +24,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
     return (
         <html lang="en" suppressHydrationWarning>
             <body className={cn(inter.className, "static")}>
-                <BackgroundImage/>
-                <div className={"absolute top-0 w-full"}>
-                    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-                        <ScrollProgressProvider>
+                <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+                    <ScrollProgressProvider>
+                        <BackgroundImage/>
+                        <div className={"absolute top-0 w-full"}>
                             <div className={"flex flex-col"}>
                                 <Header />
                                 {children}
@@ -35,9 +35,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
                                 <TailwindIndicator />
                                 <ToTop />
                             </div>
-                        </ScrollProgressProvider>
-                    </ThemeProvider>
-                </div>
+                        </div>
+                    </ScrollProgressProvider>
+                </ThemeProvider>
             </body>
         </html>
     )
