@@ -1,4 +1,5 @@
 "use client";
+
 import { useState, useEffect, createContext, useContext, ReactNode } from "react";
 
 type ScrollContextType = {
@@ -17,7 +18,7 @@ function ScrollProgress() {
     const { contentLoaded } = useScrollContext();
 
     const handleScroll = () => {
-        const totalHeight = document.body.scrollHeight - window.innerHeight;
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
         const scrollPosition = window.scrollY;
         const scrollPercent = (scrollPosition / totalHeight) * 100;
 

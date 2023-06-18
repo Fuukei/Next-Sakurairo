@@ -23,22 +23,22 @@ type RootLayoutProps = {
 export default function RootLayout({ children }: RootLayoutProps) {
     return (
         <html lang="en" suppressHydrationWarning>
-        <body className={cn(inter.className, "static")}>
-        <BackgroundImage/>
-        <div className={"absolute top-0 w-screen"}>
-            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-                <ScrollProgressProvider>
-                    <div className={"min-h-screen flex flex-col"}>
-                        <Header />
-                        {children}
-                        <Footer />
-                        <TailwindIndicator />
-                        <ToTop />
-                    </div>
-                </ScrollProgressProvider>
-            </ThemeProvider>
-        </div>
-        </body>
+            <body className={cn(inter.className, "static")}>
+                <BackgroundImage/>
+                <div className={"absolute top-0 w-screen"}>
+                    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+                        <ScrollProgressProvider>
+                            <div className={"min-h-screen flex flex-col"}>
+                                <Header />
+                                {children}
+                                <Footer />
+                                <TailwindIndicator />
+                                <ToTop />
+                            </div>
+                        </ScrollProgressProvider>
+                    </ThemeProvider>
+                </div>
+            </body>
         </html>
     )
 }
