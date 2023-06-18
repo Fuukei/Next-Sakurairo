@@ -25,10 +25,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <html lang="en" suppressHydrationWarning>
             <body className={cn(inter.className, "static")}>
                 <BackgroundImage/>
-                <div className={"absolute top-0 w-screen"}>
+                <div className={"absolute top-0 w-full"}>
                     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
                         <ScrollProgressProvider>
-                            <div className={"min-h-screen flex flex-col"}>
+                            <div className={"flex flex-col"}>
                                 <Header />
                                 {children}
                                 <Footer />

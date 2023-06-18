@@ -16,7 +16,7 @@ export default function APIBackgroundImage() {
                 priority={true}
                 unoptimized={true}
             />
-            <div className={"w-screen h-screen -z-40"}
+            <div className={"w-full h-screen -z-40"}
                  style={{ backgroundImage: `url(/filters/${backgroundImageSetting.filter}.png)` }}
             />
         </>
