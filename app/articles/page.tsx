@@ -1,10 +1,16 @@
+import ArticleLoader from "@/components/ArticleLoader";
+import { allArticles } from "contentlayer/generated";
+import { compareDesc } from "date-fns";
+import { blogConfig } from "@/config";
+
 export default function ArticlesPage() {
+    const articles = allArticles.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
+
     return (
         <div className={"min-h-screen backdrop-blur-3xl bg-slate-50/50 dark:bg-gray-800/70"}>
-            <div className={"flex flex-col h-screen justify-center items-center"}>
-                <div className={"text-center my-8"}>
-                    Articles Page
-                </div>
+            <div className={"mx-4 lg:mx-auto lg:w-full max-w-4xl"}>
+                <h1 className={"font-heading text-center text-xl md:text-2 xl mt-40 mb-10"}>Articles</h1>
+                <ArticleLoader articles={articles} articlesPerLoad={blogConfig.articles_per_load} />
             </div>
         </div>
     )
