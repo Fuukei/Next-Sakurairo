@@ -61,7 +61,7 @@ export async function GET(req: NextRequest) {
                          }}
                     >
                         <div tw="flex flex-row items-center text-7xl mb-8">
-                            Placeholder for site icon
+                            {blogConfig.title}
                         </div>
                         <div tw="text-5xl text-slate-800 text-center mb-4">
                             {title}
