@@ -146,7 +146,7 @@ export default function MDXTableOfContents({ raw }: MDXTableOfContentsProps) {
                                 exit={{ opacity: 0 }}
                                 transition={{ ease: 'easeIn', duration: 0.15 }}
                                 className={cn(
-                                    "mr-2 p-4 rounded-lg max-w-xs md:max-w-md overflow-scroll",
+                                    "mr-2 p-4 rounded-lg max-w-xs md:max-w-md",
                                     "bg-slate-100/80 dark:bg-slate-800/80 backdrop-blur-2xl",
                                     "text-primary_color dark:text-primary_color-dark"
                                 )}>
@@ -155,7 +155,7 @@ export default function MDXTableOfContents({ raw }: MDXTableOfContentsProps) {
                                         Table of Contents
                                     </div>
                                     <hr className={"my-2"}/>
-                                    <div className="text-sm whitespace-nowrap">
+                                    <div className="text-sm whitespace-nowrap antialiased overflow-x-auto">
                                         {toc.map((header, index) => (
                                             <div
                                                 key={index}
@@ -177,7 +177,6 @@ export default function MDXTableOfContents({ raw }: MDXTableOfContentsProps) {
 
                                     </div>
                                 </MDXStyles>
-
                             </motion.div>
                         </DropdownMenu.Content>
                     </DropdownMenu.Portal>
