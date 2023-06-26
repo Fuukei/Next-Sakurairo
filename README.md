@@ -9,7 +9,7 @@ This is a work in progress.
 ### Todo
 - [x] Use Next.js 13 app directory
 - [x] Mdx file directory under base directory
-- [ ] Appearance
+- [x] Appearance
   - [x] Header
   - [x] Footer
   - [x] Landing page
@@ -17,15 +17,15 @@ This is a work in progress.
   - [x] 404 page
   - [x] Template pages
   - [x] Theme switch
-  - [ ] Scroll bar
+  - [x] Scroll bar
   - [x] Animation
   - [x] Better prose style
 - [ ] Multi-level navigation
 - [x] Search function
 - [x] Tagging function
-- [ ] TOC generation for articles
+- [x] TOC generation for articles
   - [x] Basic TOC generation
-  - [ ] Highlight current section heading ...?
+  - [x] Highlight current section heading ...?
 - [x] Use [giscus](https://giscus.app/) for comments
 - [x] OG generator
   - [ ] Option for AI generated description...?
