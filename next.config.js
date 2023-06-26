@@ -7,7 +7,8 @@ const nextConfig = {
                 hostname: '**'
             }
         ]
-    }
+    },
+    output: 'standalone'
 }
 
 const { withContentlayer } = require('next-contentlayer');
