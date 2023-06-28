@@ -1,3 +1,6 @@
+
+![./](NextSakurairo.png)
+
 # Next Sakurairo
 
 This is a blog built with Next.js, Tailwind CSS, Radix UI, Framer Motion, and ContentLayer with MDX. 
