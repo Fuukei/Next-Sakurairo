@@ -9,7 +9,7 @@ export default function MDXStyles({ children }: MDXStylesProps) {
     return (
         <section
             className={cn(
-                "text-justify md:text-left max-w-none",
+                "max-w-none",
                 "prose md:prose-lg dark:prose-invert dark:text-slate-300",
                 "prose-headings:text-primary_color dark:prose-headings:text-slate-100",
                 "prose-ul:my-6 prose-li:my-0 marker:text-slate-600 dark:marker:text-slate-300",
