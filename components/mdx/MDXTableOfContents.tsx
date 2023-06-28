@@ -1,11 +1,10 @@
 "use client";
 
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ListBulletIcon } from "@heroicons/react/24/solid";
 import { cn } from "@/lib/utils";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
-import MDXStyles from "@/components/mdx/MDXStyles";
 import IconButton from "@/components/IconButton";
 
 type MDXTableOfContentsProps = {
@@ -150,7 +149,12 @@ export default function MDXTableOfContents({ raw }: MDXTableOfContentsProps) {
                                     "bg-slate-100/80 dark:bg-slate-800/80 backdrop-blur-2xl",
                                     "text-primary_color dark:text-primary_color-dark"
                                 )}>
-                                <MDXStyles>
+                                <div className={cn(
+                                    "prose prose-slate dark:prose-invert dark:text-slate-300",
+                                    "prose-headings:text-primary_color dark:prose-headings:text-slate-100",
+                                    "prose-a:no-underline hover:prose-a:underline",
+                                    "prose-hr:border-slate-700 dark:prose-hr:border-slate-300",
+                                )}>
                                     <div className="text-lg font-medium mb-2 text-primary_color dark:text-primary_color-dark">
                                         Table of Contents
                                     </div>
@@ -176,7 +180,7 @@ export default function MDXTableOfContents({ raw }: MDXTableOfContentsProps) {
                                         ))}
 
                                     </div>
-                                </MDXStyles>
+                                </div>
                             </motion.div>
                         </DropdownMenu.Content>
                     </DropdownMenu.Portal>
