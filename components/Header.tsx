@@ -15,6 +15,38 @@ import IconButton from "@/components/IconButton";
 
 const navigationItems = blogConfig.navigation;
 
+type NavigationItemProps = {
+    item: {
+        title: string;
+        href: string;
+    };
+}
+
+function NavigationItem({ item }: NavigationItemProps) {
+    const [isHovered, setIsHovered] = useState(false);
+
+    return (
+        <Link href={item.href}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+        >
+            <div className="px-2 font-semibold text-primary_color dark:text-primary_color-dark">
+                {item.title}
+                <motion.span
+                    animate={{ scaleX: isHovered ? 1 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    style={{
+                        display: 'block',
+                        height: '2px',
+                        backgroundColor: 'currentColor',
+                        transformOrigin: 'left',
+                    }}
+                />
+            </div>
+        </Link>
+    );
+}
+
 function MobileMenu() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
@@ -52,13 +84,9 @@ function MobileMenu() {
                                     "bg-slate-100/80 dark:bg-slate-800/80 backdrop-blur-md"
                                 )}
                             >
-                                <div className="flex flex-col items-center justify-between">
+                                <div className="flex flex-col items-center justify-between space-y-2">
                                     {navigationItems.map((item, idx:number) => (
-                                        <Link href={item.href} key={idx}>
-                                            <div className={"px-2 font-semibold text-primary_color dark:text-primary_color-dark"}>
-                                                {item.title}
-                                            </div>
-                                        </Link>
+                                        <NavigationItem item={item} key={idx} />
                                     ))}
                                     <SearchTrigger />
                                     <ThemeToggle />
@@ -118,11 +146,7 @@ export default function Header() {
                         "text-primary_color dark:text-primary_color-dark"
                     )}>
                         {navigationItems.map((item, idx:number) => (
-                            <Link href={item.href} key={idx}>
-                                <div className={"px-2 font-semibold text-primary_color dark:text-primary_color-dark"}>
-                                    {item.title}
-                                </div>
-                            </Link>
+                            <NavigationItem item={item} key={idx} />
                         ))}
                         <SearchTrigger />
                         <ThemeToggle />
