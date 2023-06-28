@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Roboto_Mono } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ScrollProgressProvider } from "@/components/ScrollProgressProvider";
@@ -9,7 +9,7 @@ import { TailwindIndicator } from "@/components/TailwindIndicator";
 import { cn } from "@/lib/utils";
 import BackgroundImage from "@/components/background-image/BackgroundImage";
 
-const inter = Roboto_Mono({ subsets: ['latin'] })
+const font = Open_Sans({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Create Next App',
@@ -23,7 +23,7 @@ type RootLayoutProps = {
 export default function RootLayout({ children }: RootLayoutProps) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className={cn(inter.className, "static")}>
+            <body className={cn(font.className, "static")}>
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
                     <ScrollProgressProvider>
                         <BackgroundImage/>
