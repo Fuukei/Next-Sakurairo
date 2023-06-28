@@ -26,6 +26,14 @@
     background-color: var(--scrollbar-bg);
 }
 
+.w-8 svg {
+    width: 100% !important;
+}
+
+.h-8 svg {
+    height: 100% !important;
+}
+
 .dark {
     --ch-0: dark;
     --ch-1: #8b949e;

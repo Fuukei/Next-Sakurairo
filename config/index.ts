@@ -1,6 +1,7 @@
 import { BlogConfig } from "@/config/type";
+import { FaGithub } from "react-icons/fa6";
+import { BiLink } from "react-icons/bi";
 const { createElement } = require("react");
-import { AcademicCapIcon, Square3Stack3DIcon } from "@heroicons/react/24/solid";
 const colors = require("tailwindcss/colors");
 
 
@@ -56,13 +57,13 @@ export const blogConfig: BlogConfig = {
     social: [
         {
             title: "GitHub",
-            icon: createElement(Square3Stack3DIcon),
-            href: "https://github.com"
+            icon: createElement(FaGithub),
+            href: "https://github.com/cocdeshijie/Next-Sakurairo"
         },
         {
             title: "Twitter",
-            icon: createElement(AcademicCapIcon),
-            href: "https://twitter.com"
+            icon: createElement(BiLink),
+            href: "https://next-sakurairo.qwq.xyz"
         }
     ],
 
