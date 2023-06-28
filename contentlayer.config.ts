@@ -1,11 +1,8 @@
 import { defineDocumentType, makeSource, type ComputedFields } from "@contentlayer/source-files";
 import { remarkCodeHike } from "@code-hike/mdx";
-import { createRequire } from "module";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings, { type Options as AutolinkOptions } from 'rehype-autolink-headings';
-const require = createRequire(import.meta.url);
-const theme = require("shiki/themes/nord.json");
 
 const computedFields: ComputedFields = {
     slug: {
@@ -64,7 +61,7 @@ export default makeSource({
             [remarkCodeHike,
                 {
                     showCopyButton: true,
-                    theme: theme,
+                    theme: "github-from-css",
                     lineNumbers: true,
                 }
             ]
