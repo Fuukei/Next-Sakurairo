@@ -79,5 +79,7 @@ export const blogConfig: BlogConfig = {
             light: colors.cyan[400],
             dark: colors.cyan[600]
         },
-    }
+    },
+
+    footer: "© cocdeshijie. All rights reserved."
 }

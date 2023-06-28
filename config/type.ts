@@ -154,4 +154,9 @@ export type BlogConfig = {
             dark: string;
         },
     }
+
+    /*
+     * The footer of the blog.
+     */
+    footer: string;
 }
