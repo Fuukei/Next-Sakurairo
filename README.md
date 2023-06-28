@@ -1,5 +1,5 @@
 
-![./](NextSakurairo.png)
+![Next Sakurairo](NextSakurairo.png)
 
 # Next Sakurairo
 
