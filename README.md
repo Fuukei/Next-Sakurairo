@@ -5,35 +5,20 @@
 
 This is a blog built with Next.js, Tailwind CSS, Radix UI, Framer Motion, and ContentLayer with MDX. 
 
-The appearance is inspired by WordPress theme [Sakura](https://github.com/mashirozx/sakura) and [Sakurairo](https://github.com/mirai-mamori/Sakurairo)
+The style is inspired by WordPress theme [Sakura](https://github.com/mashirozx/sakura) and [Sakurairo](https://github.com/mirai-mamori/Sakurairo)
 
-This is a work in progress.
+## Deployment
+Next Sakurairo is built on the Next.js framework, which allows for a wide range of deployment options. It can be deployed on any hosting provider that supports Node.js. This includes platforms like Vercel, Netlify, AWS, and Google Cloud, amongst others. [next-sakurairo.qwq.xyz](https://next-sakurairo.qwq.xyz) is hosted using [coolify](https://coolify.io/).
 
-### Todo
-- [x] Use Next.js 13 app directory
-- [x] Mdx file directory under base directory
-- [x] Appearance
-  - [x] Header
-  - [x] Footer
-  - [x] Landing page
-  - [x] Article page
-  - [x] 404 page
-  - [x] Template pages
-  - [x] Theme switch
-  - [x] Scroll bar
-  - [x] Animation
-  - [x] Better prose style
+...
+
+## Customization
+
+
+
+## Todo
 - [ ] Multi-level navigation
-- [x] Search function
-- [x] Tagging function
-- [x] TOC generation for articles
-  - [x] Basic TOC generation
-  - [x] Highlight current section heading ...?
-- [x] Use [giscus](https://giscus.app/) for comments
-- [x] OG generator
-  - [ ] Option for AI generated description...?
 - [ ] Loading components
-- [x] Configs
 - [ ] Documentation
   - [ ] Customization
   - [ ] Deployment
