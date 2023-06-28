@@ -74,7 +74,7 @@ export default function ArticleCard({ article, idx }: ArticleCardProps) {
                     <h2 className={cn({
                         "text-primary_color dark:text-primary_color-dark": hover
                     },
-                        "font-medium text-lg mb-2 line-clamp-2 duration-200",
+                        "font-bold text-lg mb-2 line-clamp-2 duration-200",
                     )}>
                         <Link href={article.url}>{article.title}</Link>
                     </h2>
