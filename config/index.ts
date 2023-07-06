@@ -20,12 +20,12 @@ export const blogConfig: BlogConfig = {
 
     navigation: [
         {
-            title: "Item 1",
-            href: "#"
+            title: "User Documentation",
+            href: "/articles/documentation/user-en-US"
         },
         {
-            title: "Item 2",
-            href: "#"
+            title: "Developer Documentation",
+            href: "/articles/documentation/developer-en-US"
         }
     ],
 
