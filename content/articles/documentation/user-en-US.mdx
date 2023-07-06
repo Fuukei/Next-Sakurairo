@@ -7,38 +7,29 @@ excerpt: English user documentation of Next Sakurairo.
 ## Blog URL
 Set the URL of your blog. This should be a fully qualified domain name (FQDN) pointing to your site.
 
-
 ## Blog Title
 This is the main title of your blog. It is often shown in the browser title bar and used as the default title for bookmarks.
-
 
 ## Blog Description
 Provide a brief description of your blog. This description often appears in search engine results.
 
-
 ## Author
 Set the author's name. This will be used for meta.
-
 
 ## Typist
 Set the typist's text. This will appear in the front page typing component.
 
-
 ## Articles Per Load
 Define the number of articles to load for each fetch. For example, if you want to load 5 articles each time you fetch more articles, set this to 5.
-
 
 ## Navigation Bar
 Define your blog's navigation bar items, including the title of the navigation bar item and the href.
 
-
 ## Background Image
 Define the background image for your blog. Set the option to "APIBackgroundImage" and provide the URL and filter type (grid, dot, none).
 
-
 ## Hero
 Set the hero of your blog. This will appear on the front page landing screen. Set the option to "IconHero" and provide the icon path.
-
 
 ## Header Logo
 Set the logo of the blog that will appear on the header. You can choose between a _`TextLogo`_ and an _`ImageLogo`_, and customize the settings accordingly.
@@ -56,14 +47,27 @@ For an image logo, you need to provide an _`image_path`_.
 
 - _`image_path`_: Set the path of the image. If the logo image is in the public folder, the path should be "/logo.png". Make sure that the image exists at the specified path in your project.
 
-
 ## Social Media Links
 Set the social media links that will appear in the front page landing screen. For each social media link, define the title, icon, and href.
-
 
 ## Theme Colors
 Define the color scheme for your blog. You can set the _`primary_color`_, _`secondary_color`_, and _`accent_color`_ for both light and dark modes.
 
+## Comment Component
+Configure the comment component which will appear under each article. You have the option to use "GiscusComment". Check [https://giscus.app/](https://giscus.app/) on how to use it.
+
+### Giscus Comment
+For the "GiscusComment" option, you need to provide settings for _`repo`_, _`repo_id`_, _`category_id`_, _`category`_, _`mapping`_, _`input_position`_, and _`language`_.
+
+- _`repo`_: This should be a string in the format "user/repository". For example, "octocat/Hello-World".
+- _`repo_id`_: The ID of the repository.
+- _`category_id`_: The ID of the category.
+- _`category`_: The category of the comment.
+- _`mapping`_: The mapping of the comments. It can```markdown
+be one of the following: "url", "title", "og:title", "specific", "number", "pathname".
+- _`input_position`_: The position of the input field. It can be either "top" or "bottom".
+- _`language`_: The language of the comments. It can be any of the following: 'de', 'gsw', 'en', 'es', 'fr', 'id', 'it', 'ja', 'ko', 'nl', 'pl', 'pt', 'ro', 'ru', 'tr', 'vi', 'zh-CN', 'zh-TW'.
 
 ## Footer
 Set the text for the footer of your blog. This could include copyright information or a small site description.
+
