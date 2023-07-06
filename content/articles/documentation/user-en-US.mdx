@@ -1,31 +1,69 @@
 ---
 title: Documentation for Users
-date: 2023-06-15
-excerpt: English documentation of Next Sakurairo.
+date: 2023-07-06
+excerpt: English user documentation of Next Sakurairo.
 ---
 
-## Getting Started
+## Blog URL
+Set the URL of your blog. This should be a fully qualified domain name (FQDN) pointing to your site.
 
 
+## Blog Title
+This is the main title of your blog. It is often shown in the browser title bar and used as the default title for bookmarks.
 
-### Components
-Some components, such as the logo component, can be switched out dynamically. You can identify these components by looking for folders with a _`dynamic.ts`_ file.
 
-The _`dynamic.ts`_ file contains dynamic imports for different versions of a component. The version used by your site is determined by the option field in your configuration file.
+## Blog Description
+Provide a brief description of your blog. This description often appears in search engine results.
 
-To configure for a different component, you need to modify your configuration file (config/index.ts).
 
-Let's take the logo component as an example. If you want to change your logo from TextLogo to ImageLogo, you'd make the following change:
-```typescript config/index.ts
-export const blogConfig: BlogConfig = {
-    // rest of config
-    header_logo: {
-        option: "ImageLogo",
-        settings: {
-            image_path: "/logo.png"
-        }
-    },
-    // rest of config
-}
-```
-In this example, we've changed the option field under header_logo from "TextLogo" to "ImageLogo". This tells the blog to use the ImageLogo component instead of the TextLogo component.
+## Author
+Set the author's name. This will be used for meta.
+
+
+## Typist
+Set the typist's text. This will appear in the front page typing component.
+
+
+## Articles Per Load
+Define the number of articles to load for each fetch. For example, if you want to load 5 articles each time you fetch more articles, set this to 5.
+
+
+## Navigation Bar
+Define your blog's navigation bar items, including the title of the navigation bar item and the href.
+
+
+## Background Image
+Define the background image for your blog. Set the option to "APIBackgroundImage" and provide the URL and filter type (grid, dot, none).
+
+
+## Hero
+Set the hero of your blog. This will appear on the front page landing screen. Set the option to "IconHero" and provide the icon path.
+
+
+## Header Logo
+Set the logo of the blog that will appear on the header. You can choose between a _`TextLogo`_ and an _`ImageLogo`_, and customize the settings accordingly.
+
+### Text Logo
+For a text logo, you need to provide settings for _`text_front`_, _`text_middle`_, _`text_end`_, and _`text_bottom`_. These settings allow you to customize the text appearing in the logo.
+
+- _`text_front`_: Set the text at the beginning of the logo.
+- _`text_middle`_: Set the text in the middle of the logo. It is recommended to keep this short as it will rotate on hover.
+- _`text_end`_: Set the text at the end of the logo.
+- _`text_bottom`_: Set the text at the bottom of the logo.
+
+### Image Logo
+For an image logo, you need to provide an _`image_path`_.
+
+- _`image_path`_: Set the path of the image. If the logo image is in the public folder, the path should be "/logo.png". Make sure that the image exists at the specified path in your project.
+
+
+## Social Media Links
+Set the social media links that will appear in the front page landing screen. For each social media link, define the title, icon, and href.
+
+
+## Theme Colors
+Define the color scheme for your blog. You can set the _`primary_color`_, _`secondary_color`_, and _`accent_color`_ for both light and dark modes.
+
+
+## Footer
+Set the text for the footer of your blog. This could include copyright information or a small site description.
