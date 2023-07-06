@@ -85,14 +85,14 @@ export const blogConfig: BlogConfig = {
     footer: "© cocdeshijie. All rights reserved.",
 
     comment: {
-        option: "Giscus",
+        option: "GiscusComment",
         settings: {
-            repo: "cocdeshijie/Next-Sakurairo",
-            repo_id: "MDEwOlJlcG9zaXRvcnkzNjQ3MjU0NjE=",
-            category: "Announcements",
-            category_id: "DIC_kwDOF7H4Q4MCGYQ7",
+            repo: "Next-Sakurairo/Next-Sakurairo",
+            repo_id: "R_kgDOJ4Togw",
+            category: "Comments",
+            category_id: "DIC_kwDOJ4Tog84CXt46",
             mapping: "url",
-            inputPosition: "bottom",
+            input_position: "top",
             language: "en"
         }
     }

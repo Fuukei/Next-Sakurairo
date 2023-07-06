@@ -3,7 +3,9 @@
 import Giscus from "@giscus/react";
 import { useEffect, useState} from "react";
 
-export default function Giscus () {
+const commentSetting = require("@/config").blogConfig.comment.settings
+
+export default function GiscusComment () {
     let theme = "preferred_color_scheme";
     const [mounted, setMounted] = useState(false)
 
@@ -22,14 +24,14 @@ export default function Giscus () {
     return (
         <div className={"md:px-8 mt-8"}>
             <Giscus
-                repo={"cocdeshijie/next-sakurairo"}
-                repoId={"R_kgDOJoJfqg"}
-                category={"Announcements"}
-                categoryId={"DIC_kwDOJoJfqs4CWz2I"}
-                mapping={"url"}
-                inputPosition={"bottom"}
+                repo={commentSetting.repo}
+                repoId={commentSetting.repo_id}
+                category={commentSetting.category}
+                categoryId={commentSetting.category_id}
+                mapping={commentSetting.mapping}
+                inputPosition={commentSetting.input_position}
                 theme={theme}
-                lang={"en"}
+                lang={commentSetting.language}
                 loading={"lazy"}
             />
         </div>

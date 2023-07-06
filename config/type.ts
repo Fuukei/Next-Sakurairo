@@ -167,19 +167,19 @@ export type BlogConfig = {
      */
     comment:
         /*
-         * Option Giscus
+         * Option Giscus Comment
          * Check https://giscus.app/ on how to use it.
          */
         | {
-        option: "Giscus";
+        option: "GiscusComment";
         settings: {
-            repo: string;
+            repo:  `${string}/${string}`;
             repo_id: string;
             category_id: string;
             category: string;
-            mapping: string;
-            inputPosition: string;
-            language: string;
+            mapping: "url" | "title" | "og:title" | "specific" | "number" | "pathname";
+            input_position: "top" | "bottom";
+            language: 'de' | 'gsw' | 'en' | 'es' | 'fr' | 'id' | 'it' | 'ja' | 'ko' | 'nl' | 'pl' | 'pt' | 'ro' | 'ru' | 'tr' | 'vi' | 'zh-CN' | 'zh-TW';
         }
     }
 }

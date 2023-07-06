@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
 
-export const Giscus = dynamic(() => import('./Giscus'));
+export const GiscusComment = dynamic(() => import('./GiscusComment'));
 
 
