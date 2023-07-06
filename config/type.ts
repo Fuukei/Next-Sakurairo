@@ -156,11 +156,6 @@ export type BlogConfig = {
     }
 
     /*
-     * The footer of the blog.
-     */
-    footer: string;
-
-    /*
      * Comment component.
      * It will appear under each article.
      * There are multiple options for the comment component.
@@ -182,4 +177,9 @@ export type BlogConfig = {
             language: 'de' | 'gsw' | 'en' | 'es' | 'fr' | 'id' | 'it' | 'ja' | 'ko' | 'nl' | 'pl' | 'pt' | 'ro' | 'ru' | 'tr' | 'vi' | 'zh-CN' | 'zh-TW';
         }
     }
+
+    /*
+     * The footer of the blog.
+     */
+    footer: string;
 }
