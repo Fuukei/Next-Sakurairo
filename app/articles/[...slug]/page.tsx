@@ -1,7 +1,7 @@
 import { allArticles } from "contentlayer/generated";
 import MDXContent from "@/components/mdx/MDXContent";
 import { notFound } from "next/navigation";
-import GiscusComments from "@/components/GiscusComments";
+import Comment from "@/components/comment/Comment";
 import ArticlesPageHeading from "@/components/ArticlesPageHeading";
 import MDXTableOfContents from "@/components/mdx/MDXTableOfContents";
 import { type Metadata } from "next/types";
@@ -70,7 +70,7 @@ const ArticlePage = ({ params }: ArticlePageProps) => {
                 )}>
                     <div className={"py-8"}>
                         <MDXContent code={article.body.code} />
-                        <GiscusComments />
+                        <Comment />
                     </div>
                 </div>
             </div>

@@ -20,12 +20,12 @@ export const blogConfig: BlogConfig = {
 
     navigation: [
         {
-            title: "Item 1",
-            href: "#"
+            title: "User Documentation",
+            href: "/articles/documentation/user-en-US"
         },
         {
-            title: "Item 2",
-            href: "#"
+            title: "Developer Documentation",
+            href: "/articles/documentation/developer-en-US"
         }
     ],
 
@@ -82,5 +82,18 @@ export const blogConfig: BlogConfig = {
         },
     },
 
-    footer: "© cocdeshijie. All rights reserved."
+    footer: "© cocdeshijie. All rights reserved.",
+
+    comment: {
+        option: "GiscusComment",
+        settings: {
+            repo: "Next-Sakurairo/Next-Sakurairo",
+            repo_id: "R_kgDOJ4Togw",
+            category: "Comments",
+            category_id: "DIC_kwDOJ4Tog84CXt46",
+            mapping: "url",
+            input_position: "top",
+            language: "en"
+        }
+    }
 }

@@ -156,6 +156,29 @@ export type BlogConfig = {
     }
 
     /*
+     * Comment component.
+     * It will appear under each article.
+     * There are multiple options for the comment component.
+     */
+    comment:
+        /*
+         * Option Giscus Comment
+         * Check https://giscus.app/ on how to use it.
+         */
+        | {
+        option: "GiscusComment";
+        settings: {
+            repo:  `${string}/${string}`;
+            repo_id: string;
+            category_id: string;
+            category: string;
+            mapping: "url" | "title" | "og:title" | "specific" | "number" | "pathname";
+            input_position: "top" | "bottom";
+            language: 'de' | 'gsw' | 'en' | 'es' | 'fr' | 'id' | 'it' | 'ja' | 'ko' | 'nl' | 'pl' | 'pt' | 'ro' | 'ru' | 'tr' | 'vi' | 'zh-CN' | 'zh-TW';
+        }
+    }
+
+    /*
      * The footer of the blog.
      */
     footer: string;
