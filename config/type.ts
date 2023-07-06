@@ -159,4 +159,27 @@ export type BlogConfig = {
      * The footer of the blog.
      */
     footer: string;
+
+    /*
+     * Comment component.
+     * It will appear under each article.
+     * There are multiple options for the comment component.
+     */
+    comment:
+        /*
+         * Option Giscus
+         * Check https://giscus.app/ on how to use it.
+         */
+        | {
+        option: "Giscus";
+        settings: {
+            repo: string;
+            repo_id: string;
+            category_id: string;
+            category: string;
+            mapping: string;
+            inputPosition: string;
+            language: string;
+        }
+    }
 }

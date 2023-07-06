@@ -82,5 +82,18 @@ export const blogConfig: BlogConfig = {
         },
     },
 
-    footer: "© cocdeshijie. All rights reserved."
+    footer: "© cocdeshijie. All rights reserved.",
+
+    comment: {
+        option: "Giscus",
+        settings: {
+            repo: "cocdeshijie/Next-Sakurairo",
+            repo_id: "MDEwOlJlcG9zaXRvcnkzNjQ3MjU0NjE=",
+            category: "Announcements",
+            category_id: "DIC_kwDOF7H4Q4MCGYQ7",
+            mapping: "url",
+            inputPosition: "bottom",
+            language: "en"
+        }
+    }
 }
