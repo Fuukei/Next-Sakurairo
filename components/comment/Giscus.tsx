@@ -3,7 +3,7 @@
 import Giscus from "@giscus/react";
 import { useEffect, useState} from "react";
 
-export default function GiscusComments () {
+export default function Giscus () {
     let theme = "preferred_color_scheme";
     const [mounted, setMounted] = useState(false)
 
