@@ -160,25 +160,28 @@ export default function MDXTableOfContents({ raw }: MDXTableOfContentsProps) {
                                     </div>
                                     <hr className={"my-2"}/>
                                     <div className="text-sm whitespace-nowrap antialiased overflow-x-auto">
-                                        {toc.map((header, index) => (
-                                            <div
-                                                key={index}
-                                                style={{ paddingLeft: `${header.level * 20}px` }}
-                                                onClick={(event) => {
-                                                    const id = header.text.toLowerCase().split(' ').join('-');
-                                                    scrollToSection(event, id);
-                                                    setOpen(false);
-                                                }}
-                                            >
-                                                <a
-                                                    href={`#${header.text.toLowerCase().split(' ').join('-')}`}
-                                                    className={header.isActive ? "text-primary_color dark:text-primary_color-dark" : ""}
+                                        {toc.map((header, index) => {
+                                            const lowestLevel = Math.min(...toc.map(header => header.level)); // Find the smallest heading level.
+                                            const adjustedLevel = header.level - lowestLevel; // Adjust the current heading level.
+                                            return (
+                                                <div
+                                                    key={index}
+                                                    style={{ paddingLeft: `${adjustedLevel * 20}px` }} // Use the adjusted level to calculate padding.
+                                                    onClick={(event) => {
+                                                        const id = header.text.toLowerCase().split(' ').join('-');
+                                                        scrollToSection(event, id);
+                                                        setOpen(false);
+                                                    }}
                                                 >
-                                                    {header.text}
-                                                </a>
-                                            </div>
-                                        ))}
-
+                                                    <a
+                                                        href={`#${header.text.toLowerCase().split(' ').join('-')}`}
+                                                        className={header.isActive ? "text-primary_color dark:text-primary_color-dark" : ""}
+                                                    >
+                                                        {header.text}
+                                                    </a>
+                                                </div>
+                                            );
+                                        })}
                                     </div>
                                 </div>
                             </motion.div>
