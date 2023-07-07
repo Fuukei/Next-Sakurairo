@@ -4,7 +4,7 @@ const backgroundImageSetting = require("@/config").blogConfig.background_image.s
 
 export default function APIBackgroundImage() {
 
-    const image = backgroundImageSetting.image ?? "/api/image";
+    const image = backgroundImageSetting.image ?? "/api/image-api";
     return (
         <>
             <Image
