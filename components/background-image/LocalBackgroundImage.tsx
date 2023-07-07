@@ -3,7 +3,7 @@ import fs from 'fs';
 
 const backgroundImageSetting = require("@/config").blogConfig.background_image.settings;
 
-export default function LocalBackgroundImage() {
+async function getImage() {
     const files = fs.readdirSync("./public/background-image");
     const images = files.filter(file =>
         file.endsWith('.png') ||
@@ -13,13 +13,16 @@ export default function LocalBackgroundImage() {
         file.endsWith('.bmp') ||
         file.endsWith('.webp')
     );
-    const randomImage = images[Math.floor(Math.random() * images.length)];
-    const src = `/background-image/${randomImage}`
+    return images[Math.floor(Math.random() * images.length)]
+}
+
+export default async function LocalBackgroundImage() {
+    const image = await getImage()
 
     return (
         <>
             <Image
-                src={src}
+                src={`/background-image/${image}`}
                 alt={"bg"}
                 className={"-z-50 fixed"}
                 width={0}
