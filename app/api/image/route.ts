@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { NextResponse } from 'next/server';
+import { blogConfig } from "@/config";
 
 export async function GET(request: Request) {
     const imagesDir = path.join(process.cwd(), './public/image-api');
@@ -15,5 +16,5 @@ export async function GET(request: Request) {
     );
     const image = images[Math.floor(Math.random() * images.length)];
 
-    return NextResponse.redirect(new URL(`/image-api/${image}`, request.url))
+    return NextResponse.redirect(new URL(`${blogConfig.url}/image-api/${image}`, request.url))
 }
