@@ -30,9 +30,8 @@ export const blogConfig: BlogConfig = {
     ],
 
     background_image: {
-        option: "APIBackgroundImage",
+        option: "LocalBackgroundImage",
         settings: {
-            url: "https://www.loliapi.com/acg/pc",
             filter: "grid"
         }
     },
