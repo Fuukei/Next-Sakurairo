@@ -30,7 +30,7 @@ export const blogConfig: BlogConfig = {
     ],
 
     background_image: {
-        option: "LocalBackgroundImage",
+        option: "APIBackgroundImage",
         settings: {
             filter: "grid"
         }

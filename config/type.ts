@@ -59,22 +59,20 @@ export type BlogConfig = {
      */
     background_image:
         /*
-         * Use an external image API for background image.
+         * Use an image API for background image.
+         * Don't set url if you want to use local image API.
          */
         | {
         option: "APIBackgroundImage";
         settings: {
             url: string;
-            filter: | "grid" | "dot" | "none";
+            filter: "grid" | "dot" | "none";
         } }
-        /*
-         * Use a local image for background image.
-         * The image will be fetched randomly under /public/background-image.
-         */
         | {
-        option: "LocalBackgroundImage";
+        option: "APIBackgroundImage";
         settings: {
-            filter: | "grid" | "dot" | "none";
+            url?: undefined;
+            filter: "grid" | "dot" | "none";
         } }
 
     /*
