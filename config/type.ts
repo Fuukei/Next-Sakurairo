@@ -6,31 +6,37 @@ export type BlogConfig = {
      * @example "https://next-sakurairo.qwq.xyz"
      */
     url: string;
+
     /*
      * The title of the blog.
      * @example "Next Sakurairo"
      */
     title: string;
+
     /*
      * The description of the blog.
      * @example "A blog system made with Next.js."
      */
     description: string;
+
     /*
      * The author of the blog.
      * @example "cocdeshijie"
      */
     author: string;
+
     /*
      * This will appear in front page typing component.
      * @example "by cocdeshijie"
      */
     typist: string;
+
     /*
      * The number of articles per load.
      * @example 5
      */
     articles_per_load: number;
+
     /*
      * The navigation bar of the blog.
      */
@@ -46,17 +52,31 @@ export type BlogConfig = {
          */
         href: string;
     }[];
+
     /*
      * The background image of the blog.
      * There are multiple options for the background image.
      */
     background_image:
+        /*
+         * Use an external image API for background image.
+         */
         | {
         option: "APIBackgroundImage";
         settings: {
             url: string;
             filter: | "grid" | "dot" | "none";
         } }
+        /*
+         * Use a local image for background image.
+         * The image will be fetched randomly under /public/background-image.
+         */
+        | {
+        option: "LocalBackgroundImage";
+        settings: {
+            filter: | "grid" | "dot" | "none";
+        } }
+
     /*
      * The hero of the blog.
      * This will appear on the front page landing screen.
@@ -68,6 +88,7 @@ export type BlogConfig = {
         settings: {
             icon_path: string;
         } }
+
     /*
      * The logo of the blog.
      * This will appear on the header.
@@ -114,6 +135,7 @@ export type BlogConfig = {
                  */
                 image_path: string;
             } }
+
     /*
      * A list of social media links.
      * They will appear in front page landing screen.

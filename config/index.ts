@@ -30,9 +30,8 @@ export const blogConfig: BlogConfig = {
     ],
 
     background_image: {
-        option: "APIBackgroundImage",
+        option: "LocalBackgroundImage",
         settings: {
-            url: "https://www.loliapi.com/acg/pc",
             filter: "grid"
         }
     },
@@ -58,7 +57,7 @@ export const blogConfig: BlogConfig = {
         {
             title: "GitHub",
             icon: createElement(FaGithub),
-            href: "https://github.com/cocdeshijie/Next-Sakurairo"
+            href: "https://github.com/Next-Sakurairo/Next-Sakurairo"
         },
         {
             title: "Twitter",
