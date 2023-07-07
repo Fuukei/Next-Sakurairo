@@ -88,12 +88,12 @@ export type BlogConfig = {
         settings: {
             icon_path: string;
         } }
+
     /*
      * The logo of the blog.
      * This will appear on the header.
      * There are multiple options for the logo.
      */
-
     header_logo:
         /*
          * Option Text Logo
