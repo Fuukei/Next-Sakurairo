@@ -6,7 +6,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { blogConfig } from "@/config";
-import * as Dialog from '@radix-ui/react-dialog';
+import * as Dialog from "@radix-ui/react-dialog";
 import { AnimatePresence, motion } from "framer-motion";
 import Search from "@/components/search/Search";
 import SearchTrigger from "@/components/search/SearchTrigger";
