@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ListBulletIcon } from "@heroicons/react/24/solid";
+import { PiListBulletsBold } from "react-icons/pi";
 import { cn } from "@/lib/utils";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import IconButton from "@/components/IconButton";
@@ -129,7 +129,7 @@ export default function MDXTableOfContents({ raw }: MDXTableOfContentsProps) {
                 <DropdownMenu.Trigger>
                     <IconButton>
                         <div className={"text-primary_color dark:text-primary_color-dark"}>
-                            <ListBulletIcon className={"w-6 h-6"}/>
+                            <PiListBulletsBold className={"w-6 h-6"}/>
                         </div>
                     </IconButton>
                 </DropdownMenu.Trigger>

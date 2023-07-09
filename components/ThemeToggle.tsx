@@ -1,5 +1,5 @@
 import { useTheme } from "next-themes";
-import { ComputerDesktopIcon, MoonIcon, SunIcon } from "@heroicons/react/24/solid";
+import { RiMoonClearFill, RiSunFill, RiSettings5Line } from "react-icons/ri";
 import { AnimatePresence, motion } from "framer-motion";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { cn } from "@/lib/utils";
@@ -40,14 +40,14 @@ export default function ThemeToggle() {
                             transition={{ duration: 0.3 }}
                             className="absolute inset-0"
                         >
-                            <SunIcon className="w-full h-full" />
+                            <RiSunFill className="w-full h-full" />
                         </motion.div>
                         <motion.div
                             animate={{ x: isDark ? 0 : "50%", opacity: isDark ? 1 : 0 }}
                             transition={{ duration: 0.3 }}
                             className="absolute inset-0"
                         >
-                            <MoonIcon className="w-full h-full" />
+                            <RiMoonClearFill className="w-full h-full" />
                         </motion.div>
                     </div>
                 </IconButton>
@@ -66,15 +66,15 @@ export default function ThemeToggle() {
                                 "bg-slate-100/80 dark:bg-slate-800/80 text-primary_color dark:text-primary_color-dark"
                             )}>
                                 <MenuItem onClick={() => setTheme("light")}>
-                                    <SunIcon className={"w-4 h-4 mr-2"}/>
+                                    <RiSunFill className={"w-4 h-4 mr-2"}/>
                                     <span>Light</span>
                                 </MenuItem>
                                 <MenuItem onClick={() => setTheme("dark")}>
-                                    <MoonIcon className={"w-4 h-4 mr-2"}/>
+                                    <RiMoonClearFill className={"w-4 h-4 mr-2"}/>
                                     <span>Dark</span>
                                 </MenuItem>
                                 <MenuItem onClick={() => setTheme("system")}>
-                                    <ComputerDesktopIcon className={"w-4 h-4 mr-2"}/>
+                                    <RiSettings5Line className={"w-4 h-4 mr-2"}/>
                                     <span>System</span>
                                 </MenuItem>
                             </motion.div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ChevronUpIcon } from "@heroicons/react/24/solid";
+import { BiSolidArrowToTop } from "react-icons/bi";
 import { motion } from "framer-motion";
 import IconButton from "@/components/IconButton";
 
@@ -43,7 +43,7 @@ export default function ToTop() {
             initial="hidden"
             animate={isVisible ? "visible" : "hidden"}>
             <IconButton>
-                <ChevronUpIcon className={"text-primary_color dark:text-primary_color-dark w-6 h-6"} />
+                <BiSolidArrowToTop className={"text-primary_color dark:text-primary_color-dark w-6 h-6"} />
             </IconButton>
         </motion.div>
     )

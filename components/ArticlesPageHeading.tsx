@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { HashtagIcon } from "@heroicons/react/24/solid";
+import { HiHashtag } from "react-icons/hi";
 import { DateTag, NoTag, Tag } from "@/components/Tags";
 
 interface ArticlePageHeadingProps {
@@ -69,7 +69,7 @@ export default function ArticlesPageHeading({ title, date, tags }: ArticlePageHe
                                 } else {
                                     return tags.map((tag) => (
                                         <Tag key={tag}>
-                                            <HashtagIcon className={"w-3 h-3 ml-1"}/>
+                                            <HiHashtag className={"w-3 h-3 ml-1"}/>
                                             <div className={"text-xs py-1 px-1"}>{tag}</div>
                                         </Tag>
                                     ))

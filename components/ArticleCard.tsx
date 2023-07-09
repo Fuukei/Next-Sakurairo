@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Article } from "contentlayer/generated";
 import { cn } from "@/lib/utils";
-import { HashtagIcon } from "@heroicons/react/24/solid";
+import { HiHashtag } from "react-icons/hi";
 import { useState } from "react";
 import { DateTag, NoTag, Tag } from "@/components/Tags";
 
@@ -57,7 +57,7 @@ export default function ArticleCard({ article, idx }: ArticleCardProps) {
                         } else {
                             return article.tags.map((tag) => (
                                 <Tag key={tag}>
-                                    <HashtagIcon className={"w-3 h-3 ml-1"}/>
+                                    <HiHashtag className={"w-3 h-3 ml-1"}/>
                                     <div className={"text-xs py-1 px-1"}>{tag}</div>
                                 </Tag>
                             ))

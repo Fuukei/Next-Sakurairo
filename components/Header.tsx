@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Bars3Icon } from "@heroicons/react/24/solid";
+import { HiBars4 } from "react-icons/hi2";
 import ThemeToggle from "@/components/ThemeToggle";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -54,7 +54,7 @@ function MobileMenu() {
         <Dialog.Root onOpenChange={(mobileMenuOpen) => setMobileMenuOpen(mobileMenuOpen)}>
             <Dialog.Trigger>
                 <IconButton>
-                    <Bars3Icon className={"w-6 h-6"} aria-hidden={"true"}></Bars3Icon>
+                    <HiBars4 className={"w-6 h-6"} aria-hidden={"true"}/>
                 </IconButton>
             </Dialog.Trigger>
             <AnimatePresence>
