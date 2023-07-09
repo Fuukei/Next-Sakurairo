@@ -15,7 +15,7 @@ export const blogConfig: BlogConfig = {
     title: "Next Sakurairo",
     description: "A blog system made with Next.js.",
     author: "cocdeshijie",
-    typist: "by cocdeshijie",
+    typewriter: "by cocdeshijie",
     articles_per_load: 5,
 
     navigation: [

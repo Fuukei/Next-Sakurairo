@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { Typing } from "@/components/hero/typist/Typing";
 import { blogConfig } from "@/config";
 import Link from "next/link";
+import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
 
 const heroSetting = require("@/config").blogConfig.hero.settings
 
@@ -24,7 +25,11 @@ export default function IconHero() {
                     "backdrop-blur-sm drop-shadow-md w-full rounded-2xl text-center py-5",
                     "bg-secondary_color/50 dark:bg-secondary_color-dark/50"
                 )}>
-                    <Typing />
+                    <div className="flex justify-center items-center space-x-1 font-semibold">
+                        <ImQuotesLeft className={"w-4 h-4 mb-2"} />
+                        <Typing />
+                        <ImQuotesRight className={"w-4 h-4 mb-2"} />
+                    </div>
                 </div>
             </div>
             <div className="flex mt-5 space-x-3">
