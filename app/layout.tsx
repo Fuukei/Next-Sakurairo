@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Open_Sans } from "next/font/google";
-import Header from "@/components/Header";
+import Header from "@/components/header/Header";
 import Footer from "@/components/Footer";
 import { ScrollProgressProvider } from "@/components/ScrollProgressProvider";
 import ToTop from "@/components/ToTop";

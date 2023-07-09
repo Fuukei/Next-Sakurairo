@@ -85,9 +85,9 @@ function MobileMenu() {
                                 )}
                             >
                                 <div className="flex flex-col items-center justify-between space-y-2">
-                                    {navigationItems.map((item, idx:number) => (
-                                        <NavigationItem item={item} key={idx} />
-                                    ))}
+                                    {/*{navigationItems.map((item, idx:number) => (*/}
+                                    {/*    <NavigationItem item={item} key={idx} />*/}
+                                    {/*))}*/}
                                     <SearchTrigger />
                                     <ThemeToggle />
                                 </div>
@@ -100,7 +100,7 @@ function MobileMenu() {
     )
 }
 
-export default function Header() {
+export default function FloatingHeader() {
     const [logoHover, setLogoHover] = useState(false);
     const [headerHover, setHeaderHover] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
@@ -145,9 +145,13 @@ export default function Header() {
                         "flex items-center md:rounded-2xl md:px-6 md:py-1 space-x-4 duration-500",
                         "text-primary_color dark:text-primary_color-dark"
                     )}>
-                        {navigationItems.map((item, idx:number) => (
-                            <NavigationItem item={item} key={idx} />
-                        ))}
+                        {/*{navigationItems.map((item, idx:number) => {*/}
+                        {/*    if ('child' in item) {*/}
+                        {/*        return <NavigationItems item={item} key={idx} />*/}
+                        {/*    } else {*/}
+                        {/*        return <NavigationItem item={item} key={idx} />*/}
+                        {/*    }*/}
+                        {/*})}*/}
                         <SearchTrigger />
                         <ThemeToggle />
                     </div>

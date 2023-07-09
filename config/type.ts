@@ -40,7 +40,7 @@ export type BlogConfig = {
     /*
      * The navigation bar of the blog.
      */
-    navigation: {
+    navigation: ({
         /*
          * The title of the navigation bar item.
          * @example "Home"
@@ -51,7 +51,40 @@ export type BlogConfig = {
          * @example "#"
          */
         href: string;
-    }[];
+    } | {
+        /*
+         * The title of the parent navigation bar item.
+         * @example "Services"
+         */
+        title: string;
+        /*
+         * The child navigation bar items.
+         */
+        child: {
+            /*
+             * The title of the child navigation bar item.
+             * @example "Service1"
+             */
+            title: string;
+            /*
+             * The href of the child navigation bar item.
+             * @example "#service1"
+             */
+            href: string;
+        }[];
+    })[];
+
+    /*
+     * The header of the blog.
+     * There are multiple options for the header.
+     */
+    header:
+        /*
+         * Option Floating Header
+         */
+        | {
+        option: "FloatingHeader";
+        }
 
     /*
      * The background image of the blog.

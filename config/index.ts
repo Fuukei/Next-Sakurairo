@@ -26,8 +26,25 @@ export const blogConfig: BlogConfig = {
         {
             title: "Developer Documentation",
             href: "/articles/documentation/developer-en-US"
+        },
+        {
+            title: "Test",
+            child: [
+                {
+                    title: "Test 1",
+                    href: "#"
+                },
+                {
+                    title: "Test 2",
+                    href: "#"
+                },
+            ]
         }
     ],
+
+    header: {
+        option: "FloatingHeader",
+    },
 
     background_image: {
         option: "APIBackgroundImage",
