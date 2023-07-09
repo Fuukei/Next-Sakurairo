@@ -18,7 +18,7 @@ export const Article = defineDocumentType(() => ({
     fields: {
         title: { type: 'string', required: true },
         date: { type: 'date', required: true },
-        image: { type: 'string', required: false, default: '/api/image-api' },
+        image: { type: 'string', required: false, default: 'https://www.loliapi.com/acg/pc/' },
         excerpt: { type: 'string', required: false, default: "No excerpt provided" },
         tags: { type: 'list', of: { type: 'string' }, required: false },
     },
