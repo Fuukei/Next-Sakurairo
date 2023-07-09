@@ -20,24 +20,29 @@ export const blogConfig: BlogConfig = {
 
     navigation: [
         {
-            title: "User Documentation",
-            href: "/articles/documentation/user-en-US"
+            title: "Home",
+            href: "/"
         },
         {
-            title: "Developer Documentation",
-            href: "/articles/documentation/developer-en-US"
-        },
-        {
-            title: "Test",
+            title: "Documentation",
             child: [
                 {
-                    title: "Test 1",
-                    href: "#"
+                    title: "Developer Documentation",
+                    href: "/articles/documentation/developer-en-US"
                 },
                 {
-                    title: "Test 2",
-                    href: "#"
-                },
+                    title: "User Documentation",
+                    href: "/articles/documentation/user-en-US"
+                }
+            ]
+        },
+        {
+            title: "Content Components",
+            child: [
+                {
+                    title: "My Anime List Component",
+                    href: "/my-anime-list"
+                }
             ]
         }
     ],

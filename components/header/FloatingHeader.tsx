@@ -12,40 +12,9 @@ import Search from "@/components/search/Search";
 import SearchTrigger from "@/components/search/SearchTrigger";
 import Logo from "@/components/logo/Logo";
 import IconButton from "@/components/IconButton";
+import { Navigation, NavigationMobile } from "@/components/logo/navigation/Navigation";
 
-const navigationItems = blogConfig.navigation;
-
-type NavigationItemProps = {
-    item: {
-        title: string;
-        href: string;
-    };
-}
-
-function NavigationItem({ item }: NavigationItemProps) {
-    const [isHovered, setIsHovered] = useState(false);
-
-    return (
-        <Link href={item.href}
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-        >
-            <div className="px-2 font-semibold text-primary_color dark:text-primary_color-dark">
-                {item.title}
-                <motion.span
-                    animate={{ scaleX: isHovered ? 1 : 0 }}
-                    transition={{ duration: 0.3 }}
-                    style={{
-                        display: 'block',
-                        height: '2px',
-                        backgroundColor: 'currentColor',
-                        transformOrigin: 'left',
-                    }}
-                />
-            </div>
-        </Link>
-    );
-}
+const navigation = blogConfig.navigation;
 
 function MobileMenu() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -85,9 +54,7 @@ function MobileMenu() {
                                 )}
                             >
                                 <div className="flex flex-col items-center justify-between space-y-2">
-                                    {/*{navigationItems.map((item, idx:number) => (*/}
-                                    {/*    <NavigationItem item={item} key={idx} />*/}
-                                    {/*))}*/}
+                                    <NavigationMobile navigation={navigation} />
                                     <SearchTrigger />
                                     <ThemeToggle />
                                 </div>
@@ -145,13 +112,7 @@ export default function FloatingHeader() {
                         "flex items-center md:rounded-2xl md:px-6 md:py-1 space-x-4 duration-500",
                         "text-primary_color dark:text-primary_color-dark"
                     )}>
-                        {/*{navigationItems.map((item, idx:number) => {*/}
-                        {/*    if ('child' in item) {*/}
-                        {/*        return <NavigationItems item={item} key={idx} />*/}
-                        {/*    } else {*/}
-                        {/*        return <NavigationItem item={item} key={idx} />*/}
-                        {/*    }*/}
-                        {/*})}*/}
+                        <Navigation navigation={navigation} />
                         <SearchTrigger />
                         <ThemeToggle />
                     </div>
