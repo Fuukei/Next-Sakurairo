@@ -1,51 +1,20 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Bars3Icon } from "@heroicons/react/24/solid";
+import { HiBars4 } from "react-icons/hi2";
 import ThemeToggle from "@/components/ThemeToggle";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { blogConfig } from "@/config";
-import * as Dialog from '@radix-ui/react-dialog';
+import * as Dialog from "@radix-ui/react-dialog";
 import { AnimatePresence, motion } from "framer-motion";
 import Search from "@/components/search/Search";
 import SearchTrigger from "@/components/search/SearchTrigger";
 import Logo from "@/components/logo/Logo";
 import IconButton from "@/components/IconButton";
+import { Navigation, NavigationMobile } from "@/components/logo/navigation/Navigation";
 
-const navigationItems = blogConfig.navigation;
-
-type NavigationItemProps = {
-    item: {
-        title: string;
-        href: string;
-    };
-}
-
-function NavigationItem({ item }: NavigationItemProps) {
-    const [isHovered, setIsHovered] = useState(false);
-
-    return (
-        <Link href={item.href}
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-        >
-            <div className="px-2 font-semibold text-primary_color dark:text-primary_color-dark">
-                {item.title}
-                <motion.span
-                    animate={{ scaleX: isHovered ? 1 : 0 }}
-                    transition={{ duration: 0.3 }}
-                    style={{
-                        display: 'block',
-                        height: '2px',
-                        backgroundColor: 'currentColor',
-                        transformOrigin: 'left',
-                    }}
-                />
-            </div>
-        </Link>
-    );
-}
+const navigation = blogConfig.navigation;
 
 function MobileMenu() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -54,7 +23,7 @@ function MobileMenu() {
         <Dialog.Root onOpenChange={(mobileMenuOpen) => setMobileMenuOpen(mobileMenuOpen)}>
             <Dialog.Trigger>
                 <IconButton>
-                    <Bars3Icon className={"w-6 h-6"} aria-hidden={"true"}></Bars3Icon>
+                    <HiBars4 className={"w-6 h-6"} aria-hidden={"true"}/>
                 </IconButton>
             </Dialog.Trigger>
             <AnimatePresence>
@@ -85,9 +54,7 @@ function MobileMenu() {
                                 )}
                             >
                                 <div className="flex flex-col items-center justify-between space-y-2">
-                                    {navigationItems.map((item, idx:number) => (
-                                        <NavigationItem item={item} key={idx} />
-                                    ))}
+                                    <NavigationMobile navigation={navigation} />
                                     <SearchTrigger />
                                     <ThemeToggle />
                                 </div>
@@ -100,7 +67,7 @@ function MobileMenu() {
     )
 }
 
-export default function Header() {
+export default function FloatingHeader() {
     const [logoHover, setLogoHover] = useState(false);
     const [headerHover, setHeaderHover] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
@@ -145,9 +112,7 @@ export default function Header() {
                         "flex items-center md:rounded-2xl md:px-6 md:py-1 space-x-4 duration-500",
                         "text-primary_color dark:text-primary_color-dark"
                     )}>
-                        {navigationItems.map((item, idx:number) => (
-                            <NavigationItem item={item} key={idx} />
-                        ))}
+                        <Navigation navigation={navigation} />
                         <SearchTrigger />
                         <ThemeToggle />
                     </div>

@@ -20,17 +20,39 @@ export const blogConfig: BlogConfig = {
 
     navigation: [
         {
-            title: "User Documentation",
-            href: "/articles/documentation/user-en-US"
+            title: "Home",
+            href: "/"
         },
         {
-            title: "Developer Documentation",
-            href: "/articles/documentation/developer-en-US"
+            title: "Documentation",
+            child: [
+                {
+                    title: "Developer Documentation",
+                    href: "/articles/documentation/developer-en-US"
+                },
+                {
+                    title: "User Documentation",
+                    href: "/articles/documentation/user-en-US"
+                }
+            ]
+        },
+        {
+            title: "Content Components",
+            child: [
+                {
+                    title: "My Anime List Component",
+                    href: "/my-anime-list"
+                }
+            ]
         }
     ],
 
+    header: {
+        option: "FloatingHeader",
+    },
+
     background_image: {
-        option: "LocalBackgroundImage",
+        option: "APIBackgroundImage",
         settings: {
             filter: "grid"
         }

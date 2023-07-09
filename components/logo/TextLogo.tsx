@@ -3,9 +3,11 @@
 import { cn } from "@/lib/utils";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
+import { LogoProps } from "@/components/logo/Logo";
+
 const logoSetting = require("@/config").blogConfig.header_logo.settings
 
-export default function TextLogo({logoHover}: {logoHover: boolean}) {
+export default function TextLogo({ logoHover }: LogoProps) {
     const controls = useAnimation();
     const textControls = useAnimation();
 

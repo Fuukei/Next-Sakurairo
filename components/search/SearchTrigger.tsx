@@ -1,4 +1,4 @@
-import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
+import { GoSearch } from "react-icons/go";
 import { useSearchStore } from "@/stores/search-store";
 import IconButton from "@/components/IconButton";
 
@@ -8,7 +8,7 @@ export default function SearchTrigger() {
 
     return (
         <IconButton onClick={() => toggleSearch()}>
-            <MagnifyingGlassIcon className={"w-6 h-6"} aria-hidden={"true"}/>
+            <GoSearch className={"w-6 h-6"} aria-hidden={"true"}/>
         </IconButton>
     )
 }

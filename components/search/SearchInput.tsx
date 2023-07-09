@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchStore } from '@/stores/search-store';
-import { XMarkIcon } from "@heroicons/react/24/solid";
+import { RiDeleteBack2Line } from 'react-icons/ri';
 import { cn } from "@/lib/utils";
 
 export default function SearchInput() {
@@ -31,7 +31,7 @@ export default function SearchInput() {
                         className={cn(
                             "absolute right-3 top-1/2 -translate-y-1/2 inline-flex items-center justify-center h-6 w-6 rounded-full"
                         )}>
-                    <XMarkIcon/>
+                    <RiDeleteBack2Line/>
                 </button>
             )}
         </div>

@@ -51,7 +51,6 @@ export const Page = defineDocumentType(() => ({
     }
 }))
 
-// @ts-ignore
 export default makeSource({
     contentDirPath: './content',
     documentTypes: [Article, Page],

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { HomeIcon } from "@heroicons/react/24/solid";
+import { TbHome } from "react-icons/tb"
 
 export default function NotFound() {
     return (
@@ -23,7 +23,7 @@ export default function NotFound() {
                             "bg-white dark:bg-slate-800/75",
                             "text-primary_color dark:text-primary_color-dark"
                         )}>
-                        <HomeIcon className={"w-6 h-6 mr-2"}/>
+                        <TbHome className={"w-6 h-6 mr-2"}/>
                         Home
                     </motion.button>
                 </Link>
