@@ -7,33 +7,39 @@ tags:
 - Documentation
 ---
 
-## Blog URL
+## URL
 Set the URL of your blog. This should be a fully qualified domain name (FQDN) pointing to your site.
 
-## Blog Title
+## Title
 This is the main title of your blog. It is often shown in the browser title bar and used as the default title for bookmarks.
 
-## Blog Description
+## Description
 Provide a brief description of your blog. This description often appears in search engine results.
 
 ## Author
 Set the author's name. This will be used for meta.
 
-## Typist
+## Type Writer
 Set the typist's text. This will appear in the front page typing component.
 
 ## Articles Per Load
 Define the number of articles to load for each fetch. For example, if you want to load 5 articles each time you fetch more articles, set this to 5.
 
-## Navigation Bar
-Define your blog's navigation bar items, including the title of the navigation bar item and the href.
+## Navigation
+Define your blog's navigation items, including the title of the navigation item and the href.
+
+## Header
+Define the header component to use.
+
+### Floating Header
+Header will always float at top.
 
 ## Background Image
-Define the background image for your blog.
+Define the background image component for your blog.
 
-### APIBackgroundImage
+### API Background Image
 If you choose the "APIBackgroundImage" option, you need to provide the URL and filter type (grid, dot, none).
-- _`url`_: Set the URL for the background image.
+- _`url`_: Set the URL for the background image. If not set, it will use local image api. Local images are at _`/public/image-api`_.
 - _`filter`_: Choose the filter for the background image. Available options are 'grid', 'dot', 'none'.
 
 ## Hero
@@ -59,13 +65,13 @@ For an image logo, you need to provide an _`image_path`_.
 
 - _`image_path`_: Set the path of the image. If the logo image is in the public folder, the path should be "/logo.png". Make sure that the image exists at the specified path in your project.
 
-## Social Media Links
+## Social
 Set the social media links that will appear in the front page landing screen. For each social media link, define the title, icon, and href.
 
-## Theme Colors
+## Colors
 Define the color scheme for your blog. You can set the _`primary_color`_, _`secondary_color`_, and _`accent_color`_ for both light and dark modes.
 
-## Comment Component
+## Comment
 Configure the comment component which will appear under each article. You have the option to use "GiscusComment". Check [https://giscus.app/](https://giscus.app/) on how to use it.
 
 ### Giscus Comment
