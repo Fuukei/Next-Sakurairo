@@ -14,7 +14,7 @@ export default function IconHero() {
             <div className="w-36 h-36 mx-auto mb-3">
                 <Image
                     src={heroSetting.icon_path}
-                    alt="Profile Image"
+                    alt="Icon Image"
                     width={256}
                     height={256}
                     style={{ width: 'auto', height: '100%' }}
