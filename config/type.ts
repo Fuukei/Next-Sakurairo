@@ -29,7 +29,7 @@ export type BlogConfig = {
      * This will appear in front page typing component.
      * @example "by cocdeshijie"
      */
-    typist: string;
+    typewriter: string;
 
     /*
      * The number of articles per load.

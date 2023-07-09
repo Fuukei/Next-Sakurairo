@@ -1,15 +1,16 @@
 "use client"
 
-import Typist from "react-typist-component";
+import Typewriter from 'typewriter-effect';
 import { blogConfig } from "@/config";
 
 
 export function Typing() {
 
     return (
-        <Typist typingDelay={100}
-        >
-            <span>{blogConfig.typist}</span>
-        </Typist>
+        <Typewriter
+            onInit={(typewriter) => {
+                typewriter.typeString(blogConfig.typewriter).start();
+            }}
+        />
     )
 }
