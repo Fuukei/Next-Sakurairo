@@ -12,7 +12,6 @@ Next Sakurairo is built on the Next.js framework, which allows for a wide range 
 
 
 ## Todo
-- [ ] Multi-level navigation
 - [ ] Loading components
 - [ ] Documentation
   - [ ] Customization
