@@ -3,8 +3,8 @@ import Image from "next/image";
 const backgroundImageSetting = require("@/config").blogConfig.background_image.settings
 
 export default function APIBackgroundImage() {
+    const image = backgroundImageSetting.url ?? "/api/image-api";
 
-    const image = backgroundImageSetting.image ?? "/api/image-api";
     return (
         <>
             <Image
