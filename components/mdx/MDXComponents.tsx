@@ -18,6 +18,17 @@ function a({ href, children }: React.HTMLProps<HTMLAnchorElement>) {
     );
 }
 
+function ul({ children, className }: React.HTMLProps<HTMLUListElement>) {
+    let style = {};
+
+    if (className && className.includes('contains-task-list')) {
+        style = { listStyleType: 'none' };
+    }
+
+    return <ul style={style}>{children}</ul>;
+}
+
 export const MDXComponents = {
-    a
+    a,
+    ul
 }
