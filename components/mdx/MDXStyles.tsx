@@ -19,7 +19,8 @@ export default function MDXStyles({ children }: MDXStylesProps) {
                 "dark:prose-blockquote:text-primary_color",
                 "prose-hr:border-slate-700 dark:prose-hr:border-slate-300",
                 "prose-th:border-secondary_color/75 dark:prose-th:border-secondary_color-dark/75 prose-th:border-b-2 prose-th:font-bold",
-                "prose-td:border-secondary_color/50 dark:prose-td:border-secondary_color-dark/50 prose-td:border-b"
+                "prose-td:border-secondary_color/50 dark:prose-td:border-secondary_color-dark/50 prose-td:border-b",
+                "prose-img:mx-auto"
             )}
         >
             {children}
