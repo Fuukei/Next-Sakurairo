@@ -41,7 +41,7 @@ export const blogConfig: BlogConfig = {
             child: [
                 {
                     title: "My Anime List Components",
-                    href: "/my-anime-list"
+                    href: "/anime-list"
                 },
                 {
                     title: "Link Card Components",
