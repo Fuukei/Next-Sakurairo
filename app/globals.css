@@ -12,6 +12,10 @@
     --scrollbar-bg: theme('colors.slate.800');
 }
 
+code {
+    word-break: break-all;
+}
+
 ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
