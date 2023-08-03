@@ -74,7 +74,7 @@ export default function ArticleLoader({ articles, articlesPerLoad }: ArticleLoad
                         Load more
                     </motion.button>
                 ) : (
-                    <a>You&apos;ve reached the end :)</a>
+                    <p>You&apos;ve reached the end :)</p>
                 )}
             </div>
         </>
