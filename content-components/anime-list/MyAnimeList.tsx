@@ -143,7 +143,7 @@ export default function MyAnimeList( { username, sort }: MyAnimeListProps) {
             </div>
             <div className={"grid grid-cols-2 md:grid-cols-4 gap-4 not-prose"}>
                 {Array(8).fill(0).map((_, idx) => (
-                    <div key={idx} className={"bg-slate-50/50 dark:bg-gray-800/70 rounded-lg h-80 animate-pulse"}></div>
+                    <div key={idx} className={"bg-slate-50/50 dark:bg-gray-800/70 rounded-lg h-64 md:h-80 animate-pulse"}></div>
                 ))}
             </div>
         </>
