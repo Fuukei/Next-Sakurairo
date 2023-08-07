@@ -10,10 +10,3 @@ The style is inspired by WordPress theme [Sakura](https://github.com/mashirozx/s
 ## Deployment
 Next Sakurairo is built on the Next.js framework, which allows for a wide range of deployment options. It can be deployed on any hosting provider that supports Node.js. This includes platforms like Vercel, Netlify, AWS, and Google Cloud, amongst others. [next-sakurairo.qwq.xyz](https://next-sakurairo.qwq.xyz) is hosted using [coolify](https://coolify.io/).
 
-
-## Todo
-- [ ] Loading components
-- [ ] Documentation
-  - [ ] Customization
-  - [ ] Deployment
-- [ ] Extra components

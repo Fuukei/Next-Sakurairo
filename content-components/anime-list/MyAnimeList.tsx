@@ -65,7 +65,7 @@ function AnimeCard({ anime }: any) {
              onMouseEnter={() => setHover(true)}
              onMouseLeave={() => setHover(false)}
              className={cn(
-                 "bg-slate-50/60 dark:bg-gray-900/60 drop-shadow-md",
+                 "bg-slate-50/50 dark:bg-gray-800/70 drop-shadow-md",
                  "mb-4 md:mb-6",
                  "hover:scale-110 duration-500",
                  "rounded-lg overflow-hidden border-2",
@@ -124,9 +124,29 @@ export default function MyAnimeList( { username, sort }: MyAnimeListProps) {
         fetcher)
 
     if (isLoading) return (
-        <div className={"flex items-center justify-center"}>
-            <p>Loading...</p>
-        </div>
+        <>
+            <div className={"mb-8"}>
+                {Object.entries(statusMap).map(([status, statusText]) => (
+                    <div key={status} className={"flex items-center justify-center"}>
+                        <div className={statusColors[Number(status) as AnimeStatus]}>
+                            {statusIcons[Number(status) as AnimeStatus]}
+                        </div>
+                        <span className={"ml-2"}>{statusText}:
+                            <span className={cn(
+                                "bg-slate-400 dark:bg-slate-500",
+                                "rounded w-5 h-4 animate-pulse inline-block"
+                            )}></span>
+                            anime
+                        </span>
+                    </div>
+                ))}
+            </div>
+            <div className={"grid grid-cols-2 md:grid-cols-4 gap-4 not-prose"}>
+                {Array(8).fill(0).map((_, idx) => (
+                    <div key={idx} className={"bg-slate-50/50 dark:bg-gray-800/70 rounded-lg h-64 md:h-80 animate-pulse"}></div>
+                ))}
+            </div>
+        </>
     )
 
     if (error) return <p>Error: {error}</p>
