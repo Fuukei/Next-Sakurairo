@@ -1,6 +1,6 @@
 import { compareDesc } from "date-fns";
 import { allArticles } from "contentlayer/generated";
-import ArticleLoader from "@/components/ArticleLoader";
+import ArticleLoader from "@/components/article/ArticleLoader";
 import Hero from "@/components/hero/Hero";
 import { type Metadata } from "next/types";
 import { blogConfig } from "@/config";

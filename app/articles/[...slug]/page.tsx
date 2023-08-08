@@ -2,7 +2,7 @@ import { allArticles } from "contentlayer/generated";
 import MDXContent from "@/components/mdx/MDXContent";
 import { notFound } from "next/navigation";
 import Comment from "@/components/comment/Comment";
-import ArticlesPageHeading from "@/components/ArticlesPageHeading";
+import ArticlesPageHeading from "@/components/article/ArticlesPageHeading";
 import MDXTableOfContents from "@/components/mdx/MDXTableOfContents";
 import { type Metadata } from "next/types";
 import { blogConfig } from "@/config";

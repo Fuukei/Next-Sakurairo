@@ -1,4 +1,4 @@
-import ArticleLoader from "@/components/ArticleLoader";
+import ArticleLoader from "@/components/article/ArticleLoader";
 import { allArticles } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 import { blogConfig } from "@/config";
