@@ -23,19 +23,19 @@ export default function LinkCard({ link }: LinkCardProps) {
                 "md:w-7/12 h-full",
                 "backdrop-blur-2xl overflow-hidden bg-slate-50/50 dark:bg-gray-800/70"
             )}>
-                <div className={"h-32 w-32 flex items-center"}>
-                    <div className={"rounded-xl h-full w-full bg-slate-300 dark:bg-slate-500"}></div>
+                <div className={"h-32 pr-4 flex-1 flex flex-col space-y-2"}>
+                    <div className={"flex flex-col space-y-1"}>
+                        <div className={"h-4 bg-slate-400 dark:bg-slate-500 rounded"}></div>
+                        <div className={"h-4 bg-slate-400 dark:bg-slate-500 rounded"}></div>
+                    </div>
+                    <div className={"flex flex-col space-y-1"}>
+                        <div className={"h-3 bg-slate-400 dark:bg-slate-500 rounded"}></div>
+                        <div className={"h-3 bg-slate-400 dark:bg-slate-500 rounded"}></div>
+                        <div className={"h-3 bg-slate-400 dark:bg-slate-500 rounded"}></div>
+                    </div>
                 </div>
-                <div className={"h-32 pl-4 flex-1 flex flex-col space-y-2"}>
-                    <div className={"flex flex-col space-y-1"}>
-                        <div className={"h-4 bg-slate-400 dark:bg-slate-500 rounded"}></div>
-                        <div className={"h-4 bg-slate-400 dark:bg-slate-500 rounded"}></div>
-                    </div>
-                    <div className={"flex flex-col space-y-1"}>
-                        <div className={"h-3 bg-slate-400 dark:bg-slate-500 rounded"}></div>
-                        <div className={"h-3 bg-slate-400 dark:bg-slate-500 rounded"}></div>
-                        <div className={"h-3 bg-slate-400 dark:bg-slate-500 rounded"}></div>
-                    </div>
+                <div className={"h-32 w-32 flex items-center"}>
+                    <div className={"rounded-lg h-full w-full bg-slate-300 dark:bg-slate-500"}></div>
                 </div>
             </div>
         </div>
@@ -54,6 +54,14 @@ export default function LinkCard({ link }: LinkCardProps) {
                  "backdrop-blur-2xl overflow-hidden bg-slate-50/50 dark:bg-gray-800/70",
                  {"shadow-lg shadow-primary_color/50 dark:shadow-primary_color-dark/30": hover}
              )}>
+            <div className={"h-32 pr-4 flex-1 flex flex-col space-y-2"}>
+                <div className={"line-clamp-2 font-bold text-base"}>
+                    {data.ogTitle}
+                </div>
+                <p className={"line-clamp-3 font-light text-sm"}>
+                    {data.ogDescription}
+                </p>
+            </div>
             <div className={"h-32 w-32 flex items-center"}>
                 {data.ogImage && data.ogImage[0]?.url ? (
                     <img className={"h-max w-max mx-auto rounded-lg"}
@@ -64,14 +72,6 @@ export default function LinkCard({ link }: LinkCardProps) {
                          alt={data.ogTitle}
                          src={"image-not-found.png"}/>
                 )}
-            </div>
-            <div className={"h-32 pl-4 flex-1 flex flex-col space-y-2"}>
-                <div className={"line-clamp-2 font-bold text-base"}>
-                    {data.ogTitle}
-                </div>
-                <p className={"line-clamp-3 font-light text-sm"}>
-                    {data.ogDescription}
-                </p>
             </div>
         </div>
     )
