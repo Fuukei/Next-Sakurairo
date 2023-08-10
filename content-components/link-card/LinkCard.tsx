@@ -23,7 +23,7 @@ export default function LinkCard({ link }: LinkCardProps) {
                 "md:w-7/12 h-full",
                 "backdrop-blur-2xl overflow-hidden bg-slate-50/50 dark:bg-gray-800/70"
             )}>
-                <div className={"h-32 pr-4 flex-1 flex flex-col space-y-2"}>
+                <div className={"h-32 pr-4 flex-1 flex flex-col space-y-3"}>
                     <div className={"flex flex-col space-y-1"}>
                         <div className={"h-4 bg-slate-400 dark:bg-slate-500 rounded"}></div>
                         <div className={"h-4 bg-slate-400 dark:bg-slate-500 rounded"}></div>
@@ -32,6 +32,9 @@ export default function LinkCard({ link }: LinkCardProps) {
                         <div className={"h-3 bg-slate-400 dark:bg-slate-500 rounded"}></div>
                         <div className={"h-3 bg-slate-400 dark:bg-slate-500 rounded"}></div>
                         <div className={"h-3 bg-slate-400 dark:bg-slate-500 rounded"}></div>
+                    </div>
+                    <div className={"flex flex-col space-y-1"}>
+                        <div className={"h-2 bg-slate-400 dark:bg-slate-500 rounded"}></div>
                     </div>
                 </div>
                 <div className={"h-32 w-32 flex items-center"}>
@@ -60,6 +63,9 @@ export default function LinkCard({ link }: LinkCardProps) {
                 </div>
                 <p className={"line-clamp-3 font-light text-sm"}>
                     {data.ogDescription}
+                </p>
+                <p className={"line-clamp-1 font-thin text-xs"}>
+                    {data.ogUrl}
                 </p>
             </div>
             <div className={"h-32 w-32 flex items-center"}>
