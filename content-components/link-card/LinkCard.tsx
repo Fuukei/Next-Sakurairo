@@ -2,7 +2,8 @@
 
 import { cn } from "@/lib/utils";
 import useSWR from "swr";
-import {useState} from "react";
+import { RiExternalLinkLine } from "react-icons/ri";
+import { useState } from "react";
 
 type LinkCardProps = {
     link: string;
@@ -31,7 +32,7 @@ export default function LinkCard({ link }: LinkCardProps) {
                     <div className={"flex flex-col space-y-1"}>
                         <div className={"h-3 bg-slate-400 dark:bg-slate-500 rounded"}></div>
                         <div className={"h-3 bg-slate-400 dark:bg-slate-500 rounded"}></div>
-                        <div className={"h-3 bg-slate-400 dark:bg-slate-500 rounded"}></div>
+                        <div className={"h-3 bg-slate-400 dark:bg-slate-500 rounded hidden md:block"}></div>
                     </div>
                     <div className={"flex flex-col space-y-1"}>
                         <div className={"h-2 bg-slate-400 dark:bg-slate-500 rounded"}></div>
@@ -49,7 +50,7 @@ export default function LinkCard({ link }: LinkCardProps) {
     if (data) return (
         <div onMouseEnter={() => setHover(true)}
              onMouseLeave={() => setHover(false)}
-             onClick={() => window.location.href = link}
+             onClick={() => window.open(link, '_blank')}
              style={hover ? {cursor: 'pointer'} : {}}
              className={cn(
                  "flex p-2 mx-auto rounded-xl not-prose",
@@ -61,7 +62,7 @@ export default function LinkCard({ link }: LinkCardProps) {
                 <div className={"line-clamp-2 font-bold text-base"}>
                     {data.ogTitle}
                 </div>
-                <p className={"line-clamp-3 font-light text-sm"}>
+                <p className={"line-clamp-2 md:line-clamp-3 font-light text-sm"}>
                     {data.ogDescription}
                 </p>
                 <p className={"line-clamp-1 font-thin text-xs"}>
@@ -78,6 +79,12 @@ export default function LinkCard({ link }: LinkCardProps) {
                          alt={data.ogTitle}
                          src={"image-not-found.png"}/>
                 )}
+            </div>
+            <div className={"absolute top-2 right-2"}>
+                <RiExternalLinkLine className={cn(
+                    hover ? "text-primary_color dark:text-primary_color-dark" : "",
+                    "duration-500"
+                )}/>
             </div>
         </div>
     )
