@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Article } from "contentlayer/generated";
-import ArticleCard from "@/components/ArticleCard";
+import ArticleCard from "@/components/article/ArticleCard";
 import { cn } from "@/lib/utils";
 import { useScrollContext } from "@/components/ScrollProgressProvider";
 import { motion } from "framer-motion";
