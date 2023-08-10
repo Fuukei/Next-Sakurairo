@@ -9,7 +9,9 @@ type DateTagProps = {
 export function DateTag({ date }: DateTagProps) {
     return (
         <div className={"bg-accent_color/50 dark:bg-accent_color-dark/70 rounded-md"}>
-            <div className={"text-xs py-1 px-2"}>Posted on {format(parseISO(date), 'LLLL d, yyyy')}</div>
+            <div className={"text-xs py-1 px-2"} suppressHydrationWarning={true}>
+                Posted on {format(parseISO(date), 'LLLL d, yyyy')}
+            </div>
         </div>
     )
 }
