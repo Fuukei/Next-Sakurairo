@@ -8,8 +8,46 @@ import LinkCard from "../../content-components/link-card/LinkCard";
 <LinkCard link={"https://github.com"}/>
 ```
 
+The Link Card component only requires the link to a website. It will retrieve the title, description and Open Graph image automatically.
+
 import LinkCard from "../../content-components/link-card/LinkCard";
 
 <LinkCard link={"https://github.com"}/>
 
+
+```mdx /content/pages/link-card.mdx
+import { FriendLinkCard, RandomFriendLinkCards } from "../../content-components/link-card/FriendLinkCard";
+
+<RandomFriendLinkCards>
+    <FriendLinkCard link={"https://next-sakurairo.qwq.xyz"}
+                    profile={"https://next-sakurairo.qwq.xyz/img.png"}
+                    title={"Next Sakurairo の Site"}
+                    description={"A blog built with Next.js, Tailwind CSS, Radix UI, Framer Motion, and ContentLayer with MDX."}
+                    author={"cocdeshijie"}/>
+
+    <FriendLinkCard link={"https://qwq.xyz"}
+                    profile={"https://qwq.xyz/cocdeshijie.gif"}
+                    title={"cocdeshijie の Blog"}
+                    description={"qwq~"}
+                    author={"cocdeshijie"}/>
+</RandomFriendLinkCards>
+```
+
+The Friend Link Card component needs to be used as children of RandomFriendLinkCards.
+
+import { FriendLinkCard, RandomFriendLinkCards } from "../../content-components/link-card/FriendLinkCard";
+
+<RandomFriendLinkCards>
+    <FriendLinkCard link={"https://next-sakurairo.qwq.xyz"}
+                    profile={"https://next-sakurairo.qwq.xyz/img.png"}
+                    title={"Next Sakurairo の Site"}
+                    description={"A blog built with Next.js, Tailwind CSS, Radix UI, Framer Motion, and ContentLayer with MDX."}
+                    author={"cocdeshijie"}/>
+
+    <FriendLinkCard link={"https://qwq.xyz"}
+                    profile={"https://qwq.xyz/cocdeshijie.gif"}
+                    title={"cocdeshijie の Blog"}
+                    description={"qwq~"}
+                    author={"cocdeshijie"}/>
+</RandomFriendLinkCards>
 
