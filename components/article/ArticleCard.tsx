@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Article } from "contentlayer/generated";
 import { cn } from "@/lib/utils";
-import { HiHashtag } from "react-icons/hi";
 import { useState } from "react";
 import { DateTag, NoTag, Tag } from "@/components/Tags";
 
