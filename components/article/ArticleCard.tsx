@@ -56,10 +56,7 @@ export default function ArticleCard({ article, idx }: ArticleCardProps) {
                             )
                         } else {
                             return article.tags.map((tag) => (
-                                <Tag key={tag}>
-                                    <HiHashtag className={"w-3 h-3 ml-1"}/>
-                                    <div className={"text-xs py-1 px-1"}>{tag}</div>
-                                </Tag>
+                                <Tag key={tag} tag={tag}/>
                             ))
                         }
                     })()}

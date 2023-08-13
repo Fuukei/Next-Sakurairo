@@ -1,9 +1,8 @@
 import { type Article } from "contentlayer/generated";
 import { allArticles } from "contentlayer/generated";
-import {cn} from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useSearchStore } from '@/stores/search-store';
-import { HiHashtag } from "react-icons/hi";
 import { DateTag, NoTag, Tag } from "@/components/Tags";
 
 type ArticleCardProps = {
@@ -37,10 +36,7 @@ function ArticleCard({ article }: ArticleCardProps) {
                             )
                         } else {
                             return article.tags.map((tag) => (
-                                <Tag key={tag}>
-                                    <HiHashtag className={"w-3 h-3 ml-1"}/>
-                                    <div className={"text-xs py-1 px-1"}>{tag}</div>
-                                </Tag>
+                                <Tag key={tag} tag={tag}/>
                             ))
                         }
                     })()}

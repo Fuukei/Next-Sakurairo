@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
-import { ReactNode } from "react";
 import { format, parseISO } from "date-fns";
+import { HiHashtag } from "react-icons/hi";
+import Link from "next/link";
 
 type DateTagProps = {
     date: string;
@@ -28,16 +29,20 @@ export function NoTag() {
 }
 
 type TagProps = {
-    children: ReactNode;
+    tag: string;
 };
 
-export function Tag({ children }: TagProps) {
+export function Tag({ tag }: TagProps) {
     return (
-        <div className={cn(
-                 "inline-flex text-xs rounded-md mr-2 items-center",
-                 "bg-secondary_color/50 dark:bg-secondary_color-dark/70"
-             )}>
-            {children}
-        </div>
-    )
+        <Link href={`/tags/${tag}`}>
+            <div className={cn(
+                "inline-flex text-xs rounded-md mr-2 items-center",
+                "bg-secondary_color/50 dark:bg-secondary_color-dark/70",
+                "hover:scale-125 duration-500"
+            )}>
+                <HiHashtag className={"w-3 h-3 ml-1"}/>
+                <div className={"text-xs py-1 px-1"}>{tag}</div>
+            </div>
+        </Link>
+    );
 }

@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { HiHashtag } from "react-icons/hi";
 import { DateTag, NoTag, Tag } from "@/components/Tags";
 
 interface ArticlePageHeadingProps {
@@ -68,10 +67,7 @@ export default function ArticlesPageHeading({ title, date, tags }: ArticlePageHe
                                     )
                                 } else {
                                     return tags.map((tag) => (
-                                        <Tag key={tag}>
-                                            <HiHashtag className={"w-3 h-3 ml-1"}/>
-                                            <div className={"text-xs py-1 px-1"}>{tag}</div>
-                                        </Tag>
+                                        <Tag key={tag} tag={tag}/>
                                     ))
                                 }
                             })()}
