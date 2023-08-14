@@ -73,7 +73,7 @@ export default function ThemeToggle({ open, setOpen }: ThemeToggleProps) {
                                 variants={contentVariants}
                                 className={cn(
                                     "mb-2 p-2 rounded-md",
-                                    "backdrop-blur-lg drop-shadow-lg bg-slate-100/40 dark:bg-slate-800/40",
+                                    "backdrop-blur-lg drop-shadow-lg bg-slate-100/40 dark:bg-slate-900/40",
                                     "text-text_color dark:text-text_color-dark"
                                 )}
                             >

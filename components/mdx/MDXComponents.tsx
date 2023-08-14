@@ -45,7 +45,6 @@ function Img({ src, alt }: React.HTMLProps<HTMLImageElement>) {
                 {imageOpen ? (
                     <Dialog.Portal forceMount>
                         <motion.div
-                            onClick={() => setImageOpen(false)} // close on click
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.9 }}
@@ -55,7 +54,9 @@ function Img({ src, alt }: React.HTMLProps<HTMLImageElement>) {
                                 "bg-slate-800/50"
                             )}
                         >
-                            <Dialog.Content className="md:p-16">
+                            <Dialog.Content onEscapeKeyDown={() => setImageOpen(false)}
+                                            onInteractOutside={() => setImageOpen(false)}
+                                            className="md:p-16">
                                 <img src={src} alt={alt} className="z-50 max-h-full max-w-full"/>
                             </Dialog.Content>
                         </motion.div>
