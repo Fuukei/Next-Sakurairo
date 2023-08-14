@@ -1,3 +1,5 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import { parseISO, differenceInDays, format } from 'date-fns';
 import * as Tooltip from "@radix-ui/react-tooltip";
