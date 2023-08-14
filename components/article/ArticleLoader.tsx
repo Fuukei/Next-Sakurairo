@@ -32,16 +32,17 @@ export default function ArticleLoader({ articles, articlesPerLoad }: ArticleLoad
             {displayedArticles.map((article: Article, idx: number) => {
                 const cardVariants = {
                     offscreen: {
-                        x: idx % 2 === 0 ? 200 : -200
+                        scale: 0.5,
+                        opacity: 0.1,
                     },
                     onscreen: {
-                        x: 0,
-                        rotate: 0,
+                        scale: 1,
+                        opacity: 1,
                         transition: {
                             ease: "easeInOut",
                             type: "spring",
-                            bounce: 0.4,
-                            duration: 1
+                            bounce: 0.1,
+                            duration: .75
                         }
                     }
                 };
