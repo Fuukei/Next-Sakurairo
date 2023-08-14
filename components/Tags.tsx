@@ -1,3 +1,5 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import { parseISO, differenceInDays, format } from 'date-fns';
 import * as Tooltip from "@radix-ui/react-tooltip";
@@ -19,7 +21,7 @@ export function DateTag({ date, lastEdited }: DateTagProps) {
             <Tooltip.Provider>
                 <Tooltip.Root>
                     <Tooltip.Trigger asChild>
-                        <div className={"bg-rotate_color-180/70 dark:bg-rotate_color-180-dark/70 rounded-md"}>
+                        <div className={"bg-rotate_color-180/70 dark:bg-rotate_color-180-dark/70 rounded-md whitespace-nowrap"}>
                             <div className={"text-xs py-1 px-2"} suppressHydrationWarning={true}>
                                 Posted on {format(parsedDate, 'LLLL d, yyyy')} (Edited)
                             </div>
@@ -44,7 +46,7 @@ export function DateTag({ date, lastEdited }: DateTagProps) {
     }
 
     return (
-        <div className={"bg-rotate_color-180/70 dark:bg-rotate_color-180-dark/70 rounded-md"}>
+        <div className={"bg-rotate_color-180/70 dark:bg-rotate_color-180-dark/70 rounded-md whitespace-nowrap"}>
             <div className={"text-xs py-1 px-2"} suppressHydrationWarning={true}>
                 Posted on {format(parsedDate, 'LLLL d, yyyy')}
             </div>
@@ -55,7 +57,7 @@ export function DateTag({ date, lastEdited }: DateTagProps) {
 export function NoTag() {
     return (
         <div className={cn(
-            "inline-flex text-xs rounded-md mr-2 items-center",
+            "inline-flex text-xs rounded-md mr-2 items-center whitespace-nowrap",
             "bg-rotate_color-90/30 dark:bg-rotate_color-90-dark/30"
         )}>
             <div className={"text-xs py-1 px-1 opacity-70"}>No tags</div>
@@ -71,7 +73,7 @@ export function Tag({ tag }: TagProps) {
     return (
         <Link href={`/tags/${tag}`}>
             <div className={cn(
-                "inline-flex text-xs rounded-md mr-2 items-center",
+                "inline-flex text-xs rounded-md mr-2 items-center whitespace-nowrap",
                 "bg-rotate_color-90/70 dark:bg-rotate_color-90-dark/70",
                 "hover:scale-125 duration-500"
             )}>

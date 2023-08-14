@@ -7,7 +7,7 @@ import { TbHome } from "react-icons/tb";
 
 export default function NotFound() {
     return (
-        <div className={"min-h-screen backdrop-blur-3xl bg-slate-50/50 dark:bg-gray-800/70"}>
+        <div className={"min-h-screen backdrop-blur-3xl bg-slate-50/50 dark:bg-slate-900/70"}>
             <div className={"flex flex-col h-screen justify-center items-center"}>
                 <div className={"text-center my-8"}>
                     Article not found

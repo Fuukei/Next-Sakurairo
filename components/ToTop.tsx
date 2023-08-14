@@ -38,7 +38,7 @@ export default function ToTop() {
     return (
         <motion.div
             onClick={scrollToTop}
-            className={"fixed z-30 bottom-0 right-0 mr-2 lg:mr-6 mb-8"}
+            className={"fixed z-30 bottom-14 right-0 mr-2 lg:mr-6 mb-8"}
             variants={buttonVariants}
             initial="hidden"
             animate={isVisible ? "visible" : "hidden"}>
