@@ -55,7 +55,7 @@ export default function Search() {
                                             onInteractOutside={toggleSearch}
                                             className={cn(
                                                 "bg-slate-100/40 dark:bg-slate-900/40 backdrop-blur-lg drop-shadow-lg",
-                                                "w-11/12 md:w-7/12 h-3/5",
+                                                "w-11/12 md:w-1/2 h-3/5",
                                                 "p-2 md:p-6 rounded-xl"
                                             )}
                             >
