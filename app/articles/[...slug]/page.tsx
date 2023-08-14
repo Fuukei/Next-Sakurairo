@@ -62,7 +62,7 @@ const ArticlePage = ({ params }: ArticlePageProps) => {
             <div className={"min-h-screen backdrop-blur-3xl bg-slate-50/50 dark:bg-gray-800/70"}>
                 <div className={"flex min-h-[200px] md:min-h-[300px] rounded-b-2xl overflow-hidden"}
                      style={{backgroundImage: 'url(' + article.image +')', backgroundSize: 'cover'}}>
-                    <ArticlesPageHeading title={article.title} date={article.date} tags={article.tags}/>
+                    <ArticlesPageHeading article={article}/>
                 </div>
                 <div className={cn(
                     "pb-8 mx-4 md:mx-auto lg:px-4",

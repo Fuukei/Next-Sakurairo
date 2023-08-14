@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Article } from "contentlayer/generated";
 import { cn } from "@/lib/utils";
-import { HiHashtag } from "react-icons/hi";
 import { useState } from "react";
 import { DateTag, NoTag, Tag } from "@/components/Tags";
 
@@ -46,7 +45,7 @@ export default function ArticleCard({ article, idx }: ArticleCardProps) {
 
             <div className="w-full md:w-5/12 p-4 lg:px-8">
                 <div className={"flex mb-2"}>
-                    <DateTag date={article.date}></DateTag>
+                    <DateTag date={article.date} lastEdited={article.lastEdited}/>
                 </div>
                 <div className={"flex mb-3"}>
                     {(() => {
@@ -56,10 +55,7 @@ export default function ArticleCard({ article, idx }: ArticleCardProps) {
                             )
                         } else {
                             return article.tags.map((tag) => (
-                                <Tag key={tag}>
-                                    <HiHashtag className={"w-3 h-3 ml-1"}/>
-                                    <div className={"text-xs py-1 px-1"}>{tag}</div>
-                                </Tag>
+                                <Tag key={tag} tag={tag}/>
                             ))
                         }
                     })()}
