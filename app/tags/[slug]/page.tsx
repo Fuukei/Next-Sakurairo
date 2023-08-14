@@ -9,10 +9,6 @@ const TagsPage = ({ params }: { params: { slug: string } }) => {
         article.tags && article.tags.map(tag => tag.trim()).includes(params.slug.trim())
     );
 
-
-    console.log("Current Slug:", params.slug);
-    console.log("All Tags:", allArticles.map(article => article.tags));
-
     return (
         <div className={"min-h-screen backdrop-blur-3xl bg-slate-50/50 dark:bg-gray-800/70"}>
             <div className={"mx-4 lg:mx-auto lg:w-full max-w-4xl"}>
