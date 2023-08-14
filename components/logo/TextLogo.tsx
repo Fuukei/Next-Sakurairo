@@ -36,8 +36,8 @@ export default function TextLogo({ logoHover }: LogoProps) {
         <div className="flex flex-col items-center -space-y-1 font-medium">
             <div className="flex items-end space-x-3 md:text-xl">
                 <div className={cn({
-                        "bg-primary_color dark:bg-primary_color-dark text-white": logoHover,
-                        "bg-white/40 text-primary_color dark:text-primary_color-dark": !logoHover,
+                        "bg-theme_color dark:bg-theme_color-dark text-white": logoHover,
+                        "bg-white/40 text-text_color dark:text-text_color-dark": !logoHover,
                     },
                     "pt-3 pb-1 rounded-xl items-center"
                 )}>
@@ -45,9 +45,9 @@ export default function TextLogo({ logoHover }: LogoProps) {
                 </div>
                 <motion.div
                     className={cn({
-                            "dark:text-primary_color-dark": logoHover,
+                            "dark:text-text_color-dark": logoHover,
                         },
-                        "pb-1 dark:text-inherit text-primary_color"
+                        "pb-1 dark:text-inherit text-text_color"
                     )}
                     animate={controls}
                     variants={rotationVariant}
@@ -55,13 +55,13 @@ export default function TextLogo({ logoHover }: LogoProps) {
                     {logoSetting.text_middle}
                 </motion.div>
                 <div className={cn({
-                        "dark:text-primary_color-dark": logoHover,
+                        "dark:text-text_color-dark": logoHover,
                     },
-                    "pb-1 dark:text-inherit text-primary_color"
+                    "pb-1 dark:text-inherit text-text_color"
                 )}>{logoSetting.text_end}</div>
             </div>
             <motion.div
-                className={"text-[10px] font-normal text-primary_color dark:text-primary_color-dark"}
+                className={"text-[10px] font-normal text-text_color dark:text-text_color-dark"}
                 animate={textControls}
                 transition={{ type: "ease", duration: 0.5 }}
                 initial={{ opacity: 0 }}

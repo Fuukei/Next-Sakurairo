@@ -33,9 +33,9 @@ function generateGradientColors(firstColor: string, secondColor: string, thirdCo
 }
 
 export async function GET(req: NextRequest) {
-    const primaryColor = blogConfig.colors.primary_color.light;
-    const secondaryColor = blogConfig.colors.secondary_color.light;
-    const accentColor = blogConfig.colors.accent_color.light;
+    const primaryColor = blogConfig.colors.theme_color;
+    const secondaryColor = blogConfig.colors.theme_color;
+    const accentColor = blogConfig.colors.theme_color;
     const gradientColors: string = generateGradientColors(secondaryColor, primaryColor, accentColor);
 
     try {

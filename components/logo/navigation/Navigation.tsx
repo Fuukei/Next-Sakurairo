@@ -111,7 +111,7 @@ type NavigationProps = {
 export function Navigation({ navigation }: NavigationProps) {
     return (
         <NavigationMenu.Root className={"relative flex justify-center"}>
-            <NavigationMenu.List className={"flex list-none space-x-2 text-primary_color dark:text-primary_color-dark"}>
+            <NavigationMenu.List className={"flex list-none space-x-2 text-text_color dark:text-text_color-dark"}>
                 {navigation.map((item, idx) => {
                     if ("child" in item) return (
                         <NavigationItems item={item} key={idx}/>
@@ -126,7 +126,7 @@ export function Navigation({ navigation }: NavigationProps) {
             <NavigationMenu.Indicator className={cn("flex h-[10px] items-end justify-center overflow-hidden")}>
                 <div className={cn(
                     "relative top-[70%] h-[10px] w-[10px] rotate-[45deg] rounded-tl-[2px]",
-                    "bg-primary_color/80 dark:bg-primary_color-dark/80"
+                    "bg-theme_color/80 dark:bg-theme_color-dark/80"
                 )}/>
             </NavigationMenu.Indicator>
         </NavigationMenu.Root>
@@ -135,14 +135,14 @@ export function Navigation({ navigation }: NavigationProps) {
 
 export function NavigationMobile({ navigation }: NavigationProps) {
     return (
-        <div className={"flex flex-col items-center space-y-4 text-xl text-primary_color dark:text-primary_color-dark"}>
+        <div className={"flex flex-col items-center space-y-4 text-xl text-text_color dark:text-text_color-dark"}>
             {navigation.map((item, idx) => {
                 if ("child" in item) return (
                     <div className={"flex flex-col items-center"} key={idx}>
                         <NavigationItem item={{title: item.title, href: "javascript:void(0)"}}/>
                         <div className={cn(
                             "flex flex-col items-center text-base",
-                            "text-primary_color/80 dark:text-primary_color-dark/80"
+                            "text-text_color/80 dark:text-text_color-dark/80"
                         )}>
                             {item.child.map((child, idx) => {
                                 return (

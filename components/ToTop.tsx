@@ -38,12 +38,12 @@ export default function ToTop() {
     return (
         <motion.div
             onClick={scrollToTop}
-            className={"fixed z-30 bottom-0 right-0 mr-2 lg:mr-6 mb-8"}
+            className={"fixed z-30 bottom-28 right-0 mr-2 lg:mr-6 mb-8"}
             variants={buttonVariants}
             initial="hidden"
             animate={isVisible ? "visible" : "hidden"}>
-            <IconButton>
-                <BiSolidArrowToTop className={"text-primary_color dark:text-primary_color-dark w-6 h-6"} />
+            <IconButton aria-label="to top">
+                <BiSolidArrowToTop className={"text-text_color dark:text-text_color-dark w-6 h-6"} />
             </IconButton>
         </motion.div>
     )

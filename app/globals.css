@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 .light {
-    --scrollbar: theme('colors.primary_color.DEFAULT');
+    --scrollbar: theme('colors.theme_color.DEFAULT');
     --scrollbar-bg: theme('colors.slate.100');
 }
 
 .dark {
-    --scrollbar: theme('colors.primary_color.dark');
+    --scrollbar: theme('colors.theme_color.dark');
     --scrollbar-bg: theme('colors.slate.800');
 }
 
@@ -28,6 +28,15 @@ code {
 
 ::-webkit-scrollbar-track, body.dark::-webkit-scrollbar-thumb {
     background-color: var(--scrollbar-bg);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .w-8 svg {

@@ -20,12 +20,12 @@ export default function PagesPageHeading({ title }: PagesPageHeadingProps) {
     return (
         <div className="flex flex-col justify-end items-center min-h-[150px] md:min-h-[200px] overflow-hidden pb-4">
             <h1 ref={titleRef as any}
-                className="text-xl md:text-4xl font-bold text-secondary_color dark:text-secondary_color-dark"
+                className="text-xl md:text-4xl font-bold text-text_color dark:text-text_color-dark"
             >
                 {title}
             </h1>
             <hr ref={hrRef as any}
-                className="h-0.5 md:mt-2 border-0 rounded bg-primary_color dark:bg-primary_color-dark"
+                className="h-0.5 md:mt-2 border-0 rounded bg-theme_color dark:bg-theme_color-dark"
             />
         </div>
     )

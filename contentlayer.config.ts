@@ -92,7 +92,7 @@ export default makeSource({
                         tagName: 'svg',
                         properties: {
                             style: 'display: inline-block; height: 0.8em; width: 0.8em; margin: 0.25rem; opacity: 0.6;',
-                            className: ['text-primary_color', 'dark:text-primary_color-dark'],
+                            className: ['text-text_color', 'dark:text-text_color-dark'],
                             xmlns: 'http://www.w3.org/2000/svg',
                             fill: 'none',
                             viewBox: '0 0 24 24',

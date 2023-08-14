@@ -16,18 +16,19 @@ function ArticleCard({ article }: ArticleCardProps) {
         <Link href={article.url}
               onClick={toggleSearch}
               className={cn(
-                  "flex flex-wrap items-center justify-between rounded-md",
-                  "bg-slate-50/60 dark:bg-gray-900/60 drop-shadow-md",
-                  "px-2 md:px-4 py-2 hover:scale-95 duration-500"
+                  "flex flex-wrap items-center justify-between rounded-md overflow-hidden",
+                  "bg-slate-100/60 dark:bg-gray-900/60 drop-shadow-md",
+                  "hover:bg-slate-50/80 dark:hover:bg-gray-950/80 duration-500",
+                  "px-2 md:px-4 py-2",
                   )}>
             <div className="space-y-1">
-                <h3 className="text-lg font-medium text-slate-800 dark:text-slate-300">
+                <h3 className="text-lg font-medium text-slate-800 dark:text-slate-300 line-clamp-2">
                     {article.title}
                 </h3>
                 <p className="text-sm text-slate-600 dark:text-slate-500 line-clamp-2 md:line-clamp-1">
                     {article.excerpt}
                 </p>
-                <div className={"flex space-x-1"}>
+                <div className={"flex space-x-1 w-full overflow-x-scroll no-scrollbar"}>
                     <DateTag date={article.date} lastEdited={article.lastEdited}/>
                     {(() => {
                         if (!article.tags || article.tags.length === 0) {

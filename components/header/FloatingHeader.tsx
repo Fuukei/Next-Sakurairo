@@ -2,14 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { HiBars4 } from "react-icons/hi2";
-import ThemeToggle from "@/components/ThemeToggle";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { blogConfig } from "@/config";
 import * as Dialog from "@radix-ui/react-dialog";
 import { AnimatePresence, motion } from "framer-motion";
-import Search from "@/components/search/Search";
-import SearchTrigger from "@/components/search/SearchTrigger";
 import Logo from "@/components/logo/Logo";
 import IconButton from "@/components/IconButton";
 import { Navigation, NavigationMobile } from "@/components/logo/navigation/Navigation";
@@ -55,8 +52,6 @@ function MobileMenu() {
                             >
                                 <div className="flex flex-col items-center justify-between space-y-2">
                                     <NavigationMobile navigation={navigation} />
-                                    <SearchTrigger />
-                                    <ThemeToggle />
                                 </div>
                             </motion.div>
                         </Dialog.Content>
@@ -89,7 +84,6 @@ export default function FloatingHeader() {
 
     return (
         <header className={"fixed flex w-full z-40"}>
-            <Search />
             <div onMouseEnter={() => setHeaderHover(true)}
                  onMouseLeave={() => setHeaderHover(false)}
                  className={cn({
@@ -110,11 +104,9 @@ export default function FloatingHeader() {
 
                     <div className={cn(
                         "flex items-center md:rounded-2xl md:px-6 md:py-1 space-x-4 duration-500",
-                        "text-primary_color dark:text-primary_color-dark"
+                        "text-text_color dark:text-text_color-dark"
                     )}>
                         <Navigation navigation={navigation} />
-                        <SearchTrigger />
-                        <ThemeToggle />
                     </div>
                 </div>
 

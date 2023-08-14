@@ -6,6 +6,7 @@ import { Article } from "contentlayer/generated";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { DateTag, NoTag, Tag } from "@/components/Tags";
+import { HiArrowSmRight } from "react-icons/hi";
 
 type ArticleCardProps = {
     article: Article;
@@ -23,9 +24,9 @@ export default function ArticleCard({ article, idx }: ArticleCardProps) {
                      "md:flex-row": idx % 2 === 0
                  },
                  {
-                     "shadow-xl shadow-primary_color/50 dark:shadow-primary_color-dark/30": hover,
+                     "shadow-xl shadow-theme_color/70 dark:shadow-theme_color-dark/70": hover,
                  },
-                 "bg-slate-50/60 dark:bg-gray-900/60 drop-shadow-md",
+                 "backdrop-blur-xl bg-slate-50/60 dark:bg-gray-800/60 drop-shadow-md",
                  "mb-4 md:mb-6 md:h-72",
                  "flex w-full flex-col rounded-xl overflow-hidden duration-500"
              )}>
@@ -43,11 +44,11 @@ export default function ArticleCard({ article, idx }: ArticleCardProps) {
                 </Link>
             </div>
 
-            <div className="w-full md:w-5/12 p-4 lg:px-8">
-                <div className={"flex mb-2"}>
+            <div className="w-full md:w-5/12 my-4">
+                <div className={"flex px-4"}>
                     <DateTag date={article.date} lastEdited={article.lastEdited}/>
                 </div>
-                <div className={"flex mb-3"}>
+                <div className={"flex px-4 py-2 w-full overflow-x-scroll no-scrollbar"}>
                     {(() => {
                         if (!article.tags || article.tags.length === 0) {
                             return (
@@ -65,19 +66,27 @@ export default function ArticleCard({ article, idx }: ArticleCardProps) {
                         "lg:justify-items-end lg:text-end": idx % 2 === 0,
                         "lg:justify-items-start": idx % 2 !== 0
                     },
-                    "lg:grid"
+                    "lg:grid  px-4"
                 )}>
                     <h2 className={cn({
-                        "text-primary_color dark:text-primary_color-dark": hover
+                        "text-text_color dark:text-text_color-dark": hover
                     },
                         "font-bold text-lg mb-2 line-clamp-2 duration-200",
                     )}>
                         <Link href={article.url}>{article.title}</Link>
                     </h2>
-                    <p className="text-sm font-light line-clamp-4">
+                    <p className="text-sm font-light line-clamp-3">
                         {article.excerpt}
                     </p>
                 </div>
+
+                { hover && (
+                    <Link href={article.url} className="absolute bottom-6 right-4 hidden md:flex duration-500">
+                        <button className="flex items-center text-text_color dark:text-text_color-dark">
+                            Read more <HiArrowSmRight className={"m-1"}/>
+                        </button>
+                    </Link>
+                )}
             </div>
         </div>
     )
