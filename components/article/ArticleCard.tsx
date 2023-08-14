@@ -45,7 +45,7 @@ export default function ArticleCard({ article, idx }: ArticleCardProps) {
 
             <div className="w-full md:w-5/12 p-4 lg:px-8">
                 <div className={"flex mb-2"}>
-                    <DateTag date={article.date}></DateTag>
+                    <DateTag date={article.date} lastEdited={article.lastEdited}/>
                 </div>
                 <div className={"flex mb-3"}>
                     {(() => {

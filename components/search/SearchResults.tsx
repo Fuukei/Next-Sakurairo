@@ -28,7 +28,7 @@ function ArticleCard({ article }: ArticleCardProps) {
                     {article.excerpt}
                 </p>
                 <div className={"flex space-x-1"}>
-                    <DateTag date={article.date} />
+                    <DateTag date={article.date} lastEdited={article.lastEdited}/>
                     {(() => {
                         if (!article.tags || article.tags.length === 0) {
                             return (

@@ -3,6 +3,7 @@ import { remarkCodeHike } from "@code-hike/mdx";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings, { type Options as AutolinkOptions } from 'rehype-autolink-headings';
+import { execSync } from "child_process";
 
 const computedFields: ComputedFields = {
     slug: {
@@ -30,6 +31,20 @@ export const Article = defineDocumentType(() => ({
         image: {
             type: 'string',
             resolve: (article) => article.image = article.image + "?r=" + Math.random(),
+        },
+        lastEdited: {
+            type: 'string',
+            resolve: (article) => {
+                try {
+                    const filePath = `./content/${article._raw.flattenedPath}.mdx`;
+                    const dateStr = execSync(`git log -1 --format="%ad" -- ${filePath}`, {
+                        encoding: 'utf-8'
+                    });
+                    return new Date(dateStr).toISOString();
+                } catch (e) {
+                    return new Date(article.date).toISOString();
+                }
+            }
         },
         ...computedFields,
     },

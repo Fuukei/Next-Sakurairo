@@ -2,14 +2,15 @@
 
 import { motion } from "framer-motion";
 import { DateTag, NoTag, Tag } from "@/components/Tags";
+import { type Article } from "contentlayer/generated";
 
-interface ArticlePageHeadingProps {
-    title: string;
-    date: string;
-    tags?: string[];
+interface ArticlesPageHeadingProps {
+    article: Article; // Assuming you have a type named 'Article'
 }
 
-export default function ArticlesPageHeading({ title, date, tags }: ArticlePageHeadingProps) {
+export default function ArticlesPageHeading({ article }: ArticlesPageHeadingProps) {
+    const { title, date, lastEdited, tags } = article;
+
     let FADE_DOWN_ANIMATION_VARIANTS = {
         hidden: { opacity: 0, y: -10 },
         show: { opacity: 1, y: 0, transition: { type: "spring" } },
@@ -53,7 +54,7 @@ export default function ArticlesPageHeading({ title, date, tags }: ArticlePageHe
                         className={"flex mb-2"}
                         variants={FADE_DOWN_ANIMATION_VARIANTS}
                     >
-                        <DateTag date={date}/>
+                        <DateTag date={date} lastEdited={lastEdited}/>
                     </motion.div>
                     <motion.div
                         className={"flex"}
