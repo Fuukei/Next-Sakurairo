@@ -27,7 +27,7 @@ export default function ScrollDown() {
                 <button onClick={scrollToNextSection}
                         className={cn(
                             "backdrop-blur-[1px] rounded-3xl focus:outline-none",
-                            "text-accent_color dark:text-accent_color-dark opacity-60"
+                            "text-text_color dark:text-text_color-dark opacity-60"
                         )}>
                     <GoChevronDown className="w-14 h-14" />
                 </button>

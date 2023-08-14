@@ -128,7 +128,7 @@ export default function MDXTableOfContents({ raw }: MDXTableOfContentsProps) {
                 animate={isVisible ? "visible" : "hidden"}>
                 <DropdownMenu.Trigger>
                     <IconButton>
-                        <div className={"text-primary_color dark:text-primary_color-dark"}>
+                        <div className={"text-text_color dark:text-text_color-dark"}>
                             <PiListBulletsBold className={"w-6 h-6"}/>
                         </div>
                     </IconButton>
@@ -147,15 +147,15 @@ export default function MDXTableOfContents({ raw }: MDXTableOfContentsProps) {
                                 className={cn(
                                     "mr-2 p-4 rounded-lg max-w-xs md:max-w-md",
                                     "bg-slate-100/80 dark:bg-slate-800/80 backdrop-blur-2xl",
-                                    "text-primary_color dark:text-primary_color-dark"
+                                    "text-text_color dark:text-text_color-dark"
                                 )}>
                                 <div className={cn(
                                     "prose prose-slate dark:prose-invert dark:text-slate-300",
-                                    "prose-headings:text-primary_color dark:prose-headings:text-slate-100",
+                                    "prose-headings:text-text_color dark:prose-headings:text-slate-100",
                                     "prose-a:no-underline hover:prose-a:underline",
                                     "prose-hr:border-slate-700 dark:prose-hr:border-slate-300",
                                 )}>
-                                    <div className="text-lg font-medium mb-2 text-primary_color dark:text-primary_color-dark">
+                                    <div className="text-lg font-medium mb-2 text-text_color dark:text-text_color-dark">
                                         Table of Contents
                                     </div>
                                     <hr className={"my-2"}/>
@@ -175,7 +175,7 @@ export default function MDXTableOfContents({ raw }: MDXTableOfContentsProps) {
                                                 >
                                                     <a
                                                         href={`#${header.text.toLowerCase().split(' ').join('-')}`}
-                                                        className={header.isActive ? "text-primary_color dark:text-primary_color-dark" : ""}
+                                                        className={header.isActive ? "text-text_color dark:text-text_color-dark" : ""}
                                                     >
                                                         {header.text}
                                                     </a>

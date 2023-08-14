@@ -17,7 +17,7 @@ function MenuItem ({ onClick, children }: MenuItemProps) {
             onSelect={onClick}
             className={cn(
                 "flex px-2 py-1 items-center rounded-md border-transparent border-2 outline-none",
-                "data-[highlighted]:bg-primary_color/25 data-[highlighted]:dark:bg-primary_color-dark/25",
+                "data-[highlighted]:bg-theme_color/25 data-[highlighted]:dark:bg-theme_color-dark/25",
                 "data-[highlighted]:text-slate-800 data-[highlighted]:dark:text-slate-100",
                 )}>
             {children}
@@ -34,7 +34,7 @@ export default function ThemeToggle() {
         <DropdownMenu.Root open={open} onOpenChange={setOpen} modal={false}>
             <DropdownMenu.Trigger className={"outline-none"}>
                 <IconButton>
-                    <div className={"relative w-6 h-6 text-primary_color dark:text-primary_color-dark"}>
+                    <div className={"relative w-6 h-6 text-text_color dark:text-text_color-dark"}>
                         <motion.div
                             animate={{ x: isDark ? "-50%" : 0, opacity: isDark ? 0 : 1 }}
                             transition={{ duration: 0.3 }}
@@ -63,7 +63,7 @@ export default function ThemeToggle() {
                                 transition={{ ease: 'easeIn', duration: 0.1 }}
                                 className={cn(
                                 "mt-5 p-2 rounded-md",
-                                "bg-slate-100/80 dark:bg-slate-800/80 text-primary_color dark:text-primary_color-dark"
+                                "bg-slate-100/80 dark:bg-slate-800/80 text-text_color dark:text-text_color-dark"
                             )}>
                                 <MenuItem onClick={() => setTheme("light")}>
                                     <RiSunFill className={"w-4 h-4 mr-2"}/>

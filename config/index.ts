@@ -93,18 +93,7 @@ export const blogConfig: BlogConfig = {
     ],
 
     colors: {
-        primary_color: {
-            light: colors.pink[400],
-            dark: colors.pink[600]
-        },
-        secondary_color: {
-            light: colors.amber[400],
-            dark: colors.amber[600]
-        },
-        accent_color: {
-            light: colors.cyan[400],
-            dark: colors.cyan[600]
-        },
+        theme_color: colors.pink[500]
     },
 
     footer: "© cocdeshijie. All rights reserved.",

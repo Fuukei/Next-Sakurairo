@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 .light {
-    --scrollbar: theme('colors.primary_color.DEFAULT');
+    --scrollbar: theme('colors.theme_color.DEFAULT');
     --scrollbar-bg: theme('colors.slate.100');
 }
 
 .dark {
-    --scrollbar: theme('colors.primary_color.dark');
+    --scrollbar: theme('colors.theme_color.dark');
     --scrollbar-bg: theme('colors.slate.800');
 }
 

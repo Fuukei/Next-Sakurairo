@@ -69,7 +69,7 @@ export default function ArticleLoader({ articles, articlesPerLoad }: ArticleLoad
                         className={cn(
                             "rounded-full px-5 py-2",
                             "bg-white dark:bg-slate-800/75",
-                            "text-primary_color dark:text-primary_color-dark"
+                            "text-text_color dark:text-text_color-dark"
                         )}>
                         Load more
                     </motion.button>

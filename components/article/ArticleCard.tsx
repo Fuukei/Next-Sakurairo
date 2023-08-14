@@ -23,7 +23,7 @@ export default function ArticleCard({ article, idx }: ArticleCardProps) {
                      "md:flex-row": idx % 2 === 0
                  },
                  {
-                     "shadow-xl shadow-primary_color/50 dark:shadow-primary_color-dark/30": hover,
+                     "shadow-xl shadow-theme_color/50 dark:shadow-theme_color-dark/30": hover,
                  },
                  "bg-slate-50/60 dark:bg-gray-900/60 drop-shadow-md",
                  "mb-4 md:mb-6 md:h-72",
@@ -68,7 +68,7 @@ export default function ArticleCard({ article, idx }: ArticleCardProps) {
                     "lg:grid"
                 )}>
                     <h2 className={cn({
-                        "text-primary_color dark:text-primary_color-dark": hover
+                        "text-text_color dark:text-text_color-dark": hover
                     },
                         "font-bold text-lg mb-2 line-clamp-2 duration-200",
                     )}>

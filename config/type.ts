@@ -194,18 +194,7 @@ export type BlogConfig = {
      * Color settings for tailwind.
      */
     colors: {
-        primary_color: {
-            light: string;
-            dark: string;
-        },
-        secondary_color: {
-            light: string;
-            dark: string;
-        },
-        accent_color: {
-            light: string;
-            dark: string;
-        },
+        theme_color: string;
     }
 
     /*

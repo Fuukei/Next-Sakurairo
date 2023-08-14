@@ -110,7 +110,7 @@ export default function FloatingHeader() {
 
                     <div className={cn(
                         "flex items-center md:rounded-2xl md:px-6 md:py-1 space-x-4 duration-500",
-                        "text-primary_color dark:text-primary_color-dark"
+                        "text-text_color dark:text-text_color-dark"
                     )}>
                         <Navigation navigation={navigation} />
                         <SearchTrigger />

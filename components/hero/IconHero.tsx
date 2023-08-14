@@ -25,7 +25,7 @@ export default function IconHero() {
                 <div className={"w-10/12 max-w-xl"}>
                     <div className={cn(
                         "backdrop-blur-sm drop-shadow-md w-full rounded-2xl text-center py-5",
-                        "bg-secondary_color/50 dark:bg-secondary_color-dark/50"
+                        "bg-theme_color/50 dark:bg-theme_color-dark/50"
                     )}>
                         <div className="flex justify-center items-center space-x-1 font-semibold">
                             <ImQuotesLeft className={"w-4 h-4 mb-2"} />
@@ -41,7 +41,7 @@ export default function IconHero() {
                                   key={social.title}
                                   className={cn(
                                       "backdrop-blur-sm drop-shadow rounded-xl w-8 h-8",
-                                      "bg-secondary_color/70 dark:bg-secondary_color-dark/70"
+                                      "bg-theme_color/70 dark:bg-theme_color-dark/70"
                                   )}>
                                 <div className={"m-1"}>
                                     {social.icon}

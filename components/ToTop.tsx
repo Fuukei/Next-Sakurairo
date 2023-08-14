@@ -43,7 +43,7 @@ export default function ToTop() {
             initial="hidden"
             animate={isVisible ? "visible" : "hidden"}>
             <IconButton>
-                <BiSolidArrowToTop className={"text-primary_color dark:text-primary_color-dark w-6 h-6"} />
+                <BiSolidArrowToTop className={"text-text_color dark:text-text_color-dark w-6 h-6"} />
             </IconButton>
         </motion.div>
     )

@@ -1,4 +1,20 @@
 import { blogConfig } from "./config";
+const color = require("color");
+
+const rotationSteps = Array.from({ length: 361 }, (_, i) => i);
+
+const generateRotatedColors = () => {
+  const colors = {};
+
+  for (const step of rotationSteps) {
+    colors[step] = {
+      DEFAULT: color(blogConfig.colors.theme_color).rotate(step).lighten(0.2).hex(),
+      dark: color(blogConfig.colors.theme_color).rotate(step).darken(0.2).hex()
+    };
+  }
+
+  return colors;
+};
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -18,18 +34,15 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
-        primary_color: {
-          DEFAULT: blogConfig.colors.primary_color.light,
-          dark: blogConfig.colors.primary_color.dark
+        theme_color: {
+          DEFAULT: color(blogConfig.colors.theme_color).lighten(0.2).hex(),
+          dark: color(blogConfig.colors.theme_color).darken(0.2).hex()
         },
-        secondary_color: {
-          DEFAULT: blogConfig.colors.secondary_color.light,
-          dark: blogConfig.colors.secondary_color.dark
+        text_color: {
+          DEFAULT: color(blogConfig.colors.theme_color).whiten(0.5).hex(),
+          dark: color(blogConfig.colors.theme_color).blacken(0.5).hex()
         },
-        accent_color: {
-          DEFAULT: blogConfig.colors.accent_color.light,
-          dark: blogConfig.colors.accent_color.dark
-        }
+        rotate_color: generateRotatedColors(),
       }
     },
   },

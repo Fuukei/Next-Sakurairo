@@ -24,7 +24,7 @@ export function FriendLinkCard({ link, profile, title, description, author }: Li
                  "flex p-2 mx-auto rounded-xl not-prose",
                  "w-full h-full duration-500",
                  "backdrop-blur-2xl overflow-hidden bg-slate-50/50 dark:bg-gray-800/70",
-                 {"shadow-lg shadow-primary_color/50 dark:shadow-primary_color-dark/30": hover}
+                 {"shadow-lg shadow-theme_color/50 dark:shadow-theme_color-dark/30": hover}
              )}>
             <div className={"h-32 pr-4 flex-1 flex flex-col space-y-2"}>
                 <div className={"line-clamp-2 font-bold text-base"}>
@@ -44,7 +44,7 @@ export function FriendLinkCard({ link, profile, title, description, author }: Li
             </div>
             <div className={"absolute top-2 right-2"}>
                 <RiExternalLinkLine className={cn(
-                    hover ? "text-primary_color dark:text-primary_color-dark" : "",
+                    hover ? "text-text_color dark:text-text_color-dark" : "",
                     "duration-500"
                 )}/>
             </div>
