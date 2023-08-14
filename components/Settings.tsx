@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { HiCog } from "react-icons/hi";
+import { HiOutlineCog } from "react-icons/hi";
 import { motion } from "framer-motion";
 import IconButton from "@/components/IconButton";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -58,7 +58,7 @@ export default function Settings() {
 
     return (
         <motion.div
-            ref={cogContainerRef}  // Attach the reference here
+            ref={cogContainerRef}
             className={"fixed z-30 bottom-0 right-0 mr-2 lg:mr-6 mb-8"}
             variants={buttonVariants}
             initial="hidden"
@@ -72,8 +72,8 @@ export default function Settings() {
                 <ThemeToggle open={open} setOpen={setOpen} />
             </motion.div>
 
-            <IconButton onClick={handleCogClick}>
-                <HiCog className={"text-text_color dark:text-text_color-dark w-6 h-6"} />
+            <IconButton onClick={handleCogClick} aria-label="settings">
+                <HiOutlineCog className={"text-text_color dark:text-text_color-dark w-6 h-6"} />
             </IconButton>
         </motion.div>
     )

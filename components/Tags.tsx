@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { parseISO, differenceInDays, format } from 'date-fns';
 import * as Tooltip from "@radix-ui/react-tooltip";
-import { HiHashtag } from "react-icons/hi";
+import { HiOutlineHashtag } from "react-icons/hi";
 import Link from "next/link";
 
 type DateTagProps = {
@@ -23,7 +23,7 @@ export function DateTag({ date, lastEdited }: DateTagProps) {
                     <Tooltip.Trigger asChild>
                         <div className={"bg-rotate_color-180/70 dark:bg-rotate_color-180-dark/70 rounded-md whitespace-nowrap"}>
                             <div className={"text-xs py-1 px-2"} suppressHydrationWarning={true}>
-                                Posted on {format(parsedDate, 'LLLL d, yyyy')} (Edited)
+                                Posted on {format(parsedDate, 'LLLL d, yyyy')} (edited)
                             </div>
                         </div>
                     </Tooltip.Trigger>
@@ -77,7 +77,7 @@ export function Tag({ tag }: TagProps) {
                 "bg-rotate_color-90/70 dark:bg-rotate_color-90-dark/70",
                 "hover:scale-125 duration-500"
             )}>
-                <HiHashtag className={"w-3 h-3 ml-1"}/>
+                <HiOutlineHashtag className={"w-3 h-3 ml-1"}/>
                 <div className={"text-xs py-1 px-1"}>{tag}</div>
             </div>
         </Link>

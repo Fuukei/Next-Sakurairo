@@ -43,7 +43,7 @@ export default function ThemeToggle({ open, setOpen }: ThemeToggleProps) {
     return (
         <DropdownMenu.Root open={open} onOpenChange={setOpen} modal={false}>
             <DropdownMenu.Trigger className={"outline-none"}>
-                <IconButton>
+                <IconButton aria-label="theme toggle">
                     <div className={"relative w-6 h-6 text-text_color dark:text-text_color-dark"}>
                         <motion.div
                             animate={{ x: isDark ? "-50%" : 0, opacity: isDark ? 0 : 1 }}
