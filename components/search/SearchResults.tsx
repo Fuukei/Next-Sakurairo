@@ -17,9 +17,9 @@ function ArticleCard({ article }: ArticleCardProps) {
               onClick={toggleSearch}
               className={cn(
                   "flex flex-wrap items-center justify-between rounded-md overflow-hidden",
-                  "bg-slate-50/60 dark:bg-gray-900/60 drop-shadow-md",
+                  "bg-slate-100/60 dark:bg-gray-900/60 drop-shadow-md",
+                  "hover:bg-slate-50/80 dark:hover:bg-gray-950/80 duration-500",
                   "px-2 md:px-4 py-2",
-                  "border-4 border-transparent hover:border-theme_color hover:dark:border-theme_color-dark duration-500"
                   )}>
             <div className="space-y-1">
                 <h3 className="text-lg font-medium text-slate-800 dark:text-slate-300 line-clamp-2">
