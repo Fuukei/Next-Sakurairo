@@ -5,6 +5,8 @@ import { parseISO, differenceInDays, format } from 'date-fns';
 import * as Tooltip from "@radix-ui/react-tooltip";
 import { HiOutlineHashtag } from "react-icons/hi";
 import Link from "next/link";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 type DateTagProps = {
     date: string;
@@ -12,6 +14,8 @@ type DateTagProps = {
 }
 
 export function DateTag({ date, lastEdited }: DateTagProps) {
+    const [tooltipOpen, setTooltipOpen] = useState(false);
+
     const parsedDate = parseISO(date);
     const parsedLastEdited = parseISO(lastEdited);
     const daysDifference = differenceInDays(parsedLastEdited, parsedDate);
@@ -19,7 +23,8 @@ export function DateTag({ date, lastEdited }: DateTagProps) {
     if (daysDifference > 1) {
         return (
             <Tooltip.Provider>
-                <Tooltip.Root>
+                <Tooltip.Root delayDuration={200}
+                              onOpenChange={(open) => setTooltipOpen(open)}>
                     <Tooltip.Trigger asChild>
                         <div className={cn(
                             "rounded-md whitespace-nowrap",
@@ -30,19 +35,29 @@ export function DateTag({ date, lastEdited }: DateTagProps) {
                             </div>
                         </div>
                     </Tooltip.Trigger>
-                    <Tooltip.Portal>
-                        <Tooltip.Content
-                            className="bg-rotate_color-180/70 dark:bg-rotate_color-180-dark/70 rounded-md backdrop-blur-md"
-                            sideOffset={5}
-                            suppressHydrationWarning={true}
-                            side={"right"}
-                        >
-                            <div className={"text-xs py-1 px-2"} suppressHydrationWarning={true}>
-                                Last edited on {format(parsedLastEdited, 'LLLL d, yyyy')}
-                            </div>
-                            <Tooltip.Arrow className="fill-rotate_color-180/70 dark:fill-rotate_color-180-dark/70 backdrop-blur-md"/>
-                        </Tooltip.Content>
-                    </Tooltip.Portal>
+                    <AnimatePresence>
+                        {tooltipOpen && (
+                            <Tooltip.Portal forceMount>
+                                <Tooltip.Content
+                                    sideOffset={5}
+                                    side={"right"}
+                                >
+                                    <motion.div
+                                        initial={{ opacity: 0, x: -10 }}  // Modify the x-axis for side tooltip
+                                        animate={{ opacity: 1, x: 0 }}
+                                        exit={{ opacity: 0, x: -10 }}
+                                        transition={{ ease: "easeOut", duration: 0.3 }}
+                                        className={"bg-rotate_color-180/70 dark:bg-rotate_color-180-dark/70 rounded-md backdrop-blur-md"}
+                                    >
+                                        <div className={"text-xs py-1 px-2"} suppressHydrationWarning={true}>
+                                            Last edited on {format(parsedLastEdited, 'LLLL d, yyyy')}
+                                        </div>
+                                        <Tooltip.Arrow className={"fill-rotate_color-180/70 dark:fill-rotate_color-180-dark/70 backdrop-blur-md"}/>
+                                    </motion.div>
+                                </Tooltip.Content>
+                            </Tooltip.Portal>
+                        )}
+                    </AnimatePresence>
                 </Tooltip.Root>
             </Tooltip.Provider>
         )
