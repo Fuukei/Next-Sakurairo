@@ -44,7 +44,7 @@ export default function ArticleCard({ article, idx }: ArticleCardProps) {
                 </Link>
             </div>
 
-            <div className="w-full md:w-5/12 my-4">
+            <div className="w-full md:w-5/12 my-4 relative">
                 <div className={"flex px-4"}>
                     <DateTag date={article.date} lastEdited={article.lastEdited}/>
                 </div>
