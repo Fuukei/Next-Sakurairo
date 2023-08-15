@@ -54,7 +54,7 @@ type SearchResultsProps = {
 
 export default function SearchResults({ query, results }: SearchResultsProps) {
     return (
-        <div className={"flex-grow overflow-y-auto space-y-2"}>
+        <div className={"flex-grow h-[90%] overflow-y-auto space-y-2"}>
             {!query ? (
                 allArticles.map((article) => {
                     return (
