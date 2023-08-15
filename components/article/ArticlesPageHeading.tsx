@@ -38,7 +38,8 @@ export default function ArticlesPageHeading({ article }: ArticlesPageHeadingProp
                     }}
                 >
                     <motion.h1
-                        className={"text-lg md:text-3xl font-bold text-text_color dark:text-text_color-dark"}
+                        className={"text-lg md:text-3xl font-bold text-text_color dark:text-text_color-dark pt-20"}
+                        style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.25)" }}
                         variants={FADE_DOWN_ANIMATION_VARIANTS}
                     >
                         {title}

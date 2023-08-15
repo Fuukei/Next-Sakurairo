@@ -13,7 +13,7 @@ export default function MDXStyles({ children }: MDXStylesProps) {
                 "prose md:prose-lg dark:prose-invert dark:text-slate-300",
                 "prose-headings:text-text_color dark:prose-headings:text-slate-100",
                 "prose-ul:my-6 prose-li:my-0 marker:text-slate-600 dark:marker:text-slate-300",
-                "prose-a:text-text_color-dark/80 dark:prose-a:text-text_color/80 prose-a:no-underline",
+                "prose-a:text-text_color-dark/80 dark:prose-a:text-text_color/80",
                 "hover:prose-a:text-text_color-dark hover:dark:prose-a:text-text_color hover:prose-a:underline",
                 "prose-blockquote:border-l-slate-800 dark:prose-blockquote:border-l-slate-300",
                 "dark:prose-blockquote:text-text_color",
