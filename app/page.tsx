@@ -12,6 +12,7 @@ const ogImage = {
 export const metadata: Metadata = {
     title: blogConfig.title,
     description: blogConfig.description,
+    metadataBase: new URL(`${blogConfig.url}`),
     openGraph: {
         type: "website",
         url: blogConfig.url,

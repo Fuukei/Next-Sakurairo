@@ -42,16 +42,16 @@
     "contentlayer": "^0.3.4",
     "date-fns": "^2.30.0",
     "eslint": "8.41.0",
-    "eslint-config-next": "13.4.4",
+    "eslint-config-next": "^14.0.3",
     "framer-motion": "^10.12.18",
-    "next": "13.4.9",
+    "next": "^14.0.3",
     "next-contentlayer": "^0.3.4",
     "next-themes": "^0.2.1",
     "open-graph-scraper": "^6.2.2",
     "postcss": "8.4.23",
     "radix-ui": "^1.0.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.1.0",
@@ -62,5 +62,10 @@
     "typescript": "5.0.4",
     "typewriter-effect": "^2.20.1",
     "zustand": "^4.3.8"
+  },
+  "overrides": {
+    "next-contentlayer": {
+      "next": "$next"
+    }
   }
 }
