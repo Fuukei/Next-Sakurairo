@@ -44,11 +44,11 @@ export default function ArticleCard({ article, idx }: ArticleCardProps) {
                 </Link>
             </div>
 
-            <div className="w-full md:w-5/12 p-4 lg:px-8 relative">
-                <div className={"flex mb-2"}>
+            <div className="w-full md:w-5/12 my-4 relative">
+                <div className={"flex px-4"}>
                     <DateTag date={article.date} lastEdited={article.lastEdited}/>
                 </div>
-                <div className={"flex mb-3"}>
+                <div className={"flex px-4 py-2 w-full overflow-x-scroll no-scrollbar"}>
                     {(() => {
                         if (!article.tags || article.tags.length === 0) {
                             return (
@@ -66,7 +66,7 @@ export default function ArticleCard({ article, idx }: ArticleCardProps) {
                         "lg:justify-items-end lg:text-end": idx % 2 === 0,
                         "lg:justify-items-start": idx % 2 !== 0
                     },
-                    "lg:grid"
+                    "lg:grid  px-4"
                 )}>
                     <h2 className={cn({
                         "text-text_color dark:text-text_color-dark": hover

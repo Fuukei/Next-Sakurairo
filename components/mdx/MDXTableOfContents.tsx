@@ -121,7 +121,7 @@ export default function MDXTableOfContents({ raw }: MDXTableOfContentsProps) {
         <DropdownMenu.Root open={open} onOpenChange={setOpen} modal={false}>
             <motion.div
                 className={cn(
-                    "fixed z-30 bottom-28 right-0 mr-2 lg:mr-6 mb-8",
+                    "fixed z-30 bottom-[10.5rem] right-0 mr-2 lg:mr-6 mb-8",
                 )}
                 variants={buttonVariants}
                 initial="hidden"

@@ -26,20 +26,20 @@ export default function LinkCard({ link }: LinkCardProps) {
             )}>
                 <div className={"h-32 pr-4 flex-1 flex flex-col space-y-3"}>
                     <div className={"flex flex-col space-y-1"}>
-                        <div className={"h-4 bg-slate-400 dark:bg-slate-500 rounded"}></div>
-                        <div className={"h-4 bg-slate-400 dark:bg-slate-500 rounded"}></div>
+                        <div className={"h-4 bg-slate-400 dark:bg-slate-500 rounded"}/>
+                        <div className={"h-4 bg-slate-400 dark:bg-slate-500 rounded"}/>
                     </div>
                     <div className={"flex flex-col space-y-1"}>
-                        <div className={"h-3 bg-slate-400 dark:bg-slate-500 rounded"}></div>
-                        <div className={"h-3 bg-slate-400 dark:bg-slate-500 rounded"}></div>
-                        <div className={"h-3 bg-slate-400 dark:bg-slate-500 rounded hidden md:block"}></div>
+                        <div className={"h-3 bg-slate-400 dark:bg-slate-500 rounded"}/>
+                        <div className={"h-3 bg-slate-400 dark:bg-slate-500 rounded"}/>
+                        <div className={"h-3 bg-slate-400 dark:bg-slate-500 rounded hidden md:block"}/>
                     </div>
                     <div className={"flex flex-col space-y-1"}>
-                        <div className={"h-2 bg-slate-400 dark:bg-slate-500 rounded"}></div>
+                        <div className={"h-2 bg-slate-400 dark:bg-slate-500 rounded"}/>
                     </div>
                 </div>
                 <div className={"h-32 w-32 flex items-center"}>
-                    <div className={"rounded-lg h-full w-full bg-slate-300 dark:bg-slate-500"}></div>
+                    <div className={"rounded-lg h-full w-full bg-slate-300 dark:bg-slate-500"}/>
                 </div>
             </div>
         </div>

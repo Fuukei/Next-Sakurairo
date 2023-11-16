@@ -30,6 +30,15 @@ code {
     background-color: var(--scrollbar-bg);
 }
 
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
 .w-8 svg {
     width: 100% !important;
 }

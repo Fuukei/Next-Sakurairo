@@ -1,27 +1,64 @@
 "use client";
 
 import Link from "next/link";
-import * as Dialog from '@radix-ui/react-dialog';
+import * as Dialog from "@radix-ui/react-dialog";
+import * as Tooltip from "@radix-ui/react-tooltip";
+import { HiOutlineExternalLink } from "react-icons/hi";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
+import React, { useState } from "react";
 
 
-function a({ href, children }: React.HTMLProps<HTMLAnchorElement>) {
-    if (href && href.startsWith('/')) {
-        return <Link href={href}>{children}</Link>;
-    }
+function A({ href, children }: React.HTMLProps<HTMLAnchorElement>) {
+    const [tooltipOpen, setTooltipOpen] = useState(false);
 
     if (href && href.startsWith('#')) {
         return <a href={href}>{children}</a>;
     }
 
     return (
-        <a href={href} target="_blank" rel="noopener noreferrer">
-            {children}
-        </a>
+        <Tooltip.Provider>
+            <Tooltip.Root delayDuration={200}
+                          onOpenChange={(open) => setTooltipOpen(open)}>
+                <Tooltip.Trigger asChild>
+                    <Link href={href || ''}
+                          className="relative inline-flex items-center">
+                        {children}
+                        <span className="text-md relative -top-1 -right-1">
+                            <HiOutlineExternalLink />
+                        </span>
+                    </Link>
+                </Tooltip.Trigger>
+                <AnimatePresence>
+                    {tooltipOpen && (
+                        <Tooltip.Portal forceMount>
+                            <Tooltip.Content
+                                sideOffset={5}
+                                side={"bottom"}
+                            >
+                                <motion.div
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -10 }}
+                                    transition={{ ease: "easeOut", duration: 0.3 }}
+                                    className={"backdrop-blur-lg drop-shadow-lg bg-slate-50/60 dark:bg-slate-900/60 rounded-md"}
+                                >
+                                    <div className={"text-xs py-1 px-2"}>
+                                        {href}
+                                    </div>
+                                    <Tooltip.Arrow className={"fill-theme_color/70 dark:fill-theme_color-dark/70 backdrop-blur-md"}/>
+                                </motion.div>
+                            </Tooltip.Content>
+                        </Tooltip.Portal>
+
+                    )}
+                </AnimatePresence>
+            </Tooltip.Root>
+        </Tooltip.Provider>
     );
 }
+
+const a = A;
 
 function ul({ children, className }: React.HTMLProps<HTMLUListElement>) {
     let style = {};
@@ -45,7 +82,6 @@ function Img({ src, alt }: React.HTMLProps<HTMLImageElement>) {
                 {imageOpen ? (
                     <Dialog.Portal forceMount>
                         <motion.div
-                            onClick={() => setImageOpen(false)} // close on click
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.9 }}
@@ -55,7 +91,9 @@ function Img({ src, alt }: React.HTMLProps<HTMLImageElement>) {
                                 "bg-slate-800/50"
                             )}
                         >
-                            <Dialog.Content className="md:p-16">
+                            <Dialog.Content onEscapeKeyDown={() => setImageOpen(false)}
+                                            onInteractOutside={() => setImageOpen(false)}
+                                            className="md:p-16">
                                 <img src={src} alt={alt} className="z-50 max-h-full max-w-full"/>
                             </Dialog.Content>
                         </motion.div>

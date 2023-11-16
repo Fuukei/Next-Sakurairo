@@ -8,6 +8,9 @@ import { ThemeProvider } from "@/components/ThemeProvider"
 import { TailwindIndicator } from "@/components/TailwindIndicator";
 import { cn } from "@/lib/utils";
 import BackgroundImage from "@/components/background-image/BackgroundImage";
+import Settings from "@/components/Settings";
+import Search from "@/components/search/Search";
+import SearchTrigger from "@/components/search/SearchTrigger";
 
 const font = Open_Sans({ subsets: ['latin'] })
 
@@ -34,6 +37,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
                                 <Footer />
                                 <TailwindIndicator />
                                 <ToTop />
+                                <Search />
+                                <SearchTrigger />
+                                <Settings />
                             </div>
                         </div>
                     </ScrollProgressProvider>

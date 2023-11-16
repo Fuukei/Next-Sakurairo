@@ -41,36 +41,28 @@ export default function Search() {
             <AnimatePresence>
                 {isSearching ? (
                     <Dialog.Portal forceMount>
-                        <Dialog.Overlay>
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 0.6 }}
-                                exit={{ opacity: 0 }}
-                                onClick={() => toggleSearch()}
-                                className={cn(
-                                    "fixed z-50 inset-x-0 inset-y-0 h-screen",
-                                    "bg-slate-800/50"
-                                )}
-                            >
-                            </motion.div>
-                        </Dialog.Overlay>
-                        <Dialog.Content>
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                transition={{ ease: 'linear', duration: 0.15 }}
-                                className={cn(
-                                    "fixed flex flex-col z-50 px-6 py-6 rounded-xl",
-                                    "md:inset-1/4 md:w-1/2 h-fit md:min-h-1/3 md:max-h-[66%]",
-                                    "inset-[5%] inset-y-[10%] w-[90%] h-fit min-h-[40%] max-h-[85%]",
-                                    "bg-slate-100/80 dark:bg-slate-800/80 backdrop-blur-md"
-                                )}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.9 }}
+                            transition={{ ease: "easeOut", duration: 0.15 }}
+                            className={cn(
+                                "fixed z-50 inset-0 flex items-center justify-center",
+                                "bg-slate-800/50"
+                            )}
+                        >
+                            <Dialog.Content onEscapeKeyDown={toggleSearch}
+                                            onInteractOutside={toggleSearch}
+                                            className={cn(
+                                                "bg-slate-100/40 dark:bg-slate-900/40 backdrop-blur-lg drop-shadow-lg",
+                                                "w-11/12 md:w-1/2 h-3/5",
+                                                "p-2 md:p-6 rounded-xl"
+                                            )}
                             >
                                 <SearchInput />
                                 <SearchResults query={query} results={results}/>
-                            </motion.div>
-                        </Dialog.Content>
+                            </Dialog.Content>
+                        </motion.div>
                     </Dialog.Portal>
                 ) : null}
             </AnimatePresence>
