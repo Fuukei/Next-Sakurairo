@@ -1,5 +1,3 @@
-import { cn } from "@/lib/utils";
-
 export default function Loading() {
     return (
         <div className={"min-h-screen backdrop-blur-3xl bg-zinc-50/50 dark:bg-zinc-900/70"}>
