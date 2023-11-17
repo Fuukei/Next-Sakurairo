@@ -26,7 +26,7 @@ export default function ArticleCard({ article, idx }: ArticleCardProps) {
                  {
                      "shadow-xl shadow-theme_color/70 dark:shadow-theme_color-dark/70": hover,
                  },
-                 "backdrop-blur-xl bg-slate-50/60 dark:bg-gray-800/60 drop-shadow-md",
+                 "backdrop-blur-xl bg-zinc-50/60 dark:bg-zinc-800/60 drop-shadow-md",
                  "mb-4 md:mb-6 md:h-72",
                  "flex w-full flex-col rounded-xl overflow-hidden duration-500"
              )}>

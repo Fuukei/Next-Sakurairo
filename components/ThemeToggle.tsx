@@ -18,7 +18,7 @@ function MenuItem ({ onClick, children }: MenuItemProps) {
             className={cn(
                 "flex px-2 py-1 items-center rounded-md border-transparent border-2 outline-none",
                 "data-[highlighted]:bg-theme_color/25 data-[highlighted]:dark:bg-theme_color-dark/25",
-                "data-[highlighted]:text-slate-800 data-[highlighted]:dark:text-slate-100",
+                "data-[highlighted]:text-zinc-800 data-[highlighted]:dark:text-zinc-100",
                 )}>
             {children}
         </DropdownMenu.Item>
@@ -73,7 +73,7 @@ export default function ThemeToggle({ open, setOpen }: ThemeToggleProps) {
                                 variants={contentVariants}
                                 className={cn(
                                     "mb-2 p-2 rounded-md",
-                                    "backdrop-blur-lg drop-shadow-lg bg-slate-100/40 dark:bg-slate-900/40",
+                                    "backdrop-blur-lg drop-shadow-lg bg-zinc-100/40 dark:bg-zinc-900/40",
                                     "text-text_color dark:text-text_color-dark"
                                 )}
                             >
@@ -91,7 +91,7 @@ export default function ThemeToggle({ open, setOpen }: ThemeToggleProps) {
                                     <HiDevicePhoneMobile className="block md:hidden w-4 h-4 mr-2" />
                                     <span>System</span>
                                 </MenuItem>
-                                <DropdownMenu.Arrow className="fill-slate-100/40 dark:fill-slate-800/40" />
+                                <DropdownMenu.Arrow className={"fill-zinc-100/40 dark:fill-zinc-800/40"}/>
                             </motion.div>
                         </DropdownMenu.Content>
                     </DropdownMenu.Portal>

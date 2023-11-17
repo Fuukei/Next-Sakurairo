@@ -41,7 +41,7 @@ function A({ href, children }: React.HTMLProps<HTMLAnchorElement>) {
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: -10 }}
                                     transition={{ ease: "easeOut", duration: 0.3 }}
-                                    className={"backdrop-blur-lg drop-shadow-lg bg-slate-50/60 dark:bg-slate-900/60 rounded-md"}
+                                    className={"backdrop-blur-lg drop-shadow-lg bg-zinc-50/60 dark:bg-zinc-900/60 rounded-md"}
                                 >
                                     <div className={"text-xs py-1 px-2"}>
                                         {href}
@@ -88,7 +88,7 @@ function Img({ src, alt }: React.HTMLProps<HTMLImageElement>) {
                             transition={{ ease: "easeOut", duration: 0.15 }}
                             className={cn(
                                 "fixed z-40 inset-0 flex items-center justify-center",
-                                "bg-slate-800/50"
+                                "bg-zinc-800/50"
                             )}
                         >
                             <Dialog.Content onEscapeKeyDown={() => setImageOpen(false)}

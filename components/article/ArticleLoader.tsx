@@ -69,7 +69,7 @@ export default function ArticleLoader({ articles, articlesPerLoad }: ArticleLoad
                         onClick={loadMore}
                         className={cn(
                             "rounded-full px-5 py-2",
-                            "bg-white dark:bg-slate-800/75",
+                            "bg-white dark:bg-zinc-800/75",
                             "text-text_color dark:text-text_color-dark"
                         )}>
                         Load more

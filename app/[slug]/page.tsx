@@ -42,7 +42,7 @@ const PageLayout = ({ params }: { params: { slug: string } }) => {
     if (!page) notFound()
 
     return (
-        <div className={"min-h-screen backdrop-blur-3xl bg-slate-50/50 dark:bg-slate-900/70"}>
+        <div className={"min-h-screen backdrop-blur-3xl bg-zinc-50/50 dark:bg-zinc-900/70"}>
             <PagesPageHeading title={page.title} />
             <div className={cn(
                 "py-8 mx-4 md:mx-auto lg:px-4",

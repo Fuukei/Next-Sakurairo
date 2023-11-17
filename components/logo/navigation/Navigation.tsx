@@ -80,7 +80,7 @@ function NavigationItems({ item }: NavigationItemSProps) {
                     transition={{ ease: 'easeIn', duration: 0.1 }}
                     className={cn(
                         "mt-4 px-3 py-2 space-y-2 rounded-md",
-                        "bg-slate-100/80 dark:bg-slate-800/80"
+                        "bg-zinc-100/80 dark:bg-zinc-800/80"
                     )}>
                     {item.child.map((child, idx) => {
                         return (

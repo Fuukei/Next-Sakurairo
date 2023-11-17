@@ -146,14 +146,14 @@ export default function MDXTableOfContents({ raw }: MDXTableOfContentsProps) {
                                 transition={{ ease: 'easeIn', duration: 0.15 }}
                                 className={cn(
                                     "mr-2 p-4 rounded-lg max-w-xs md:max-w-md",
-                                    "bg-slate-100/80 dark:bg-slate-800/80 backdrop-blur-2xl",
+                                    "bg-zinc-100/80 dark:bg-zinc-800/80 backdrop-blur-2xl",
                                     "text-text_color dark:text-text_color-dark"
                                 )}>
                                 <div className={cn(
-                                    "prose prose-slate dark:prose-invert dark:text-slate-300",
-                                    "prose-headings:text-text_color dark:prose-headings:text-slate-100",
+                                    "prose prose-zinc dark:prose-invert dark:text-zinc-300",
+                                    "prose-headings:text-text_color dark:prose-headings:text-zinc-100",
                                     "prose-a:no-underline hover:prose-a:underline",
-                                    "prose-hr:border-slate-700 dark:prose-hr:border-slate-300",
+                                    "prose-hr:border-zinc-700 dark:prose-hr:border-zinc-300",
                                 )}>
                                     <div className="text-lg font-medium mb-2 text-text_color dark:text-text_color-dark">
                                         Table of Contents

@@ -48,13 +48,13 @@ export default function Search() {
                             transition={{ ease: "easeOut", duration: 0.15 }}
                             className={cn(
                                 "fixed z-50 inset-0 flex items-center justify-center",
-                                "bg-slate-800/50"
+                                "bg-zinc-800/50"
                             )}
                         >
                             <Dialog.Content onEscapeKeyDown={toggleSearch}
                                             onInteractOutside={toggleSearch}
                                             className={cn(
-                                                "bg-slate-100/40 dark:bg-slate-900/40 backdrop-blur-lg drop-shadow-lg",
+                                                "bg-zinc-100/40 dark:bg-zinc-900/40 backdrop-blur-lg drop-shadow-lg",
                                                 "w-11/12 md:w-1/2 h-3/5",
                                                 "p-2 md:p-6 rounded-xl"
                                             )}
