@@ -1,7 +1,7 @@
 import { useTheme } from "next-themes";
 import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi";
 import { HiComputerDesktop, HiDeviceTablet, HiDevicePhoneMobile } from "react-icons/hi2";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { cn } from "@/lib/utils";
 import IconButton from "@/components/IconButton";
@@ -45,20 +45,20 @@ export default function ThemeToggle({ open, setOpen }: ThemeToggleProps) {
             <DropdownMenu.Trigger className={"outline-none"}>
                 <IconButton aria-label="theme toggle">
                     <div className={"relative w-6 h-6 text-text_color dark:text-text_color-dark"}>
-                        <motion.div
+                        <m.div
                             animate={{ x: isDark ? "-50%" : 0, opacity: isDark ? 0 : 1 }}
                             transition={{ duration: 0.3 }}
                             className="absolute inset-0"
                         >
                             <HiOutlineSun className="w-full h-full" />
-                        </motion.div>
-                        <motion.div
+                        </m.div>
+                        <m.div
                             animate={{ x: isDark ? 0 : "50%", opacity: isDark ? 1 : 0 }}
                             transition={{ duration: 0.3 }}
                             className="absolute inset-0"
                         >
                             <HiOutlineMoon className="w-full h-full" />
-                        </motion.div>
+                        </m.div>
                     </div>
                 </IconButton>
             </DropdownMenu.Trigger>
@@ -66,7 +66,7 @@ export default function ThemeToggle({ open, setOpen }: ThemeToggleProps) {
                 {open && (
                     <DropdownMenu.Portal forceMount>
                         <DropdownMenu.Content className={"z-40"} align={"center"} side={"top"}>
-                            <motion.div
+                            <m.div
                                 initial="hidden"
                                 animate={open ? "visible" : "hidden"}
                                 exit="hidden"
@@ -92,7 +92,7 @@ export default function ThemeToggle({ open, setOpen }: ThemeToggleProps) {
                                     <span>System</span>
                                 </MenuItem>
                                 <DropdownMenu.Arrow className={"fill-zinc-100/40 dark:fill-zinc-800/40"}/>
-                            </motion.div>
+                            </m.div>
                         </DropdownMenu.Content>
                     </DropdownMenu.Portal>
                 )}

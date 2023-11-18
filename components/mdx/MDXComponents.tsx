@@ -4,7 +4,7 @@ import Link from "next/link";
 import * as Dialog from "@radix-ui/react-dialog";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import { HiOutlineExternalLink } from "react-icons/hi";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { cn } from "@/lib/utils";
 import React, { useState } from "react";
 
@@ -36,7 +36,7 @@ function A({ href, children }: React.HTMLProps<HTMLAnchorElement>) {
                                 sideOffset={5}
                                 side={"bottom"}
                             >
-                                <motion.div
+                                <m.div
                                     initial={{ opacity: 0, y: -10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: -10 }}
@@ -47,7 +47,7 @@ function A({ href, children }: React.HTMLProps<HTMLAnchorElement>) {
                                         {href}
                                     </div>
                                     <Tooltip.Arrow className={"fill-theme_color/70 dark:fill-theme_color-dark/70 backdrop-blur-md"}/>
-                                </motion.div>
+                                </m.div>
                             </Tooltip.Content>
                         </Tooltip.Portal>
 
@@ -81,7 +81,7 @@ function Img({ src, alt }: React.HTMLProps<HTMLImageElement>) {
             <AnimatePresence>
                 {imageOpen ? (
                     <Dialog.Portal forceMount>
-                        <motion.div
+                        <m.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.9 }}
@@ -96,7 +96,7 @@ function Img({ src, alt }: React.HTMLProps<HTMLImageElement>) {
                                             className="md:p-16">
                                 <img src={src} alt={alt} className="z-50 max-h-full max-w-full"/>
                             </Dialog.Content>
-                        </motion.div>
+                        </m.div>
                     </Dialog.Portal>
                 ) : null}
             </AnimatePresence>

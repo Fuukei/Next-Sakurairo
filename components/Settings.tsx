@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { HiOutlineCog } from "react-icons/hi";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import IconButton from "@/components/IconButton";
 import ThemeToggle from "@/components/ThemeToggle";
 
@@ -57,24 +57,24 @@ export default function Settings() {
     };
 
     return (
-        <motion.div
+        <m.div
             ref={cogContainerRef}
             className={"fixed z-30 bottom-0 right-0 mr-2 lg:mr-6 mb-8"}
             variants={buttonVariants}
             initial="hidden"
             animate={isVisible ? "visible" : "hidden"}
         >
-            <motion.div
+            <m.div
                 className={"absolute"}
                 variants={slideOutVariants}
                 animate={isSlideOutVisible ? "visible" : "hidden"}
             >
                 <ThemeToggle open={open} setOpen={setOpen} />
-            </motion.div>
+            </m.div>
 
             <IconButton onClick={handleCogClick} aria-label="settings">
                 <HiOutlineCog className={"text-text_color dark:text-text_color-dark w-6 h-6"} />
             </IconButton>
-        </motion.div>
+        </m.div>
     )
 }

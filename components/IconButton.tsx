@@ -2,7 +2,7 @@
 
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 type IconButtonProps = {
     children: ReactNode;
@@ -11,7 +11,7 @@ type IconButtonProps = {
 
 export default function IconButton({ children, onClick }: IconButtonProps) {
     return (
-        <motion.div
+        <m.div
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.8 }}
             transition={{ duration: 0.3 }}
@@ -23,6 +23,6 @@ export default function IconButton({ children, onClick }: IconButtonProps) {
             onClick={onClick}
         >
             {children}
-        </motion.div>
+        </m.div>
     )
 }

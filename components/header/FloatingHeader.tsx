@@ -6,7 +6,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { blogConfig } from "@/config";
 import * as Dialog from "@radix-ui/react-dialog";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import Logo from "@/components/logo/Logo";
 import IconButton from "@/components/IconButton";
 import { Navigation, NavigationMobile } from "@/components/logo/navigation/Navigation";
@@ -27,7 +27,7 @@ function MobileMenu() {
                 {mobileMenuOpen ? (
                     <Dialog.Portal forceMount>
                         <Dialog.Overlay>
-                            <motion.div
+                            <m.div
                                 initial={{ x: '400%' }}
                                 animate={{ x: 0 }}
                                 exit={{ x: '400%' }}
@@ -37,10 +37,10 @@ function MobileMenu() {
                                     "bg-zinc-800/50"
                                 )}
                             >
-                            </motion.div>
+                            </m.div>
                         </Dialog.Overlay>
                         <Dialog.Content>
-                            <motion.div
+                            <m.div
                                 initial={{ x: '100%' }}
                                 animate={{ x: 0 }}
                                 exit={{ x: '100%' }}
@@ -53,7 +53,7 @@ function MobileMenu() {
                                 <div className="flex flex-col items-center justify-between space-y-2">
                                     <NavigationMobile navigation={navigation} />
                                 </div>
-                            </motion.div>
+                            </m.div>
                         </Dialog.Content>
                     </Dialog.Portal>
                 ) : null}

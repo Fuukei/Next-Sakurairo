@@ -1,16 +1,7 @@
 import "./globals.css";
 import { Open_Sans } from "next/font/google";
-import Header from "@/components/header/Header";
-import Footer from "@/components/Footer";
-import { ScrollProgressProvider } from "@/components/ScrollProgressProvider";
-import ToTop from "@/components/ToTop";
-import { ThemeProvider } from "@/components/ThemeProvider"
-import { TailwindIndicator } from "@/components/TailwindIndicator";
 import { cn } from "@/lib/utils";
-import BackgroundImage from "@/components/background-image/BackgroundImage";
-import Settings from "@/components/Settings";
-import Search from "@/components/search/Search";
-import SearchTrigger from "@/components/search/SearchTrigger";
+import { Providers } from "@/providers";
 
 const font = Open_Sans({ subsets: ['latin'] })
 
@@ -27,23 +18,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
     return (
         <html lang="en" suppressHydrationWarning>
             <body className={cn(font.className, "static")}>
-                <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-                    <ScrollProgressProvider>
-                        <BackgroundImage/>
-                        <div className={"absolute top-0 w-full"}>
-                            <div className={"flex flex-col"}>
-                                <Header />
-                                {children}
-                                <Footer />
-                                <TailwindIndicator />
-                                <ToTop />
-                                <Search />
-                                <SearchTrigger />
-                                <Settings />
-                            </div>
-                        </div>
-                    </ScrollProgressProvider>
-                </ThemeProvider>
+                <Providers>
+                    {children}
+                </Providers>
             </body>
         </html>
     )
