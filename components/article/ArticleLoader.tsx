@@ -5,7 +5,7 @@ import { Article } from "contentlayer/generated";
 import ArticleCard from "@/components/article/ArticleCard";
 import { cn } from "@/lib/utils";
 import { useScrollContext } from "@/providers/ScrollProgressProvider";
-import { m, AnimatePresence } from "framer-motion";
+import { m } from "framer-motion";
 
 type ArticleLoaderProps = {
     articles: Article[];
