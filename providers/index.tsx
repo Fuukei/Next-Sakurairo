@@ -18,7 +18,7 @@ const loadFeatures = () =>
 
 export function Providers({ children }: PropsWithChildren) {
     return (
-        <LazyMotion features={loadFeatures} strict key="framer">
+        <LazyMotion features={loadFeatures} strict>
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
                 <ScrollProgressProvider>
                     <BackgroundImage/>
