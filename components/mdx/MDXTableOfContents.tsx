@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { PiListBulletsBold } from "react-icons/pi";
 import { cn } from "@/lib/utils";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
@@ -119,7 +119,7 @@ export default function MDXTableOfContents({ raw }: MDXTableOfContentsProps) {
 
     return (
         <DropdownMenu.Root open={open} onOpenChange={setOpen} modal={false}>
-            <motion.div
+            <m.div
                 className={cn(
                     "fixed z-30 bottom-[10.5rem] right-0 mr-2 lg:mr-6 mb-8",
                 )}
@@ -133,27 +133,27 @@ export default function MDXTableOfContents({ raw }: MDXTableOfContentsProps) {
                         </div>
                     </IconButton>
                 </DropdownMenu.Trigger>
-            </motion.div>
+            </m.div>
 
             <AnimatePresence>
                 {(open && isVisible)  &&  (
                     <DropdownMenu.Portal forceMount>
                         <DropdownMenu.Content className={"z-30"} side={"left"} align={"center"} sideOffset={10}>
-                            <motion.div
+                            <m.div
                                 initial={{ opacity: 0, x: 10 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 exit={{ opacity: 0 }}
                                 transition={{ ease: 'easeIn', duration: 0.15 }}
                                 className={cn(
                                     "mr-2 p-4 rounded-lg max-w-xs md:max-w-md",
-                                    "bg-slate-100/80 dark:bg-slate-800/80 backdrop-blur-2xl",
+                                    "bg-zinc-100/80 dark:bg-zinc-800/80 backdrop-blur-2xl",
                                     "text-text_color dark:text-text_color-dark"
                                 )}>
                                 <div className={cn(
-                                    "prose prose-slate dark:prose-invert dark:text-slate-300",
-                                    "prose-headings:text-text_color dark:prose-headings:text-slate-100",
+                                    "prose prose-zinc dark:prose-invert dark:text-zinc-300",
+                                    "prose-headings:text-text_color dark:prose-headings:text-zinc-100",
                                     "prose-a:no-underline hover:prose-a:underline",
-                                    "prose-hr:border-slate-700 dark:prose-hr:border-slate-300",
+                                    "prose-hr:border-zinc-700 dark:prose-hr:border-zinc-300",
                                 )}>
                                     <div className="text-lg font-medium mb-2 text-text_color dark:text-text_color-dark">
                                         Table of Contents
@@ -184,7 +184,7 @@ export default function MDXTableOfContents({ raw }: MDXTableOfContentsProps) {
                                         })}
                                     </div>
                                 </div>
-                            </motion.div>
+                            </m.div>
                         </DropdownMenu.Content>
                     </DropdownMenu.Portal>
                 )}

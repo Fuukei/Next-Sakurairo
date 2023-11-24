@@ -6,7 +6,7 @@ import * as Tooltip from "@radix-ui/react-tooltip";
 import { HiOutlineHashtag } from "react-icons/hi";
 import Link from "next/link";
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 
 type DateTagProps = {
     date: string;
@@ -42,7 +42,7 @@ export function DateTag({ date, lastEdited }: DateTagProps) {
                                     sideOffset={5}
                                     side={"right"}
                                 >
-                                    <motion.div
+                                    <m.div
                                         initial={{ opacity: 0, x: -10 }}  // Modify the x-axis for side tooltip
                                         animate={{ opacity: 1, x: 0 }}
                                         exit={{ opacity: 0, x: -10 }}
@@ -53,7 +53,7 @@ export function DateTag({ date, lastEdited }: DateTagProps) {
                                             Last edited on {format(parsedLastEdited, 'LLLL d, yyyy')}
                                         </div>
                                         <Tooltip.Arrow className={"fill-rotate_color-180/70 dark:fill-rotate_color-180-dark/70 backdrop-blur-md"}/>
-                                    </motion.div>
+                                    </m.div>
                                 </Tooltip.Content>
                             </Tooltip.Portal>
                         )}

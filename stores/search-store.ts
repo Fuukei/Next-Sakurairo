@@ -1,4 +1,4 @@
-import { create } from "zustand";
+import { createWithEqualityFn } from "zustand/traditional";
 import { devtools } from "zustand/middleware";
 
 interface SearchState {
@@ -8,7 +8,7 @@ interface SearchState {
     toggleSearch: () => void;
 }
 
-export const useSearchStore = create<SearchState>()(
+export const useSearchStore = createWithEqualityFn<SearchState>()(
     devtools((set) => ({
         query: '',
         isSearching: false,

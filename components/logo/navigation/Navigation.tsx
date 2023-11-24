@@ -1,7 +1,7 @@
 "use client";
 
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
@@ -23,7 +23,7 @@ function NavigationItem({ item }: NavigationItemProps) {
         >
             <div className="px-2 font-semibold">
                 {item.title}
-                <motion.span
+                <m.span
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: isHovered ? 1 : 0 }}
                     transition={{ duration: 0.3 }}
@@ -59,7 +59,7 @@ function NavigationItems({ item }: NavigationItemSProps) {
             >
                 <div className="px-2 font-semibold">
                     {item.title}
-                    <motion.span
+                    <m.span
                         initial={{ scaleX: 0 }}
                         animate={{ scaleX: isHovered ? 1 : 0 }}
                         transition={{ duration: 0.3 }}
@@ -73,14 +73,14 @@ function NavigationItems({ item }: NavigationItemSProps) {
                 </div>
             </NavigationMenu.Trigger>
             <NavigationMenu.Content className={"absolute w-max"}>
-                <motion.div
+                <m.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ ease: 'easeIn', duration: 0.1 }}
                     className={cn(
                         "mt-4 px-3 py-2 space-y-2 rounded-md",
-                        "bg-slate-100/80 dark:bg-slate-800/80"
+                        "bg-zinc-100/80 dark:bg-zinc-800/80"
                     )}>
                     {item.child.map((child, idx) => {
                         return (
@@ -89,7 +89,7 @@ function NavigationItems({ item }: NavigationItemSProps) {
                             </NavigationMenu.Item>
                         )
                     })}
-                </motion.div>
+                </m.div>
             </NavigationMenu.Content>
         </NavigationMenu.Item>
     )

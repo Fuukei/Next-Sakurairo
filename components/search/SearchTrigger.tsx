@@ -4,7 +4,7 @@ import { HiSearch } from "react-icons/hi";
 import { useSearchStore } from "@/stores/search-store";
 import IconButton from "@/components/IconButton";
 import {useEffect, useState} from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 
 export default function SearchTrigger() {
@@ -32,7 +32,7 @@ export default function SearchTrigger() {
     }
 
     return (
-        <motion.div
+        <m.div
             className={"fixed z-30 bottom-14 right-0 mr-2 lg:mr-6 mb-8"}
             variants={buttonVariants}
             initial="hidden"
@@ -40,6 +40,6 @@ export default function SearchTrigger() {
             <IconButton onClick={() => toggleSearch()}>
                 <HiSearch className={"w-6 h-6"} aria-hidden={"true"}/>
             </IconButton>
-        </motion.div>
+        </m.div>
     )
 }

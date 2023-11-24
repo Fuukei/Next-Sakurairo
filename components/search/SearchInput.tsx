@@ -24,7 +24,7 @@ export default function SearchInput() {
                 className={cn(
                     "rounded-md px-3 py-1.5 w-full bg-transparent backdrop-blur-lg",
                     "outline-none focus:ring ring-theme_color dark:ring-theme_color-dark duration-300",
-                    "placeholder:text-slate-600 dark:placeholder:text-slate-400"
+                    "placeholder:text-zinc-600 dark:placeholder:text-zinc-400"
                 )}
                 placeholder={"Search for articles..."}
             />

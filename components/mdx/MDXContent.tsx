@@ -3,7 +3,7 @@
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { MDXComponents } from "@/components/mdx/MDXComponents";
 import MDXStyles from "@/components/mdx/MDXStyles";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 type MDXContentProps = {
     code: string;
@@ -18,7 +18,7 @@ export default function MDXContent({ code }: MDXContentProps) {
     };
 
     return (
-        <motion.div
+        <m.div
             initial="hidden"
             animate="visible"
             transition={{ duration: 0.5 }}
@@ -27,6 +27,6 @@ export default function MDXContent({ code }: MDXContentProps) {
             <MDXStyles>
                 <Component components={MDXComponents} />
             </MDXStyles>
-        </motion.div>
+        </m.div>
     );
 }

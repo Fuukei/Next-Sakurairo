@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { DateTag, NoTag, Tag } from "@/components/Tags";
 import { type Article } from "contentlayer/generated";
 
@@ -24,7 +24,7 @@ export default function ArticlesPageHeading({ article }: ArticlesPageHeadingProp
     return (
         <div className={"flex w-full backdrop-blur-sm"}>
             <div className={"self-end w-full pb-2 md:pb-4 mx-4 lg:mx-auto lg:px-4 max-w-3xl"}>
-                <motion.div
+                <m.div
                     initial="hidden"
                     animate="show"
                     viewport={{ once: true }}
@@ -37,27 +37,27 @@ export default function ArticlesPageHeading({ article }: ArticlesPageHeadingProp
                         },
                     }}
                 >
-                    <motion.h1
+                    <m.h1
                         className={"text-lg md:text-3xl font-bold text-text_color dark:text-text_color-dark pt-20"}
                         style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.25)" }}
                         variants={FADE_DOWN_ANIMATION_VARIANTS}
                     >
                         {title}
-                    </motion.h1>
-                    <motion.hr
+                    </m.h1>
+                    <m.hr
                         style={{transformOrigin: "left"}}
                         className={"h-1 m-1 md:mb-2 border-0 rounded bg-gray-700"}
                         initial="hidden"
                         animate="visible"
                         variants={hrVariants}
                     />
-                    <motion.div
+                    <m.div
                         className={"flex mb-2"}
                         variants={FADE_DOWN_ANIMATION_VARIANTS}
                     >
                         <DateTag date={date} lastEdited={lastEdited}/>
-                    </motion.div>
-                    <motion.div
+                    </m.div>
+                    <m.div
                         className={"flex"}
                         variants={FADE_DOWN_ANIMATION_VARIANTS}
                     >
@@ -74,8 +74,8 @@ export default function ArticlesPageHeading({ article }: ArticlesPageHeadingProp
                                 }
                             })()}
                         </div>
-                    </motion.div>
-                </motion.div>
+                    </m.div>
+                </m.div>
             </div>
         </div>
     )

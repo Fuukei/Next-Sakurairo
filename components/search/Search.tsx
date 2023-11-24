@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { cn } from "@/lib/utils";
 import * as Dialog from '@radix-ui/react-dialog';
 import { useEffect, useMemo } from "react";
@@ -41,20 +41,20 @@ export default function Search() {
             <AnimatePresence>
                 {isSearching ? (
                     <Dialog.Portal forceMount>
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
+                        <m.div
+                            initial={{ opacity: 0, scale: 0.7 }}
                             animate={{ opacity: 1, scale: 1 }}
-                            exit={{ opacity: 0, scale: 0.9 }}
-                            transition={{ ease: "easeOut", duration: 0.15 }}
+                            exit={{ opacity: 0, scale: 0.7 }}
+                            transition={{ ease: "easeOut", duration: 0.2 }}
                             className={cn(
                                 "fixed z-50 inset-0 flex items-center justify-center",
-                                "bg-slate-800/50"
+                                "bg-zinc-800/50 backdrop-blur-lg"
                             )}
                         >
                             <Dialog.Content onEscapeKeyDown={toggleSearch}
                                             onInteractOutside={toggleSearch}
                                             className={cn(
-                                                "bg-slate-100/40 dark:bg-slate-900/40 backdrop-blur-lg drop-shadow-lg",
+                                                "bg-zinc-100/40 dark:bg-zinc-900/40 backdrop-blur-lg drop-shadow-lg",
                                                 "w-11/12 md:w-1/2 h-3/5",
                                                 "p-2 md:p-6 rounded-xl"
                                             )}
@@ -62,7 +62,7 @@ export default function Search() {
                                 <SearchInput />
                                 <SearchResults query={query} results={results}/>
                             </Dialog.Content>
-                        </motion.div>
+                        </m.div>
                     </Dialog.Portal>
                 ) : null}
             </AnimatePresence>

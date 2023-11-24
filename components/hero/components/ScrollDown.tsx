@@ -1,7 +1,7 @@
 "use client";
 
 import { GoChevronDown } from "react-icons/go";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export default function ScrollDown() {
@@ -14,7 +14,7 @@ export default function ScrollDown() {
 
     return (
         <div className={"absolute bottom-0 w-full flex justify-center pb-10"}>
-            <motion.div
+            <m.div
                 animate={{
                     y: [0, -5, 0]
                 }}
@@ -31,7 +31,7 @@ export default function ScrollDown() {
                         )}>
                     <GoChevronDown className="w-14 h-14" />
                 </button>
-            </motion.div>
+            </m.div>
         </div>
     )
 }

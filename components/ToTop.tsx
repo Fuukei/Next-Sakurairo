@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { BiSolidArrowToTop } from "react-icons/bi";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import IconButton from "@/components/IconButton";
 
 export default function ToTop() {
@@ -36,7 +36,7 @@ export default function ToTop() {
     }
 
     return (
-        <motion.div
+        <m.div
             onClick={scrollToTop}
             className={"fixed z-30 bottom-28 right-0 mr-2 lg:mr-6 mb-8"}
             variants={buttonVariants}
@@ -45,6 +45,6 @@ export default function ToTop() {
             <IconButton aria-label="to top">
                 <BiSolidArrowToTop className={"text-text_color dark:text-text_color-dark w-6 h-6"} />
             </IconButton>
-        </motion.div>
+        </m.div>
     )
 }

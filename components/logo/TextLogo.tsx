@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion, useAnimation } from "framer-motion";
+import { m, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import { LogoProps } from "@/components/logo/Logo";
 
@@ -43,7 +43,7 @@ export default function TextLogo({ logoHover }: LogoProps) {
                 )}>
                     {logoSetting.text_front}
                 </div>
-                <motion.div
+                <m.div
                     className={cn({
                             "dark:text-text_color-dark": logoHover,
                         },
@@ -53,21 +53,21 @@ export default function TextLogo({ logoHover }: LogoProps) {
                     variants={rotationVariant}
                 >
                     {logoSetting.text_middle}
-                </motion.div>
+                </m.div>
                 <div className={cn({
                         "dark:text-text_color-dark": logoHover,
                     },
                     "pb-1 dark:text-inherit text-text_color"
                 )}>{logoSetting.text_end}</div>
             </div>
-            <motion.div
+            <m.div
                 className={"text-[10px] font-normal text-text_color dark:text-text_color-dark"}
                 animate={textControls}
                 transition={{ type: "ease", duration: 0.5 }}
                 initial={{ opacity: 0 }}
             >
                 {logoSetting.text_bottom}
-            </motion.div>
+            </m.div>
         </div>
     )
 }

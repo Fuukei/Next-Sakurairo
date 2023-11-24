@@ -4,8 +4,8 @@ import { useState } from "react";
 import { Article } from "contentlayer/generated";
 import ArticleCard from "@/components/article/ArticleCard";
 import { cn } from "@/lib/utils";
-import { useScrollContext } from "@/components/ScrollProgressProvider";
-import { motion } from "framer-motion";
+import { useScrollContext } from "@/providers/ScrollProgressProvider";
+import { m } from "framer-motion";
 
 type ArticleLoaderProps = {
     articles: Article[];
@@ -48,7 +48,7 @@ export default function ArticleLoader({ articles, articlesPerLoad }: ArticleLoad
                 };
 
                 return (
-                    <motion.div
+                    <m.div
                         key={idx}
                         initial="offscreen"
                         whileInView="onscreen"
@@ -56,12 +56,12 @@ export default function ArticleLoader({ articles, articlesPerLoad }: ArticleLoad
                         viewport={{ once: true }}
                     >
                         <ArticleCard idx={idx} article={article} />
-                    </motion.div>
+                    </m.div>
                 );
             })}
             <div className={"p-6 flex justify-center"}>
                 {hasMore ? (
-                    <motion.button
+                    <m.button
                         whileHover={{ scale: 1.2 }}
                         whileTap={{ scale: 0.8 }}
                         transition={{ duration: 0.3 }}
@@ -69,11 +69,11 @@ export default function ArticleLoader({ articles, articlesPerLoad }: ArticleLoad
                         onClick={loadMore}
                         className={cn(
                             "rounded-full px-5 py-2",
-                            "bg-white dark:bg-slate-800/75",
+                            "bg-white dark:bg-zinc-800/75",
                             "text-text_color dark:text-text_color-dark"
                         )}>
                         Load more
-                    </motion.button>
+                    </m.button>
                 ) : (
                     <p>You&apos;ve reached the end :)</p>
                 )}
